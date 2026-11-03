@@ -1,19 +1,21 @@
-# The Microsoft Azure Developer's Cheat Sheet
+# ⚡ The Modern Microsoft Azure Developer & Architect Cheat Sheet
 
-Every product, feature and service in the Azure family.
+[![CI Validation](https://github.com/santoshjammi29/azure-cheat-sheet/actions/workflows/ci.yml/badge.svg)](https://github.com/santoshjammi29/azure-cheat-sheet/actions)
+[![Microsoft Azure](https://img.shields.io/badge/Microsoft_Azure-Cloud_Platform-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)](https://azure.microsoft.com/)
+[![Microsoft Fabric](https://img.shields.io/badge/Microsoft_Fabric-SaaS_Lakehouse-008272?style=flat-square&logo=microsoft)](https://learn.microsoft.com/fabric/)
+[![Azure OpenAI](https://img.shields.io/badge/Azure_OpenAI-GPT--4o_--_o1_--_o3--mini-412991?style=flat-square&logo=openai&logoColor=white)](https://learn.microsoft.com/azure/ai-services/openai/)
+[![Microsoft Entra ID](https://img.shields.io/badge/Microsoft_Entra_ID-Zero_Trust_Identity-005A9E?style=flat-square&logo=microsoft)](https://learn.microsoft.com/entra/)
+[![Azure Bicep](https://img.shields.io/badge/IaC-Azure_Bicep_%26_azd-2496ED?style=flat-square&logo=terraform&logoColor=white)](cheatsheets/bicep-iac-cheat-sheet.md)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
 
-The text listing below is fetched from https://azure.microsoft.com/en-gb/products/ — **last updated September 5, 2026**.
-The downloadable posters are older — each is dated in its heading; see the note below.
+> The definitive, production-tested reference guide to **300+ Microsoft Azure services**, modern architectures (**Microsoft Fabric**, **Azure Databricks**, **GenAI / RAG**, **Entra ID**), CLI commands, Bicep IaC, decision trees, and FinOps runbooks.  
+> Grounded in real-world enterprise architectures from [**Lakehouse Architect**](https://santoshjammi.in) and the interactive [**azurecheatsheet.com**](https://azurecheatsheet.com).
 
-## Support My Work
+---
 
-If you find this repository helpful, consider supporting me on Patreon:
+## 🌐 Interactive Version
 
-[![Patreon](patreon.png)](https://www.patreon.com/techworld_with_milan)
-
-## 🌐 NEW: Interactive Version
-
-Check out the **NEW interactive version** of the cheat sheet:
+Check out the interactive version of the cheat sheet:
 
 👉 **[azurecheatsheet.com](https://azurecheatsheet.com)**
 
@@ -21,509 +23,390 @@ Check out the **NEW interactive version** of the cheat sheet:
 
 ---
 
-## Give a Star! :star:
+## 📑 Table of Contents
 
-If you like or are using this project to learn or start your solution, please give it a star. Thanks!
+- [🚀 Modern Reference Guides & Cheatsheets](#-modern-reference-guides--cheatsheets)
+- [🏛️ Enterprise Production Blueprints](#️-enterprise-production-blueprints)
+- [🔄 Key Service Evolutions & Renaming Index](#-key-service-evolutions--renaming-index)
+- [🧭 Master Architectural Decision Trees](#-master-architectural-decision-trees)
+- [💻 Azure CLI (`az`) Fast Reference](#-azure-cli-az-fast-reference)
+- [💰 The 5 Golden Rules of Azure FinOps](#-the-5-golden-rules-of-azure-finops)
+- [🎓 Azure Certification Roadmap](#-azure-certification-roadmap)
+- [🖼️ Downloadable Visual Posters & Cheat Sheets](#️-downloadable-visual-posters--cheat-sheets)
+- [📦 Complete Azure Services & Products Catalog](#-complete-azure-services--products-catalog)
+  - [1. Compute](#1-compute)
+  - [2. Artificial Intelligence & Machine Learning](#2-artificial-intelligence--machine-learning)
+  - [3. Analytics & Big Data](#3-analytics--big-data)
+  - [4. Databases](#4-databases)
+  - [5. Storage](#5-storage)
+  - [6. Networking](#6-networking)
+  - [7. Security & Identity](#7-security--identity)
+  - [8. DevOps & Developer Tooling](#8-devops--developer-tooling)
+  - [9. Integration & Messaging](#9-integration--messaging)
+  - [10. Web & Mobile](#10-web--mobile)
+  - [11. Hybrid & Multicloud](#11-hybrid--multicloud)
+  - [12. Management & Governance](#12-management--governance)
+  - [13. Internet of Things (IoT)](#13-internet-of-things-iot)
+- [☕ Support the Project](#-support-the-project)
+- [🤝 Authors & Acknowledgments](#-authors--acknowledgments)
 
-Here are the downloadable versions:
+---
+
+## 🚀 Modern Reference Guides & Cheatsheets
+
+Dedicated modular cheat sheets with ready-to-run scripts, configuration syntax, and real-world tips:
+
+| Guide | Description | Key Highlights |
+| :--- | :--- | :--- |
+| [**💻 Azure CLI Production Cheat Sheet**](cheatsheets/azure-cli-cheat-sheet.md) | 150+ battle-tested `az` commands across core services. | JMESPath `--query` recipes, AKS, ACA, Fabric F-SKU pause/resume, Key Vault, and orphan cleanup. |
+| [**🏗️ Azure Bicep & IaC Developer Guide**](cheatsheets/bicep-iac-cheat-sheet.md) | Modern declarative infrastructure as code with Bicep & `azd`. | Decorators, modules, loops, conditionals, `@secure` secrets, and complete production Landing Zone template. |
+| [**🔄 Service Evolution & Renaming Map**](cheatsheets/azure-service-map-and-renames.md) | Definitive tracker for service rebrands and retirements. | Azure AD ➔ Entra ID, Cognitive Search ➔ Azure AI Search, Synapse ➔ Fabric, and retirement runbooks. |
+| [**🧭 Architecture Decision Trees**](cheatsheets/decision-matrices.md) | Flowcharts and trade-off comparison matrices. | Compute (AKS vs ACA vs Functions), DBs (Cosmos vs SQL vs Postgres), Messaging (Event Hubs vs Service Bus). |
+| [**💰 FinOps & Cost Optimization Runbook**](cheatsheets/finops-and-cost-optimization.md) | Enterprise guide to slashing cloud waste by 40-70%. | Savings Plans, Spot VMs with eviction handling, Storage Tiering economics, and non-prod schedule automation. |
+| [**🛡️ Zero Trust Security & Identity Guide**](cheatsheets/security-zero-trust.md) | Hardening Azure perimeter, identity, and data. | Managed Identities, GitHub Actions OIDC (`azure/login@v2`), Private Link topology, and Key Vault RBAC. |
+
+---
+
+## 🏛️ Enterprise Production Blueprints
+
+Production-grade blueprints featuring architecture diagrams, sequence flows, persona models, and triage runbooks:
+
+```mermaid
+flowchart LR
+    A["🏛️ Unified Lakehouse<br/>(Fabric + Databricks + OneLake)"] --> M["Enterprise Data Platform"]
+    B["🤖 GenAI & Hybrid RAG<br/>(OpenAI + AI Search + APIM)"] --> M
+    C["⚡ Real-Time Streaming<br/>(Event Hubs + Flink + Cosmos)"] --> M
+    D["🌐 Zero-Trust Landing Zone<br/>(Hub-Spoke + Firewall + Private Link)"] --> M
+```
+
+1. [**🏛️ Unified Lakehouse with Microsoft Fabric & Azure Databricks**](architectures/enterprise-lakehouse-fabric.md): Multi-engine Medallion architecture (Bronze ➔ Silver ➔ Gold) unifying OneLake, Delta Lake 3.x, Unity Catalog, and Power BI Direct Lake mode.
+2. [**🤖 Enterprise GenAI & Hybrid RAG Platform**](architectures/genai-rag-openai-search.md): Sub-second enterprise RAG leveraging Azure OpenAI (GPT-4o), Azure AI Search (Hybrid BM25 + Vector + Semantic Ranker), Document Intelligence, and API Management rate limiting.
+3. [**⚡ High-Throughput Real-Time Streaming & IoT Platform**](architectures/real-time-streaming-iot.md): Ingesting and serving 2,000,000 events/sec via Azure Event Hubs, Apache Flink / Structured Streaming, Azure Cosmos DB, and Fabric Eventhouse.
+4. [**🌐 Enterprise Landing Zone & Zero-Trust Hub-Spoke Network**](architectures/enterprise-landing-zone-hub-spoke.md): Microsoft Cloud Adoption Framework (CAF) topology with Azure Firewall Premium (TLS inspection & IDPS), Private DNS Resolvers, and forced tunneling.
+
+---
+
+## 🔄 Key Service Evolutions & Renaming Index
+
+Azure services continuously evolve. Here is the quick-reference cheat sheet for the most critical recent renames and transitions:
+
+| Former Name | Current / Modern Name | Impact & Technical Upgrades |
+| :--- | :--- | :--- |
+| **Azure Active Directory (Azure AD)** | [**Microsoft Entra ID**](https://learn.microsoft.com/entra/) | Renamed under Entra portfolio. Unifies Workload Identities, Entra PIM, and Zero Trust access. |
+| **Azure Cognitive Search** | [**Azure AI Search**](https://learn.microsoft.com/azure/search/) | Added native Vector Search (HNSW / DiskANN), Hybrid Retrieval, and Semantic Ranker cross-encoder. |
+| **Azure Cognitive Services** | [**Azure AI Services / Azure AI Foundry**](https://learn.microsoft.com/azure/ai-studio/) | Unified multi-service APIs, Azure OpenAI integration, and unified AI Studio / Foundry portal. |
+| **Azure Synapse Analytics** | [**Microsoft Fabric**](https://learn.microsoft.com/fabric/) | Next-generation unified SaaS platform centered on OneLake and open Delta Parquet format. |
+| **Azure Security Center + Defender** | [**Microsoft Defender for Cloud**](https://learn.microsoft.com/azure/defender-for-cloud/) | Unified CSPM and CWPP multi-cloud defense across Azure, AWS, and GCP. |
+| **Time Series Insights (TSI)** | [**Azure Data Explorer / Fabric Eventhouse**](https://learn.microsoft.com/azure/data-explorer/) | TSI retired. Real-time time-series telemetry workloads now use KQL-based Eventhouse / ADX. |
+| **ADLS Gen1** | [**ADLS Gen2**](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) | ADLS Gen1 retired Feb 2024. Gen2 integrates POSIX Hierarchical Namespace directly onto Blob Storage. |
+| **PostgreSQL / MySQL Single Server** | [**Azure Database for PostgreSQL / MySQL Flexible**](https://learn.microsoft.com/azure/postgresql/flexible-server/) | Single Server retired. Flexible Server provides zone-redundant HA and `pgvector` AI support. |
+
+*See full details, migration runbooks, and deprecations in the [Service Evolution Guide](cheatsheets/azure-service-map-and-renames.md).*
+
+---
+
+## 🧭 Master Architectural Decision Trees
+
+### 1. Compute Selection Tree
+
+```mermaid
+flowchart TD
+    StartCompute([Workload to Host]) --> Q_BareMetal{Direct OS / kernel / GPU access required?}
+    Q_BareMetal -- Yes --> VM["Azure VMs / VMSS"]
+    Q_BareMetal -- No --> Q_Docker{Packaged in Docker Container?}
+    
+    Q_Docker -- No --> Q_Trigger{Pure Event-Driven Trigger?}
+    Q_Trigger -- Yes --> Fn["Azure Functions (Flex Consumption)"]
+    Q_Trigger -- No --> AppSvc["Azure App Service (PaaS)"]
+
+    Q_Docker -- Yes --> Q_FullK8s{Full Kubernetes API, Custom CRDs, or Service Mesh needed?}
+    Q_FullK8s -- Yes --> AKS["Azure Kubernetes Service (AKS)"]
+    Q_FullK8s -- No --> ACA["Azure Container Apps (ACA - Serverless KEDA)"]
+```
+
+### 2. Database & Storage Selection Tree
+
+```mermaid
+flowchart TD
+    StartData([Storage / DB Selection]) --> Q_Model{Structured Relational or Semi-structured / NoSQL?}
+    
+    Q_Model -- Relational --> Q_Global{Global Multi-Region Active-Active?}
+    Q_Global -- Yes --> CosmosSQL["Azure Cosmos DB"]
+    Q_Global -- No --> Q_Engine{Target Engine?}
+    Q_Engine -- T-SQL --> AzureSQL["Azure SQL Database / Hyperscale"]
+    Q_Engine -- PostgreSQL --> PgFlex["PostgreSQL Flexible Server (pgvector)"]
+    
+    Q_Model -- Semi-structured / Big Data --> Q_Analytics{Analytical Lakehouse or General Object?}
+    Q_Analytics -- Lakehouse --> ADLS["ADLS Gen2 / OneLake (Delta Lake)"]
+    Q_Analytics -- General Object --> Blob["Azure Blob Storage"]
+```
+
+*See full decision matrices in [Architecture Decision Trees & Matrices](cheatsheets/decision-matrices.md).*
+
+---
+
+## 💻 Azure CLI (`az`) Fast Reference
+
+```bash
+# 1. Login & Subscription Selection
+az login --use-device-code
+az account set --subscription "Production-Subscription"
+
+# 2. Deploy Azure Bicep Infrastructure with Preflight Diff
+az deployment group what-if -g rg-lakehouse-prod -f main.bicep
+az deployment group create -g rg-lakehouse-prod -f main.bicep --parameters @main.bicepparam
+
+# 3. Create ADLS Gen2 Storage (Hierarchical Namespace)
+az storage account create -g rg-data -n stlakehouse01 -l eastus \
+  --sku Standard_ZRS --kind StorageV2 --enable-hierarchical-namespace true \
+  --allow-blob-public-access false
+
+# 4. FinOps: Suspend / Resume Microsoft Fabric Capacity
+az fabric capacity suspend -g rg-fabric -n capfabricdev01
+az fabric capacity resume  -g rg-fabric -n capfabricdev01
+
+# 5. Tail Live Web App Logs
+az webapp log tail -g rg-apps -n app-customer-portal
+
+# 6. Find Unattached Idle Disks (FinOps Triage)
+az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSizeGb}" -o table
+```
+
+*For 150+ comprehensive CLI recipes, visit the [Azure CLI Cheat Sheet](cheatsheets/azure-cli-cheat-sheet.md).*
+
+---
+
+## 💰 The 5 Golden Rules of Azure FinOps
+
+1. **Cover 70% of Baseline Compute with Reservations & Savings Plans**: Combine 3-Year Reserved Instances for fixed stateful databases and Azure Savings Plans for dynamic compute (up to 72% discount).
+2. **Auto-Suspend Non-Production Environments**: Schedule Fabric capacities (`az fabric capacity suspend`), Synapse SQL pools, and dev VMs to shut down outside business hours—saving **70% of non-prod compute spend**.
+3. **Automate Storage Lifecycle Policies**: Push raw landing data from Hot ➔ Cool after 30 days, Cold after 90 days, and Archive after 365 days (saving up to 95% on historical storage).
+4. **Purge Orphaned Cloud Assets Monthly**: Continuously run scripts to delete unattached Managed Disks, idle Public IPs, and orphaned snapshots.
+5. **Utilize Spot Instances for Batch & Fault-Tolerant Streaming**: Run ephemeral Spark worker pools on Spot VMs (up to 90% discount) with Azure Scheduled Events API eviction handlers.
+
+*Read the full guide in the [FinOps & Cost Optimization Runbook](cheatsheets/finops-and-cost-optimization.md).*
+
+---
+
+## 🎓 Azure Certification Roadmap
+
+| Certification | Code | Target Role | Key Knowledge Domains |
+| :--- | :--- | :--- | :--- |
+| **Azure Fundamentals** | `AZ-900` | Beginners, Sales, Managers | Cloud concepts, core Azure services, security, pricing, SLA. |
+| **Azure Administrator Associate** | `AZ-104` | SysAdmins, Cloud Engineers | Virtual networking, compute, storage, Entra ID, governance, monitoring. |
+| **Azure Developer Associate** | `AZ-204` | Software Engineers | Azure Functions, Container Apps, Cosmos DB, Blob, Key Vault, APIM, Event Grid. |
+| **Azure Solutions Architect Expert** | `AZ-305` | Enterprise Architects | Design identity, governance, monitoring, data storage, business continuity, infra. |
+| **Azure DevOps Engineer Expert** | `AZ-400` | DevOps / SRE Engineers | CI/CD pipelines, Bicep/Terraform, dependency management, security compliance. |
+| **Azure Data Engineer Associate** | `DP-203` | Data Engineers | Data Factory, Synapse, Databricks, ADLS Gen2, stream processing, security. |
+| **Fabric Analytics Engineer Associate** | `DP-600` | Analytics Engineers | Microsoft Fabric OneLake, Lakehouse, Warehouse, Direct Lake, DAX, PySpark. |
+| **Azure AI Engineer Associate** | `AI-102` | AI Engineers | Azure OpenAI, Azure AI Search, Document Intelligence, Computer Vision, Speech. |
+| **Cybersecurity Architect Expert** | `SC-100` | Security Architects | Zero Trust strategy, Microsoft Defender for Cloud, Microsoft Sentinel, Purview. |
+
+---
+
+## 🖼️ Downloadable Visual Posters & Cheat Sheets
 
 > [!NOTE]
-> **The posters below were produced in August 2022 and have not been regenerated since.**
-> They predate several major renames — Azure Active Directory is now Microsoft Entra ID,
-> Cognitive Services is now Foundry Tools, Windows Virtual Desktop is now Azure Virtual
-> Desktop — and they still show services that have since retired.
-> For current information use the [interactive version](https://azurecheatsheet.com) or the
-> [text listing further down this page](#all-products).
+> **The original downloadable posters below were produced in August 2022 and have not been regenerated since.**
+> They predate several major renames — Azure Active Directory is now Microsoft Entra ID, Cognitive Services is now Azure AI Services, Windows Virtual Desktop is now Azure Virtual Desktop — and they show some services that have since retired. For current information, use the [interactive version](https://azurecheatsheet.com) and the updated [text listings below](#-complete-azure-services--products-catalog).
 
-## One page version (August 2022)
-
-<a target="_blank" href="1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png"><img border="1" alt="Microsoft Azure Developer's Cheat Sheet Image" src="1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png"></a>
-
-**White background**:
-[High-resolution PNG](1_page_version/LightSheet/Azure_developers_sheet_light-high_rez.png)
-|
-[Medium-res PNG](1_page_version/LightSheet/Azure_developers_sheet_light-mid_rez.png)
-|
-[PDF](1_page_version/LightSheet/Azure_Developers_sheet-light.pdf)
-|
-[SVG](1_page_version/LightSheet/Azure_Developers_sheet-light.svg)
-
-**Dark background**:
-[High-resolution PNG](1_page_version/DarkSheet/Azure_developers_sheet_dark-high_rez.png)
-|
-[Medium-res PNG](1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png)
-|
-[PDF](1_page_version/DarkSheet/Azure_Developers_sheet-dark.pdf)
-|
-[SVG](1_page_version/DarkSheet/Azure_Developers_sheet-dark.svg)
-
-## Two page version (August 2022)
+### One-Page Visual Sheet (August 2022)
+- **White background**: [High-Res PNG](1_page_version/LightSheet/Azure_developers_sheet_light-high_rez.png) | [Medium-Res PNG](1_page_version/LightSheet/Azure_developers_sheet_light-mid_rez.png) | [PDF](1_page_version/LightSheet/Azure_Developers_sheet-light.pdf) | [SVG](1_page_version/LightSheet/Azure_Developers_sheet-light.svg)
+- **Dark background**: [High-Res PNG](1_page_version/DarkSheet/Azure_developers_sheet_dark-high_rez.png) | [Medium-Res PNG](1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png) | [PDF](1_page_version/DarkSheet/Azure_Developers_sheet-dark.pdf) | [SVG](1_page_version/DarkSheet/Azure_Developers_sheet-dark.svg)
 
 <p align="center">
-<a target="_blank" href="2_page_version/DarkSheet/Low/Azure-document-dark-1st-page-low_rez.png">
-  <img alt="Light" src="2_page_version/DarkSheet/Low/Azure-document-dark-1st-page-low_rez.png" width="45%"></a>
-&nbsp; &nbsp; &nbsp; &nbsp;
-  <a target="_blank" href="2_page_version/DarkSheet/Low/Azure-document-dark-2nd-page-low_rez.png"><img alt="Dark" src="2_page_version/DarkSheet/Low/Azure-document-dark-2nd-page-low_rez.png" width="45%"></a>
+  <a target="_blank" href="1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png">
+    <img border="1" alt="Microsoft Azure Developer's Cheat Sheet Image" src="1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png" width="90%">
+  </a>
 </p>
 
-**White background**:
-
-High-resolution PNG: [Page 1.](2_page_version/LightSheet/High/Azure-document-light-1st-page-highrez.png) 
-|
-[Page 2.](2_page_version/LightSheet/High/Azure-document-light-2nd-page-highrez.png)
-
-Medium-res PNG: [Page 1.](2_page_version/LightSheet/Mid/Azure-document-light-1st-page-mid-rez.png)
-|
-[Page 2.](2_page_version/LightSheet/Mid/Azure-document-light-2nd-page-mid-rez.png)
-
-
-Low-res PNG: [Page 1.](2_page_version/LightSheet/Low/Azure-document-light-1st-page-low-rez.png)
-| 
-[Page 2.](2_page_version/LightSheet/Low/Azure-document-light-2nd-page-low-rez.png)
-
-Other formats: [PDF](2_page_version/LightSheet/Azure_Developers_2_page_sheet_light.pdf)
-|
-[SVG](2_page_version/LightSheet/Azure_Developers_2_page_sheet_light.svg)
-
-**Dark background**:
-
-High-resolution PNG: [Page 1.](2_page_version/DarkSheet/High/Azure-document-dark-1st-page-highrez.png)
-|
-[Page 2.](2_page_version/DarkSheet/High/Azure-document-dark-2nd-page-highrez.png)
-
-Medium-res PNG: [Page 1.](2_page_version/DarkSheet/Mid/Azure-document-dark-1st-page-mid_rez.png)
-|
-[Page 2.](2_page_version/DarkSheet/Mid/Azure-document-dark-2nd-page-mid_rez.png)
-
-Low-res PNG: [Page 1.](2_page_version/DarkSheet/Low/Azure-document-dark-1st-page-low_rez.png)
-|
-[Page 2.](2_page_version/DarkSheet/Low/Azure-document-dark-2nd-page-low_rez.png)
-
-Other formats: [PDF](2_page_version/DarkSheet/Azure_Developers_2_page_sheet_dark.pdf)
-|
-[SVG](2_page_version/DarkSheet/Azure_Developers_2_page_sheet_dark.svg)
-
-## Bonus: Azure Cloud Services Cheat Sheet (May 2024)
-
-![Azure Cloud Services Cheat Sheet](Azure-Cloud-services-cheat-sheet.png)
-
-Download the cheat sheet in the [PDF version](Azure-Cloud-Services-cheat-sheet.pdf).
-
-## Bonus 2: Azure Load Balancer Cheat Sheet (June 2024)
-
-![Azure Cloud Load Balancer Cheat Sheet](Azure-load-balancer---cheat-sheet.png)
-
-Download the cheat sheet in the [PDF version](Azure-load-balancer-cheat-sheet.pdf).
-
-Text descriptions with links are below.
-
-----------------------------
-
-# All Products 
-
-## [**Compute**](https://azure.microsoft.com/en-gb/products/category/compute/)
-
-### Access cloud compute capacity and scale on demand – and only pay for the resources you use
-
-* [**App Service**](https://azure.microsoft.com/en-gb/products/app-service/): Quickly create powerful cloud apps for web and mobile.
-* [**Azure Quantum**](https://azure.microsoft.com/en-gb/solutions/quantum-computing/): Jump in and explore a diverse selection of today's quantum hardware, software, and solutions.
-* [**Batch**](https://azure.microsoft.com/en-gb/products/batch/): Cloud-scale job scheduling and compute management.
-* [**Linux Virtual Machines**](https://azure.microsoft.com/en-gb/products/virtual-machines/linux/): Provision virtual machines for Ubuntu, Red Hat, and more.
-* [**Static Web Apps**](https://azure.microsoft.com/en-gb/products/app-service/static/): A modern web app service that offers streamlined full-stack development from source code to global high availability.
-* [**Virtual Machines**](https://azure.microsoft.com/en-gb/products/virtual-machines/): Provision Windows and Linux virtual machines in seconds.
-* [**Azure Confidential VMs**](https://azure.microsoft.com/en-gb/solutions/confidential-compute/): Hardware-based isolation with confidential computing for sensitive workloads.
-* [**Azure Dedicated Host**](https://azure.microsoft.com/en-gb/products/virtual-machines/dedicated-host/): A dedicated physical server to host your Azure VMs for Windows and Linux.
-* [**Azure Kubernetes Service (AKS)**](https://azure.microsoft.com/en-gb/products/kubernetes-service/): Build and scale with managed Kubernetes.
-* [**Container Instances**](https://azure.microsoft.com/en-gb/products/container-instances/): Easily run containers on Azure without managing servers.
-* [**Azure CycleCloud**](https://learn.microsoft.com/en-us/azure/cyclecloud/): Create, manage, operate and optimise HPC and big compute clusters of any scale.
-* [**Azure Spot Virtual Machines**](https://azure.microsoft.com/en-gb/products/virtual-machines/spot/): Provision unused compute capacity at deep discounts to run interruptible workloads.
-* [**Azure VMware Solution**](https://azure.microsoft.com/en-gb/products/azure-vmware/): Run your VMware workloads natively on Azure.
-* [**SQL Server on Azure Virtual Machines**](https://azure.microsoft.com/en-gb/products/virtual-machines/sql-server/): Migrate SQL Server workloads to the cloud at lower total cost of ownership (TCO).
-* [**Virtual Machine Scale Sets**](https://azure.microsoft.com/en-gb/products/virtual-machine-scale-sets/): Manage and scale up to thousands of Linux and Windows VMs.
-* [**Azure Virtual Desktop**](https://azure.microsoft.com/en-gb/products/virtual-desktop/): Enable a secure, remote desktop experience from anywhere.
-* [**Azure VM Image Builder**](https://azure.microsoft.com/en-gb/products/image-builder/): Simplify your image building process with easy to use tool.
-* [**Azure Functions**](https://azure.microsoft.com/en-gb/products/functions/): Execute event-driven serverless code functions with an end-to-end development experience.
-* [**Service Fabric**](https://learn.microsoft.com/en-gb/azure/service-fabric/service-fabric-overview): Develop microservices and orchestrate containers on Windows or Linux.
-* [**Azure Compute Fleet**](https://azure.microsoft.com/en-gb/products/compute-fleet/): Efficiently provision and manage compute resources at scale.
-* [**Azure Spring Apps**](https://azure.microsoft.com/en-gb/products/spring-apps): Managed platform for running Spring Boot applications (retires 31 March 2028 — migrate to Azure Container Apps or AKS).
-* [**Microsoft Dev Box**](https://azure.microsoft.com/en-gb/products/dev-box/): Cloud-powered developer workstations preconfigured and ready to code.
-* [**Azure Deployment Environments**](https://azure.microsoft.com/en-gb/products/deployment-environments/): Quickly spin up app infrastructure environments with project-based templates.
-* [**Azure Linux**](https://azure.microsoft.com/en-gb/products/azure-linux/): Microsoft's lightweight, hardened Linux distribution optimised for Azure and AKS workloads.
-* [**Nutanix Cloud Clusters on Azure**](https://azure.microsoft.com/en-gb/products/nutanix): Run Nutanix workloads natively on Azure with a consistent hybrid operating model.
-
-## [**AI + Machine Learning**](https://azure.microsoft.com/en-gb/solutions/ai/)
-
-### Create the next generation of applications using artificial intelligence capabilities for any developer and any scenario
-
-* [**Azure OpenAI in Foundry Models**](https://azure.microsoft.com/en-gb/products/ai-foundry/models/openai/): Access foundational and reasoning models, integrate AI agents, and customise with fine-tuning.
-* [**Microsoft Foundry**](https://azure.microsoft.com/en-gb/products/ai-foundry): Unified platform for building, optimising, and governing AI apps and agents.
-* [**Foundry Agent Service**](https://azure.microsoft.com/en-gb/products/ai-foundry/agent-service): Securely design, deploy, and scale AI agents.
-* [**Foundry Tools**](https://azure.microsoft.com/en-gb/products/ai-foundry/tools): Build AI applications with customisable tools, APIs, and models.
-* [**Azure AI Search**](https://azure.microsoft.com/en-us/products/ai-services/ai-search): Implement powerful search capabilities within your applications.
-* [**Azure Vision in Foundry Tools**](https://azure.microsoft.com/en-gb/products/ai-foundry/tools/vision): Read text, analyse images, and detect faces with optical character recognition.
-* [**Azure AI Custom Vision**](https://azure.microsoft.com/en-gb/products/ai-services/ai-custom-vision/): Easily build and deploy custom image classification models.
-* [**Azure Language in Foundry Tools**](https://azure.microsoft.com/en-gb/products/ai-foundry/tools/language): Build conversational interfaces, summarise documents, and analyse text.
-* [**Azure Translator in Foundry Tools**](https://azure.microsoft.com/en-gb/products/ai-foundry/tools/translator): Translate across 100+ languages in real time with a simple REST API call.
-* [**Azure Speech in Foundry Tools**](https://azure.microsoft.com/en-gb/products/ai-foundry/tools/speech): Implement speech-to-text, text-to-speech, and speech translation in your apps.
-* [**Azure Document Intelligence in Foundry Tools**](https://azure.microsoft.com/en-gb/products/ai-foundry/tools/document-intelligence): Extract text, key-value pairs, tables, and structure from documents.
-* [**Content Safety in Foundry Control Plane**](https://azure.microsoft.com/en-gb/products/ai-foundry/control-plane): Automate the detection and moderation of harmful content across platforms.
-* [**Azure AI Video Indexer**](https://azure.microsoft.com/en-us/products/ai-video-indexer/): Extract meaningful metadata from audio and video content.
-* [**Azure AI Immersive Reader**](https://azure.microsoft.com/en-gb/products/ai-services/ai-immersive-reader/): Enhance reading and comprehension capabilities in your applications.
-* [**Azure AI Bot Service**](https://azure.microsoft.com/en-us/products/ai-services/ai-bot-service): Develop intelligent bots that interact naturally with users.
-* [**Foundry Models**](https://azure.microsoft.com/en-gb/products/ai-foundry/models/): Discover, deploy, and manage a wide range of AI models from Microsoft and partners.
-* [**Azure Machine Learning**](https://azure.microsoft.com/en-gb/products/machine-learning/): Build, train, and deploy machine learning models at scale.
-* [**Azure Databricks**](https://azure.microsoft.com/en-gb/products/databricks/): Collaborative platform for data engineering and machine learning.
-* [**Health Bot**](https://learn.microsoft.com/en-us/azure/health-bot/): A managed service purpose-built for development of virtual healthcare assistants.
-* [**Data Science Virtual Machines**](https://azure.microsoft.com/en-gb/products/virtual-machines/data-science-virtual-machines/): Rich pre-configured environment for AI development.
-* [**Foundry Control Plane**](https://azure.microsoft.com/en-gb/products/ai-foundry/control-plane): Observability, guardrails, policy, and security controls to govern AI apps and agents at enterprise scale.
-* [**Foundry IQ**](https://azure.microsoft.com/en-gb/products/ai-foundry/iq/): Agentic retrieval that grounds models and agents in your enterprise knowledge.
-* [**Azure Content Understanding in Foundry Tools**](https://azure.microsoft.com/en-gb/products/ai-foundry/tools/content-understanding): Turn unstructured documents, images, audio, and video into structured data.
-* [**Microsoft Security Copilot**](https://www.microsoft.com/en-gb/security/business/ai-machine-learning/microsoft-security-copilot): AI assistant that helps security teams investigate and respond to threats at machine speed.
-* [**Microsoft Planetary Computer Pro**](https://azure.microsoft.com/en-gb/products/planetary-computer-pro): Manage, catalogue, and analyse geospatial data at scale.
-* [**Azure Open Datasets**](https://azure.microsoft.com/en-gb/products/open-datasets/): Curated public datasets to improve model accuracy and shorten data preparation.
-* [**Phi open models**](https://azure.microsoft.com/en-gb/products/phi/): Microsoft's family of small language models for efficient cloud and on-device inference.
-
-## [**Analytics**](https://azure.microsoft.com/en-gb/products/category/analytics/)
-
-### Gather, store, process, analyse and visualise data of any variety, volume or velocity
-
-* [**Azure Analysis Services**](https://azure.microsoft.com/en-gb/products/analysis-services/): Enterprise-grade analytics engine as a service.
-* [**Azure Data Factory**](https://azure.microsoft.com/en-gb/products/data-factory/): Hybrid data integration at enterprise scale, made easy.
-* [**Azure Databricks**](https://azure.microsoft.com/en-gb/products/databricks/): Design AI with Apache Spark™-based analytics.
-* [**Azure Synapse Analytics**](https://azure.microsoft.com/en-gb/products/synapse-analytics/): Limitless analytics service with unmatched time to insight.
-* [**Microsoft Fabric**](https://www.microsoft.com/en-gb/microsoft-fabric): Unified analytics platform for data engineering, data science, real-time analytics, and business intelligence.
-* [**HDInsight**](https://azure.microsoft.com/en-gb/products/hdinsight/): Provision cloud Hadoop, Spark, and other open-source clusters.
-* [**Microsoft Graph Data Connect**](https://azure.microsoft.com/en-gb/products/graph-data-connect/): A secure, high-throughput connector designed to copy select Microsoft 365 productivity datasets into your Azure tenant.
-* [**Azure Data Explorer**](https://azure.microsoft.com/en-gb/products/data-explorer/): Fast and highly scalable data exploration service.
-* [**Azure Data Lake Storage**](https://azure.microsoft.com/en-gb/products/storage/data-lake-storage/): Scalable, secure data lake for high-performance analytics.
-* [**Azure Stream Analytics**](https://azure.microsoft.com/en-gb/products/stream-analytics/): Real-time analytics on fast-moving streaming data.
-* [**Event Hubs**](https://azure.microsoft.com/en-gb/products/event-hubs/): Receive telemetry from millions of devices.
-* [**Power BI Embedded**](https://azure.microsoft.com/en-gb/products/power-bi-embedded/): White label Power BI to quickly and easily provide exceptional customer facing dashboards and analytics in your own applications.
-* [**Microsoft Purview**](https://www.microsoft.com/en-gb/security/business/risk-management/microsoft-purview-data-governance/): Govern, protect, and manage your data estate.
-* [**Azure Chaos Studio**](https://azure.microsoft.com/en-gb/products/chaos-studio/): Improve application resilience by introducing faults and simulating outages.
-* [**Azure Data Share**](https://azure.microsoft.com/en-gb/products/data-share/): Simply and securely share big data with external organisations.
-* [**Microsoft Planetary Computer Pro**](https://azure.microsoft.com/en-gb/products/planetary-computer-pro): Manage, catalogue, and analyse geospatial data at scale.
-
-## [**Containers**](https://azure.microsoft.com/en-gb/products/category/containers/)
-
-### Develop and manage your containerised apps faster with integrated tools
-
-* [**App Configuration**](https://azure.microsoft.com/en-gb/products/app-configuration/): Fast, scalable parameter storage for app configuration.
-* [**Azure Red Hat OpenShift**](https://azure.microsoft.com/en-gb/products/openshift/): Fully managed OpenShift service, jointly operated with Red Hat.
-* [**Azure Functions**](https://azure.microsoft.com/en-gb/products/functions/): Execute event-driven serverless code functions with an end-to-end development experience.
-* [**Azure Container Instances**](https://azure.microsoft.com/en-gb/products/container-instances/): Easily run containers on Azure without managing servers.
-* [**Azure Container Registry**](https://azure.microsoft.com/en-gb/products/container-registry/): Store and manage container images across all types of deployments.
-* [**Azure Kubernetes Service (AKS)**](https://azure.microsoft.com/en-gb/products/kubernetes-service/): Build and scale with managed Kubernetes.
-* [**Azure Container Apps**](https://azure.microsoft.com/en-gb/products/container-apps/): Build and deploy modern apps and microservices using serverless containers.
-* [**Web App for Containers**](https://azure.microsoft.com/en-gb/products/app-service/): Easily deploy and run containerised web apps on Windows and Linux.
-* [**Service Fabric**](https://learn.microsoft.com/en-gb/azure/service-fabric/service-fabric-overview): Develop microservices and orchestrate containers on Windows or Linux.
-* [**Azure Kubernetes Fleet Manager**](https://azure.microsoft.com/en-gb/products/kubernetes-fleet-manager/): Manage multiple Kubernetes clusters across environments seamlessly.
-* [**Azure Container Storage**](https://azure.microsoft.com/en-gb/products/container-storage/): Container-native storage management for stateful workloads on Kubernetes.
-
-## [**Databases**](https://azure.microsoft.com/en-gb/products/category/databases/)
-
-### Support rapid growth and innovate faster with secure, enterprise-grade and fully managed database services
-
-* [**Azure Managed Redis**](https://azure.microsoft.com/en-gb/products/managed-redis): Accelerate app performance with a fully managed, scalable, in-memory solution.
-* [**Azure Cache for Redis**](https://azure.microsoft.com/en-gb/products/cache): In-memory data cache for high-throughput, low-latency apps (retires 30 September 2028 — successor is Azure Managed Redis).
-* [**Azure Data Factory**](https://azure.microsoft.com/en-gb/products/data-factory/): Hybrid data integration at enterprise scale, made easy.
-* [**Azure Database for MySQL**](https://azure.microsoft.com/en-gb/products/mysql/): Fully managed, scalable MySQL database.
-* [**Azure Database Migration Service**](https://azure.microsoft.com/en-gb/products/database-migration/): Accelerate your data migration to Azure.
-* [**Azure SQL**](https://azure.microsoft.com/en-gb/products/azure-sql/): The family of SQL cloud databases providing flexible options for application migration, modernisation and development.
-  * [**Azure SQL Database**](https://azure.microsoft.com/en-gb/products/azure-sql/database/): Managed, intelligent SQL database in the cloud.
-  * [**Azure SQL Managed Instance**](https://azure.microsoft.com/en-gb/products/azure-sql/managed-instance/): Managed, always up-to-date SQL instance in the cloud.
-* [**Table Storage**](https://azure.microsoft.com/en-gb/products/storage/tables/): NoSQL key-value store using semi-structured datasets.
-* [**Azure Confidential Ledger**](https://azure.microsoft.com/en-gb/products/azure-confidential-ledger/): Tamperproof, unstructured data store hosted in trusted execution environments (TEEs) and backed by cryptographically verifiable evidence.
-* [**Azure Cosmos DB**](https://azure.microsoft.com/en-gb/products/cosmos-db/): Fast NoSQL database with open APIs for any scale.
-* [**Azure Database for PostgreSQL**](https://azure.microsoft.com/en-gb/products/postgresql/): Fully managed, intelligent, and scalable PostgreSQL with elastic clusters for distributed workloads.
-* [**Azure DocumentDB**](https://azure.microsoft.com/en-gb/products/documentdb): Open-source, MongoDB-compatible document database service for hybrid and multicloud architectures.
-* [**SQL Server on Azure Virtual Machines**](https://azure.microsoft.com/en-gb/products/virtual-machines/sql-server/): Migrate SQL Server workloads to the cloud at lower total cost of ownership (TCO).
-* [**Azure Managed Instance for Apache Cassandra**](https://azure.microsoft.com/en-gb/products/managed-instance-apache-cassandra/): Cloud Cassandra with flexibility, control and scale.
-* [**Azure Elastic SAN**](https://azure.microsoft.com/en-gb/products/storage/elastic-san/): Cloud-native storage area network for high-performance block storage at scale.
-* [**Azure HorizonDB**](https://azure.microsoft.com/en-gb/products/horizondb): Cloud-native, PostgreSQL-compatible database for mission-critical, high-throughput workloads.
-
-## [**Developer Tools**](https://azure.microsoft.com/en-gb/products/category/developer-tools/)
-
-### Build, manage and continuously deliver cloud applications – using any platform or language
-
-* [**App Configuration**](https://azure.microsoft.com/en-gb/products/app-configuration/): Fast, scalable parameter storage for app configuration.
-* [**Azure DevTest Labs**](https://azure.microsoft.com/en-gb/products/devtest-lab/): Quickly create environments using reusable templates and artifacts.
-* [**SDKs**](https://azure.microsoft.com/en-gb/downloads/): Get the SDKs and command-line tools you need.
-* [**Visual Studio Code**](https://azure.microsoft.com/en-gb/products/visual-studio-code/): A powerful, lightweight code editor for cloud development.
-* [**Azure DevOps**](https://azure.microsoft.com/en-gb/products/devops/): Services for teams to share code, track work and ship software.
-* [**Azure Pipelines**](https://azure.microsoft.com/en-gb/products/devops/pipelines/): Continuously build, test, and deploy to any platform and cloud.
-* [**Visual Studio**](https://azure.microsoft.com/en-gb/products/visual-studio/): Powerful and flexible environment to develop apps in the cloud.
-* [**Azure App Testing**](https://azure.microsoft.com/en-gb/products/app-testing/): Unified load testing and Playwright end-to-end testing for web apps at cloud scale.
-* [**Microsoft Dev Box**](https://azure.microsoft.com/en-gb/products/dev-box/): Cloud-powered developer workstations preconfigured and ready to code.
-* [**Azure Deployment Environments**](https://azure.microsoft.com/en-gb/products/deployment-environments/): Quickly spin up app infrastructure environments with project-based templates.
-* [**GitHub Advanced Security for Azure DevOps**](https://azure.microsoft.com/en-gb/products/devops/github-advanced-security/): Code scanning, secret scanning, and dependency scanning for Azure DevOps repos.
-* [**Azure API Center**](https://learn.microsoft.com/en-us/azure/api-center/overview): Centralized catalog for discovering, governing, and consuming APIs across your organisation.
-* [**Microsoft Playwright Testing**](https://azure.microsoft.com/en-gb/products/playwright-testing): Run Playwright end-to-end browser tests at cloud scale across browsers and operating systems.
-* [**Azure Artifact Signing**](https://azure.microsoft.com/en-gb/products/artifact-signing): Fully managed code and artifact signing service, formerly Trusted Signing.
-
-## [**DevOps**](https://azure.microsoft.com/en-gb/products/category/devops/)
-
-### Deliver innovation faster with simple, reliable tools for continuous delivery
-
-* [**Azure Artifacts**](https://azure.microsoft.com/en-gb/products/devops/artifacts/): Create, host, and share packages with your team.
-* [**Azure Boards**](https://azure.microsoft.com/en-gb/products/devops/boards/): Plan, track, and discuss work across your teams.
-* [**Azure DevOps**](https://azure.microsoft.com/en-gb/products/devops/): Services for teams to share code, track work and ship software.
-* [**Azure DevTest Labs**](https://azure.microsoft.com/en-gb/products/devtest-lab/): Quickly create environments using reusable templates and artifacts.
-* [**Azure Monitor**](https://azure.microsoft.com/en-gb/products/monitor/): Full observability into your apps, infrastructure and network.
-* [**Azure Pipelines**](https://azure.microsoft.com/en-gb/products/devops/pipelines/): Continuously build, test, and deploy to any platform and cloud.
-* [**Azure Repos**](https://azure.microsoft.com/en-gb/products/devops/repos/): Get unlimited, cloud-hosted private Git repos for your project.
-* [**Azure Test Plans**](https://azure.microsoft.com/en-gb/products/devops/test-plans/): Test and ship confidently with an exploratory test toolkit.
-* [**DevOps tool integrations**](https://azure.microsoft.com/en-gb/products/devops/): Use your favorite DevOps tools with Azure.
-* [**Azure App Testing**](https://azure.microsoft.com/en-gb/products/app-testing/): Unified load testing and Playwright end-to-end testing for web apps at cloud scale.
-* [**Azure Managed Grafana**](https://azure.microsoft.com/en-gb/products/managed-grafana/): Deploy Grafana dashboards as a fully managed Azure service.
-* [**Microsoft Playwright Testing**](https://azure.microsoft.com/en-gb/products/playwright-testing): Run Playwright end-to-end browser tests at cloud scale across browsers and operating systems.
-* [**Azure SRE Agent**](https://azure.microsoft.com/en-gb/products/sre-agent/): AI-powered operations agent that helps improve uptime, reduce incident impact, and automate response workflows.
-
-## [**Hybrid + multicloud**](https://azure.microsoft.com/en-gb/solutions/adaptive-cloud/)
-
-### Get Azure innovation everywhere—bring the agility and innovation of cloud computing to your on-premises workloads
-
-* [**Microsoft Entra ID**](https://www.microsoft.com/en-gb/security/business/identity-access/microsoft-entra-id): Synchronise on-premises directories and enable single sign-on.
-* [**Azure Database for PostgreSQL**](https://azure.microsoft.com/en-gb/products/postgresql/): Fully managed, intelligent, and scalable PostgreSQL.
-* [**Azure ExpressRoute**](https://azure.microsoft.com/en-gb/products/expressroute/): Dedicated private-network fibre connections to Azure.
-* [**Microsoft Sentinel**](https://www.microsoft.com/en-gb/security/business/siem-and-xdr/microsoft-sentinel-siem): Put cloud-native SIEM and intelligent security analytics to work to help protect your enterprise.
-* [**Microsoft Defender for Cloud**](https://www.microsoft.com/en-gb/security/business/cloud-security/microsoft-defender-cloud/): Protect your multi-cloud and hybrid environments.
-* [**Azure Stack Hub**](https://azure.microsoft.com/en-gb/products/azure-stack/hub/): Azure Stack Hub is sold as an integrated hardware system, with software pre-installed on validated hardware.
-* [**Azure Arc**](https://azure.microsoft.com/en-gb/products/azure-arc/): Secure, develop, and operate infrastructure, apps, and Azure services anywhere.
-* [**Azure DevOps**](https://azure.microsoft.com/en-gb/products/devops/): Services for teams to share code, track work and ship software.
-* [**Azure IoT Edge**](https://azure.microsoft.com/en-gb/products/iot-edge/): Extend cloud intelligence and analytics to edge devices.
-* [**Azure SQL Database**](https://azure.microsoft.com/en-gb/products/azure-sql/database/): Managed, intelligent SQL database in the cloud.
-* [**Azure Stack Edge**](https://azure.microsoft.com/en-gb/products/azure-stack/edge/): An Azure managed device that brings the compute, storage, and intelligence of Azure to the edge.
-* [**Azure Local**](https://azure.microsoft.com/en-gb/products/local/): Run Azure services locally for consistent hybrid cloud experiences.
-* [**Azure Operator Nexus**](https://azure.microsoft.com/en-gb/products/operator-nexus/): Carrier-grade hybrid cloud platform for network operators running network-intensive workloads.
-* [**Azure Operator Service Manager**](https://azure.microsoft.com/en-gb/products/operator-service-manager/): Deploy and manage network functions consistently across hybrid environments.
-* [**Azure Storage Mover**](https://azure.microsoft.com/en-gb/products/storage-mover/): Managed migration service for moving data into Azure Storage from on-premises or other clouds.
-
-## [**Identity**](https://azure.microsoft.com/en-gb/products/category/identity/)
-
-### Manage user identities and access to protect against advanced threats across devices, data, apps and infrastructure
-
-* [**Microsoft Entra ID**](https://www.microsoft.com/en-gb/security/business/identity-access/microsoft-entra-id): Synchronise on-premises directories and enable single sign-on.
-* [**Azure Information Protection**](https://www.microsoft.com/en-gb/security/business/data-security-governance/microsoft-purview-data-security): Better protect your sensitive information—anytime, anywhere.
-* [**Microsoft Entra Domain Services**](https://azure.microsoft.com/en-gb/products/microsoft-entra-ds): Join Azure virtual machines to a domain without domain controllers.
-* [**Microsoft Entra External ID**](https://www.microsoft.com/en-gb/security/business/identity-access/microsoft-entra-external-id): Consumer identity and access management in the cloud.
-* [**Microsoft Entra Verified ID**](https://www.microsoft.com/en-gb/security/business/identity-access/microsoft-entra-verified-id): Issue and verify privacy-respecting decentralised digital credentials.
-
-## [**Integration**](https://azure.microsoft.com/en-gb/products/category/integration/)
-
-### Seamlessly integrate on-premises and cloud-based applications, data and processes across your enterprise
-
-* [**API Management**](https://azure.microsoft.com/en-gb/products/api-management/): Publish APIs to developers, partners, and employees securely and at scale.
-* [**Event Grid**](https://azure.microsoft.com/en-gb/products/event-grid/): Reliable event delivery at massive scale.
-* [**Service Bus**](https://azure.microsoft.com/en-gb/products/service-bus/): Connect across private and public cloud environments.
-* [**Azure Health Data Services**](https://azure.microsoft.com/en-gb/products/health-data-services/): Unify and manage health data and protected health information (PHI) in the cloud.
-* [**Logic Apps**](https://azure.microsoft.com/en-gb/products/logic-apps/): Automate the access and use of data across clouds.
-* [**Azure Web PubSub**](https://azure.microsoft.com/en-gb/products/web-pubsub/): Easily build real-time messaging web applications using WebSockets and the publish-subscribe pattern.
-* [**Azure Data Manager for Energy**](https://azure.microsoft.com/en-gb/products/data-manager-for-energy/): Fully managed OSDU™ data platform for energy industry datasets.
-
-## [**Internet of Things**](https://azure.microsoft.com/en-gb/solutions/iot/)
-
-### Bring IoT to any device and any platform, without changing your infrastructure
-
-* [**API Management**](https://azure.microsoft.com/en-gb/products/api-management/): Publish APIs to developers, partners, and employees securely and at scale.
-* [**Azure Digital Twins**](https://azure.microsoft.com/en-gb/products/digital-twins/): Use IoT spatial intelligence to create models of physical environments.
-* [**Azure IoT Edge**](https://azure.microsoft.com/en-gb/products/iot-edge/): Extend cloud intelligence and analytics to edge devices.
-* [**Azure Machine Learning**](https://azure.microsoft.com/en-gb/products/machine-learning/): Use an enterprise-grade service for the end-to-end machine learning lifecycle.
-* [**Notification Hubs**](https://azure.microsoft.com/en-gb/products/notification-hubs/): Send push notifications to any platform from any back-end.
-* [**Microsoft Defender for IoT**](https://www.microsoft.com/en-gb/security/business/endpoint-security/microsoft-defender-iot): Unified threat protection for all your IoT/OT devices.
-* [**Windows for IoT**](https://azure.microsoft.com/en-gb/products/windows-iot/): Build intelligent edge solutions with world-class developer tools, long-term support and enterprise-grade security.
-* [**Azure Cosmos DB**](https://azure.microsoft.com/en-gb/products/cosmos-db/): Fast NoSQL database with open APIs for any scale.
-* [**Azure IoT Central**](https://azure.microsoft.com/en-gb/products/iot-central/): Go from proof of concept to proof of value.
-* [**Azure IoT Hub**](https://azure.microsoft.com/en-gb/products/iot-hub/): Connect, monitor and manage billions of IoT assets.
-* [**Azure Maps**](https://azure.microsoft.com/en-gb/products/azure-maps/): Add location data and mapping visuals to business applications and solutions.
-* [**Azure Sphere**](https://azure.microsoft.com/en-gb/products/azure-sphere/): Create, connect, and maintain secured intelligent IoT devices from the edge to the cloud.
-* [**Azure Stream Analytics**](https://azure.microsoft.com/en-gb/products/stream-analytics/): Real-time analytics on fast-moving streaming data.
-* [**Event Grid**](https://azure.microsoft.com/en-gb/products/event-grid/): Reliable event delivery at massive scale.
-* [**Logic Apps**](https://azure.microsoft.com/en-gb/products/logic-apps/): Automate the access and use of data across clouds.
-* [**Azure Functions**](https://azure.microsoft.com/en-gb/products/functions/): Execute event-driven serverless code functions with an end-to-end development experience.
-* [**Azure IoT Operations**](https://azure.microsoft.com/en-gb/products/iot-operations): Adaptive, Arc-enabled data plane for capturing and processing edge asset data on Kubernetes.
-
-## [**Management and Governance**](https://azure.microsoft.com/en-gb/products/category/management/)
-
-### Simplify, automate and optimise the management and compliance of your cloud resources
-
-* [**Automation**](https://azure.microsoft.com/en-gb/products/automation/): Simplify cloud management with process automation.
-* [**Azure Copilot**](https://azure.microsoft.com/en-gb/products/copilot/): Harness the collective intelligence of Azure agents with an AI companion.
-* [**Azure Backup**](https://azure.microsoft.com/en-gb/products/backup/): Simplify data protection and protect against ransomware.
-* [**Azure Lighthouse**](https://azure.microsoft.com/en-gb/products/azure-lighthouse/): Empowering service providers to manage customers at scale and with precision.
-* [**Azure Migrate**](https://azure.microsoft.com/en-gb/products/azure-migrate/): Simplify migration and modernisation with a unified platform.
-* [**Azure Monitor**](https://azure.microsoft.com/en-gb/products/monitor/): Full observability into your apps, infrastructure and network.
-* [**Azure Resource Manager**](https://azure.microsoft.com/en-gb/get-started/azure-portal/resource-manager/): Simplify how you manage your app resources.
-* [**Azure Service Health**](https://azure.microsoft.com/en-gb/get-started/azure-portal/service-health/): Personalised guidance and support for when issues in Azure services affect you.
-* [**Cloud Shell**](https://azure.microsoft.com/en-gb/get-started/azure-portal/cloud-shell/): Streamline Azure administration with a browser-based shell.
-* [**Azure portal**](https://azure.microsoft.com/en-gb/get-started/azure-portal/): Build, manage, and monitor all Azure products in a single, unified console.
-* [**Azure Traffic Manager**](https://azure.microsoft.com/en-gb/products/traffic-manager/): Route incoming traffic for high performance and availability.
-* [**Azure Resource Mover**](https://azure.microsoft.com/en-gb/products/resource-mover/): Simplify how you move multiple resources between Azure regions.
-* [**Azure Chaos Studio**](https://azure.microsoft.com/en-gb/products/chaos-studio/): Improve application resilience by introducing faults and simulating outages.
-* [**Azure Update Manager**](https://azure.microsoft.com/en-gb/products/azure-update-management-center/): Centrally govern and manage software updates at scale.
-* [**Azure Advisor**](https://azure.microsoft.com/en-gb/products/advisor/): Your personalised Azure best practices recommendation engine.
-* [**Azure Policy**](https://azure.microsoft.com/en-gb/products/azure-policy/): Implement corporate governance and standards at scale.
-* [**Azure Resource Manager templates**](https://azure.microsoft.com/en-gb/products/arm-templates/): Deliver infrastructure as code for all your Azure resources using Resource Manager.
-* [**Azure Site Recovery**](https://azure.microsoft.com/en-gb/products/site-recovery/): Keep your business running with built-in disaster recovery service.
-* [**Microsoft Cost Management**](https://azure.microsoft.com/en-gb/products/cost-management/): Monitor, allocate and optimise cloud costs with transparency, accuracy and efficiency using Microsoft Cost Management.
-* [**Azure Network Watcher**](https://azure.microsoft.com/en-gb/products/network-watcher/): Network performance monitoring and diagnostics solution.
-* [**Microsoft Purview**](https://www.microsoft.com/en-gb/security/business/risk-management/microsoft-purview-data-governance/): Govern, protect, and manage your data estate.
-* [**Azure Managed Grafana**](https://azure.microsoft.com/en-gb/products/managed-grafana/): Deploy Grafana dashboards as a fully managed Azure service.
-* [**Azure Business Continuity Center**](https://learn.microsoft.com/en-us/azure/business-continuity-center/business-continuity-center-overview): Unified management for backup and disaster recovery across Azure workloads.
-* [**Azure SRE Agent**](https://azure.microsoft.com/en-gb/products/sre-agent/): AI-powered operations agent that helps improve uptime, reduce incident impact, and automate response workflows.
-* [**Azure Managed Applications**](https://azure.microsoft.com/en-gb/products/managed-applications/): Package and deliver turnkey cloud solutions that customers deploy and you operate.
-* [**Azure Automanage**](https://azure.microsoft.com/en-gb/products/azure-automanage/): Automate virtual machine configuration and apply Azure best-practice services.
-* [**Defender External Attack Surface Management**](https://azure.microsoft.com/en-gb/products/defender-external-attack-surface-management/): Discover and continuously monitor your internet-facing attack surface.
-  
-## [**Migration**](https://azure.microsoft.com/en-gb/solutions/migration/)
-
-### Simplify and accelerate your migration to the cloud with guidance, tools and resources
-
-* [**Azure Database Migration Service**](https://azure.microsoft.com/en-gb/products/database-migration/): Accelerate your data migration to Azure.
-* [**Azure Site Recovery**](https://azure.microsoft.com/en-gb/products/site-recovery/): Keep your business running with built-in disaster recovery service.
-* [**Azure Data Box**](https://azure.microsoft.com/en-gb/products/databox/): Appliances and solutions for data transfer to Azure and edge compute.
-* [**Azure Migrate**](https://azure.microsoft.com/en-gb/products/azure-migrate/): Simplify migration and modernisation with a unified platform.
-* [**Azure Storage Mover**](https://azure.microsoft.com/en-gb/products/storage-mover/): Managed migration service for moving data into Azure Storage from on-premises or other clouds.
-* [**Microsoft Cost Management**](https://azure.microsoft.com/en-gb/products/cost-management/): Monitor, allocate and optimise cloud costs with transparency, accuracy and efficiency using Microsoft Cost Management.
-
-## [**Mobile**](https://azure.microsoft.com/en-gb/products/category/mobile/)
-
-### Build and deploy cross-platform and native apps for any mobile device
-
-* [**API Management**](https://azure.microsoft.com/en-gb/products/api-management/): Publish APIs to developers, partners, and employees securely and at scale.
-* [**App Service**](https://azure.microsoft.com/en-gb/products/app-service/): Quickly create powerful cloud apps for web and mobile.
-* [**Azure Maps**](https://azure.microsoft.com/en-gb/products/azure-maps/): Add location data and mapping visuals to business applications and solutions.
-* [**Notification Hubs**](https://azure.microsoft.com/en-gb/products/notification-hubs/): Send push notifications to any platform from any back-end.
-* [**Azure Communication Services**](https://azure.microsoft.com/en-gb/products/communication-services/): Build rich communication experiences with the same secure platform capabilities used by Microsoft Teams.
-* [**App Configuration**](https://azure.microsoft.com/en-gb/products/app-configuration/): Fast, scalable parameter storage for app configuration.
-* [**Azure AI Search**](https://azure.microsoft.com/en-gb/products/ai-services/ai-search/): Enterprise scale search for app development.
-* [**Foundry Tools**](https://azure.microsoft.com/en-gb/products/ai-foundry/tools/): Build AI applications with customisable tools, APIs, and models.
-  
-## [**Networking**](https://azure.microsoft.com/en-gb/products/category/networking/)
-
-### Connect cloud and on-premises infrastructure and services, to provide your customers and users with the best possible experience
-
-* [**Azure Application Gateway**](https://azure.microsoft.com/en-gb/products/application-gateway/): Build secure, scalable, highly available web front ends in Azure.
-* [**Azure DDoS Protection**](https://azure.microsoft.com/en-gb/products/ddos-protection/): Protect your Azure resources from distributed denial-of-service (DDoS) attacks.
-* [**Azure ExpressRoute**](https://azure.microsoft.com/en-gb/products/expressroute/): Dedicated private-network fibre connections to Azure.
-* [**Azure Load Balancer**](https://azure.microsoft.com/en-gb/products/load-balancer/): Deliver high availability and network performance to your apps.
-* [**Azure Front Door**](https://azure.microsoft.com/en-gb/products/frontdoor/): Modern cloud CDN that delivers optimised experiences to your users anywhere.
-* [**Azure Private Link**](https://azure.microsoft.com/en-gb/products/private-link/): Private access to services hosted on the Azure platform, keeping your data on the Microsoft network.
-* [**Azure Network Watcher**](https://azure.microsoft.com/en-gb/products/network-watcher/): Network performance monitoring and diagnostics solution.
-* [**Azure Virtual Network**](https://azure.microsoft.com/en-gb/products/virtual-network/): Create your own private network infrastructure in the cloud.
-* [**Azure VPN Gateway**](https://azure.microsoft.com/en-gb/products/vpn-gateway/): Establish secure, cross-premises connectivity.
-* [**Azure Network Function Manager**](https://azure.microsoft.com/en-gb/products/azure-network-function-manager/): Extend Azure management for deploying 5G and SD-WAN network functions on edge devices.
-* [**Azure Bastion**](https://azure.microsoft.com/en-gb/products/azure-bastion/): Fully managed service that helps secure remote access to your virtual machines.
-* [**Azure DNS**](https://azure.microsoft.com/en-gb/products/dns/): Host your Domain Name System (DNS) domain in Azure.
-* [**Azure Firewall**](https://azure.microsoft.com/en-gb/products/azure-firewall/): Cloud-native and intelligent network firewall security.
-* [**Azure Firewall Manager**](https://azure.microsoft.com/en-gb/products/firewall-manager/): Central network security policy and route management for globally distributed, software-defined perimeters.
-* [**Azure Content Delivery Network**](https://azure.microsoft.com/en-gb/products/cdn/): Fast, reliable content delivery network with global reach.
-* [**Azure Traffic Manager**](https://azure.microsoft.com/en-gb/products/traffic-manager/): Route incoming traffic for high performance and availability.
-* [**Azure Virtual WAN**](https://azure.microsoft.com/en-gb/products/virtual-wan/): Optimise and automate branch-to-branch connectivity through Azure.
-* [**Azure Web Application Firewall**](https://azure.microsoft.com/en-gb/products/web-application-firewall/): A cloud-native web application firewall (WAF) service that provides powerful protection for web apps.
-* [**Azure Route Server**](https://azure.microsoft.com/en-gb/products/route-server/): Enable network appliances to exchange routes dynamically with virtual networks in Azure.
-* [**Azure Virtual Network Manager**](https://azure.microsoft.com/en-gb/products/virtual-network-manager/): Centrally manage virtual networks in Azure from a single pane of glass.
-* [**Azure NAT Gateway**](https://azure.microsoft.com/en-gb/products/azure-nat-gateway/): Simple, secure, and highly scalable outbound connectivity for virtual networks.
-* [**Azure Enclave**](https://azure.microsoft.com/en-gb/products/enclave): Create isolated, zero-trust software-defined networks with built-in governance for sensitive workloads.
-
-## [**Security**](https://azure.microsoft.com/en-gb/products/category/security/)
-
-### Protect your enterprise from advanced threats across hybrid cloud workloads
-
-* [**App Configuration**](https://azure.microsoft.com/en-gb/products/app-configuration/): Fast, scalable parameter storage for app configuration.
-* [**Microsoft Entra ID**](https://www.microsoft.com/en-gb/security/business/identity-access/microsoft-entra-id): Synchronise on-premises directories and enable single sign-on.
-* [**Microsoft Defender for Cloud**](https://www.microsoft.com/en-gb/security/business/cloud-security/microsoft-defender-cloud/): Protect your multi-cloud and hybrid environments.
-* [**Azure DDoS Protection**](https://azure.microsoft.com/en-gb/products/ddos-protection/): Protect your Azure resources from distributed denial-of-service (DDoS) attacks.
-* [**Azure Firewall**](https://azure.microsoft.com/en-gb/products/azure-firewall/): Cloud-native and intelligent network firewall security.
-* [**Azure Front Door**](https://azure.microsoft.com/en-gb/products/frontdoor/): Modern cloud CDN that delivers optimised experiences to your users anywhere.
-* [**Microsoft Sentinel**](https://www.microsoft.com/en-gb/security/business/siem-and-xdr/microsoft-sentinel-siem): Put cloud-native SIEM and intelligent security analytics to work to help protect your enterprise.
-* [**Azure Web Application Firewall**](https://azure.microsoft.com/en-gb/products/web-application-firewall/): A cloud-native web application firewall (WAF) service that provides powerful protection for web apps.
-* [**Microsoft Azure Attestation**](https://azure.microsoft.com/en-gb/products/azure-attestation/): A unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it.
-* [**Azure Application Gateway**](https://azure.microsoft.com/en-gb/products/application-gateway/): Build secure, scalable, highly available web front ends in Azure.
-* [**Microsoft Entra Domain Services**](https://azure.microsoft.com/en-gb/products/microsoft-entra-ds): Join Azure virtual machines to a domain without domain controllers.
-* [**Azure Bastion**](https://azure.microsoft.com/en-gb/products/azure-bastion/): Fully managed service that helps secure remote access to your virtual machines.
-* [**Azure Cloud HSM**](https://azure.microsoft.com/en-gb/products/cloud-hsm/): Manage hardware security modules that you use in the cloud.
-* [**Azure Firewall Manager**](https://azure.microsoft.com/en-gb/products/firewall-manager/): Central network security policy and route management for globally distributed, software-defined perimeters.
-* [**Azure Information Protection**](https://www.microsoft.com/en-gb/security/business/data-security-governance/microsoft-purview-data-security): Better protect your sensitive information—anytime, anywhere.
-* [**Azure Key Vault**](https://azure.microsoft.com/en-gb/products/key-vault/): Safeguard and maintain control of keys and other secrets.
-* [**Azure VPN Gateway**](https://azure.microsoft.com/en-gb/products/vpn-gateway/): Establish secure, cross-premises connectivity.
-* [**Microsoft Defender for IoT**](https://www.microsoft.com/en-gb/security/business/endpoint-security/microsoft-defender-iot): Unified threat protection for all your IoT/OT devices.
-* [**Azure Confidential Ledger**](https://azure.microsoft.com/en-gb/products/azure-confidential-ledger/): Tamperproof, unstructured data store hosted in trusted execution environments (TEEs) and backed by cryptographically verifiable evidence.
-* [**Microsoft Security Copilot**](https://www.microsoft.com/en-gb/security/business/ai-machine-learning/microsoft-security-copilot): AI assistant that helps security teams investigate and respond to threats at machine speed.
-* [**Defender External Attack Surface Management**](https://azure.microsoft.com/en-gb/products/defender-external-attack-surface-management/): Discover and continuously monitor your internet-facing attack surface.
-
-## [**Storage**](https://azure.microsoft.com/en-gb/products/category/storage/)
-
-### Get secure, massively scalable cloud storage for your data, apps and workloads
-
-* [**Archive Storage**](https://azure.microsoft.com/en-gb/products/storage/): Industry-leading price point for storing rarely accessed data.
-* [**Azure Backup**](https://azure.microsoft.com/en-gb/products/backup/): Simplify data protection and protect against ransomware.
-* [**Azure Files**](https://azure.microsoft.com/en-gb/products/storage/files/): Simple, secure and serverless enterprise-grade cloud file shares.
-* [**Azure NetApp Files**](https://azure.microsoft.com/en-gb/products/netapp/): Enterprise-grade Azure file shares, powered by NetApp.
-* [**Azure Data Box**](https://azure.microsoft.com/en-gb/products/databox/): Appliances and solutions for data transfer to Azure and edge compute.
-* [**Queue Storage**](https://azure.microsoft.com/en-gb/products/storage/queues/): Effectively scale apps according to traffic.
-* [**Storage Explorer**](https://azure.microsoft.com/en-gb/products/storage/storage-explorer/): View and interact with Azure Storage resources.
-* [**Azure Confidential Ledger**](https://azure.microsoft.com/en-gb/products/azure-confidential-ledger/): Tamperproof, unstructured data store hosted in trusted execution environments (TEEs) and backed by cryptographically verifiable evidence.
-* [**Azure Data Lake Storage**](https://azure.microsoft.com/en-gb/products/storage/data-lake-storage/): Scalable, secure data lake for high-performance analytics.
-* [**Azure Blob Storage**](https://azure.microsoft.com/en-gb/products/storage/blobs/): Massively scalable and secure object storage.
-* [**Azure Disk Storage**](https://azure.microsoft.com/en-gb/products/storage/disks/): High-performance, highly durable block storage.
-* [**Storage Accounts**](https://azure.microsoft.com/en-gb/products/category/storage/): Durable, highly available, and massively scalable cloud storage.
-* [**Azure Managed Lustre**](https://azure.microsoft.com/en-gb/products/managed-lustre/): High-performance parallel file system for HPC and AI workloads.
-* [**Azure Container Storage**](https://azure.microsoft.com/en-gb/products/container-storage/): Container-native storage management for stateful workloads on Kubernetes.
-* [**Azure Elastic SAN**](https://azure.microsoft.com/en-gb/products/storage/elastic-san/): Cloud-native storage area network for high-performance block storage at scale.
-* [**Azure Storage Discovery**](https://azure.microsoft.com/en-gb/products/storage-discovery/): Gain storage visibility and insights to improve data strategy and operations.
-* [**Azure Storage Actions**](https://azure.microsoft.com/en-gb/products/storage-actions): Serverless framework to automate data management tasks on blob data at scale.
-* [**Azure Storage Mover**](https://azure.microsoft.com/en-gb/products/storage-mover/): Managed migration service for moving data into Azure Storage from on-premises or other clouds.
-* [**Azure Data Share**](https://azure.microsoft.com/en-gb/products/data-share/): Simply and securely share big data with external organisations.
-
-## [**Web**](https://azure.microsoft.com/en-gb/products/category/web/)
-
-### Build, deploy and scale powerful web applications quickly and efficiently
-
-* [**API Management**](https://azure.microsoft.com/en-gb/products/api-management/): Publish APIs to developers, partners, and employees securely and at scale.
-* [**App Service**](https://azure.microsoft.com/en-gb/products/app-service/): Quickly create powerful cloud apps for web and mobile.
-* [**Azure Maps**](https://azure.microsoft.com/en-gb/products/azure-maps/): Add location data and mapping visuals to business applications and solutions.
-* [**Azure Content Delivery Network**](https://azure.microsoft.com/en-gb/products/cdn/): Fast, reliable content delivery network with global reach.
-* [**Static Web Apps**](https://azure.microsoft.com/en-gb/products/app-service/static/): A modern web app service that offers streamlined full-stack development from source code to global high availability.
-* [**Azure Web PubSub**](https://azure.microsoft.com/en-gb/products/web-pubsub/): Easily build real-time messaging web applications using WebSockets and the publish-subscribe pattern.
-* [**Web App for Containers**](https://azure.microsoft.com/en-gb/products/app-service/): Easily deploy and run containerised web apps on Windows and Linux.
-* [**App Configuration**](https://azure.microsoft.com/en-gb/products/app-configuration/): Fast, scalable parameter storage for app configuration.
-* [**Azure AI Search**](https://azure.microsoft.com/en-gb/products/ai-services/ai-search/): Enterprise scale search for app development.
-* [**Azure SignalR Service**](https://azure.microsoft.com/en-gb/products/signalr-service/): Add real-time web functionalities easily.
-* [**Notification Hubs**](https://azure.microsoft.com/en-gb/products/notification-hubs/): Send push notifications to any platform from any back-end.
-* [**Azure Communication Services**](https://azure.microsoft.com/en-gb/products/communication-services/): Build rich communication experiences with the same secure platform capabilities used by Microsoft Teams.
-* [**Azure Container Apps**](https://azure.microsoft.com/en-gb/products/container-apps/): Build and deploy modern apps and microservices using serverless containers.
-* [**Azure Fluid Relay**](https://azure.microsoft.com/en-gb/products/fluid-relay/): Managed service for building real-time collaborative experiences into your apps.
-* [**Microsoft Playwright Testing**](https://azure.microsoft.com/en-gb/products/playwright-testing): Run Playwright end-to-end browser tests at cloud scale across browsers and operating systems.
-
-## **Virtual desktop infrastructure**
-
-### Empower employees to work securely from anywhere with a cloud-based virtual desktop infrastructure
-
-* [**Azure Lab Services**](https://azure.microsoft.com/en-gb/products/lab-services/): Set up labs for education, training, and other related scenarios.
-* [**Azure Virtual Desktop**](https://azure.microsoft.com/en-gb/products/virtual-desktop/): Enable a secure, remote desktop experience from anywhere.
-* [**Microsoft Dev Box**](https://azure.microsoft.com/en-gb/products/dev-box/): Streamline development with secure, ready-to-code workstations in the cloud.
-
-### Additional Resources
-
-* [**Awesome Azure - A Curated List of Azure Resources**](https://github.com/kristofferandreasen/awesome-azure).
-* [**Awesome Azure Architecture**](https://github.com/lukemurraynz/awesome-azure-architecture).
-* [**Awesome Azure SQL resources**](https://github.com/yorek/awesome-azure-sql).
-
-## Wrap Up
-
-If you think the roadmap can be improved, please do open a PR with any updates and submit any issues. Also, I will continue to improve this, so you might want to star this repository to revisit.
-
-## Contribution
-
-- Open a pull request with improvements
-- Discuss ideas in issues
-- Spread the word
-
-## License
-
-[![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](https://creativecommons.org/licenses/by/4.0/)
-
-## Authors
-
-- [Dr. Milan Milanović](https://milan.milanovic.org)
+### Two-Page Visual Sheet (August 2022)
+- **White background**: [Page 1 High-Res](2_page_version/LightSheet/High/Azure-document-light-1st-page-highrez.png) | [Page 2 High-Res](2_page_version/LightSheet/High/Azure-document-light-2nd-page-highrez.png) | [PDF](2_page_version/LightSheet/Azure_Developers_2_page_sheet_light.pdf)
+- **Dark background**: [Page 1 High-Res](2_page_version/DarkSheet/High/Azure-document-dark-1st-page-highrez.png) | [Page 2 High-Res](2_page_version/DarkSheet/High/Azure-document-dark-2nd-page-highrez.png) | [PDF](2_page_version/DarkSheet/Azure_Developers_2_page_sheet_dark.pdf)
+
+### Bonus Cheat Sheets
+- **Azure Cloud Services Cheat Sheet (May 2024)**: [View Image](Azure-Cloud-services-cheat-sheet.png) • [Download PDF](Azure-Cloud-Services-cheat-sheet.pdf)
+- **Azure Load Balancers Cheat Sheet (June 2024)**: [View Image](Azure-load-balancer---cheat-sheet.png) • [Download PDF](Azure-load-balancer-cheat-sheet.pdf)
+
+---
+
+## 📦 Complete Azure Services & Products Catalog
+
+*Directly verified against Microsoft Learn and Azure Product Catalog.*
+
+### 1. Compute
+
+* [**Azure App Service**](https://azure.microsoft.com/en-gb/products/app-service/): Quickly create and host powerful cloud apps and REST APIs for web and mobile.
+* [**Azure Container Apps (ACA)**](https://azure.microsoft.com/en-gb/products/container-apps/): Fully managed serverless container runtime powered by Kubernetes, KEDA, Envoy, and Dapr.
+* [**Azure Kubernetes Service (AKS)**](https://azure.microsoft.com/en-gb/products/kubernetes-service/): Production-grade managed Kubernetes with Azure CNI Overlay, Cilium network policies, and Karpenter autoscaling.
+* [**Azure Functions**](https://azure.microsoft.com/en-gb/products/functions/): Execute event-driven serverless code with the high-performance Flex Consumption tier.
+* [**Virtual Machines**](https://azure.microsoft.com/en-gb/products/virtual-machines/): Provision Windows and Linux virtual machines in seconds with Intel, AMD, and ARM processors.
+* [**Virtual Machine Scale Sets (VMSS)**](https://azure.microsoft.com/en-gb/products/virtual-machine-scale-sets/): Manage and scale up to thousands of Linux and Windows VMs with Flexible orchestration.
+* [**Azure Spot Virtual Machines**](https://azure.microsoft.com/en-gb/products/virtual-machines/spot/): Provision unused compute capacity at up to 90% discount for interruptible workloads.
+* [**Azure Dedicated Host**](https://azure.microsoft.com/en-gb/products/virtual-machines/dedicated-host/): Physical servers dedicated to your organization's Azure VMs for compliance and hardware isolation.
+* [**Azure Confidential VMs**](https://azure.microsoft.com/en-gb/solutions/confidential-compute/): Hardware-based isolation with confidential computing (AMD SEV-SNP / Intel TDX) for sensitive data.
+* [**Batch**](https://azure.microsoft.com/en-gb/products/batch/): Cloud-scale parallel job scheduling and compute management.
+* [**Static Web Apps**](https://azure.microsoft.com/en-gb/products/app-service/static/): Streamlined full-stack web hosting from Git repositories to global high availability.
+* [**Azure Virtual Desktop**](https://azure.microsoft.com/en-gb/products/virtual-desktop/): Deliver secure, remote Windows 10/11 desktops and virtual apps to any device.
+* [**Microsoft Dev Box**](https://azure.microsoft.com/en-gb/products/dev-box/): High-performance, self-service cloud workstations preconfigured and ready to code.
+* [**Azure Deployment Environments**](https://azure.microsoft.com/en-gb/products/deployment-environments/): Enable developers to spin up secure app infrastructure environments using project-based templates.
+* [**Azure Compute Fleet**](https://azure.microsoft.com/en-gb/products/compute-fleet/): Centrally manage and deploy mixed VM types, Spot instances, and zones for high availability at scale.
+* [**Azure Spring Apps**](https://azure.microsoft.com/en-gb/products/spring-apps): Fully managed Spring Boot app hosting from Microsoft and VMware (retires 31 March 2028; migrate to ACA or AKS).
+
+---
+
+### 2. Artificial Intelligence & Machine Learning
+
+* [**Azure AI Foundry**](https://learn.microsoft.com/azure/ai-studio/): Enterprise platform for discovering, customizing, evaluating, and deploying generative AI and agents at scale.
+* [**Azure OpenAI Service**](https://learn.microsoft.com/azure/ai-services/openai/): Enterprise-grade access to cutting-edge models (GPT-4o, GPT-4o mini, o1, o3-mini, DALL-E 3, Whisper) with VNet security.
+* [**Azure AI Search**](https://azure.microsoft.com/en-gb/products/ai-services/ai-search/): Enterprise retrieval engine powering RAG with Hybrid Search (dense vector + BM25 keyword) and Semantic Ranker.
+* [**Azure AI Document Intelligence**](https://azure.microsoft.com/en-gb/products/ai-services/ai-document-intelligence/): Advanced OCR extracting layout, tables, key-value pairs, and Markdown from documents and PDFs.
+* [**Azure AI Content Safety**](https://azure.microsoft.com/en-gb/products/ai-services/ai-content-safety/): AI moderation detecting prompt injection attacks, jailbreaks, toxicity, and sensitive data leaks.
+* [**Azure Machine Learning**](https://azure.microsoft.com/en-gb/products/machine-learning/): Comprehensive MLOps platform for training, fine-tuning, MLflow registry tracking, and deploying custom models.
+* [**Azure AI Speech**](https://azure.microsoft.com/en-gb/products/ai-services/ai-speech/): Highly accurate speech-to-text, natural text-to-speech, translation, and speaker identification.
+* [**Azure AI Vision**](https://azure.microsoft.com/en-gb/products/ai-services/ai-vision/): Computer vision for image analysis, spatial analysis, face verification, and multi-modal vector embeddings.
+* [**Azure AI Language**](https://azure.microsoft.com/en-gb/products/ai-services/ai-language/): Natural language processing for sentiment analysis, entity extraction, PII redaction, and summarization.
+* [**Azure AI Video Indexer**](https://azure.microsoft.com/en-gb/products/ai-video-indexer/): Extract actionable visual and audio insights from video files.
+
+---
+
+### 3. Analytics & Big Data
+
+* [**Microsoft Fabric**](https://learn.microsoft.com/fabric/): End-to-end SaaS analytics platform unifying OneLake, Lakehouse, Data Warehouse, Real-Time Intelligence, and Data Factory.
+* [**Azure Databricks**](https://azure.microsoft.com/en-gb/products/databricks/): Collaborative data and AI platform powered by Apache Spark, Photon, Delta Lake 3.x, and Unity Catalog.
+* [**Azure Synapse Analytics**](https://azure.microsoft.com/en-gb/products/synapse-analytics/): Enterprise data platform integrating Massively Parallel Processing (MPP) Dedicated SQL Pools, Serverless SQL, and Spark.
+* [**Azure Data Factory (ADF)**](https://azure.microsoft.com/en-gb/products/data-factory/): Cloud-scale hybrid ETL/ELT service with 100+ native connectors and Self-Hosted Integration Runtimes.
+* [**Azure Data Explorer (ADX / Kusto)**](https://azure.microsoft.com/en-gb/products/data-explorer/): Ultra-fast time-series and log analytics query engine powered by Kusto Query Language (KQL).
+* [**Azure Event Hubs**](https://azure.microsoft.com/en-gb/products/event-hubs/): Fully managed big data streaming platform supporting native Kafka protocols and Schema Registry.
+* [**Azure Stream Analytics**](https://azure.microsoft.com/en-gb/products/stream-analytics/): Real-time complex event processing engine executing declarative SQL queries over streaming telemetry.
+* [**Microsoft Purview**](https://www.microsoft.com/security/business/compliance/microsoft-purview): Unified data governance platform offering automated cataloging, sensitive data discovery, and lineage mapping.
+
+---
+
+### 4. Databases
+
+* [**Azure Cosmos DB**](https://azure.microsoft.com/en-gb/products/cosmos-db/): Globally distributed, multi-model NoSQL and relational database with guaranteed single-digit millisecond latency and vector indexing.
+* [**Azure SQL Database**](https://azure.microsoft.com/en-gb/products/azure-sql/database/): Fully managed relational database built on SQL Server with Serverless auto-pause and Hyperscale scaling up to 100TB.
+* [**Azure SQL Managed Instance**](https://azure.microsoft.com/en-gb/products/azure-sql/managed-instance/): Cloud SQL Server with near 100% compatibility with on-premises instances and native VNet integration.
+* [**Azure Database for PostgreSQL - Flexible Server**](https://azure.microsoft.com/en-gb/products/postgresql/): Managed PostgreSQL with zone-redundant HA, connection pooling (PgBouncer), and native `pgvector` support.
+* [**Azure Database for MySQL - Flexible Server**](https://azure.microsoft.com/en-gb/products/mysql/): High-performance managed MySQL offering custom maintenance windows and IOPS autoscaling.
+* [**Azure Managed Redis & Azure Cache for Redis**](https://azure.microsoft.com/en-gb/products/azure-cache-for-redis/): Ultra-fast in-memory data store for caching, session management, vector search, and pub/sub.
+
+---
+
+### 5. Storage
+
+* [**Azure Data Lake Storage Gen2 (ADLS Gen2)**](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction): Massively scalable object lakehouse storage featuring a true POSIX-compliant Hierarchical Namespace (HNS).
+* [**Azure Blob Storage**](https://azure.microsoft.com/en-gb/products/storage/blobs/): Highly durable object storage with automated lifecycle management across Hot, Cool, Cold, and Archive tiers.
+* [**Azure Files**](https://azure.microsoft.com/en-gb/products/storage/files/): Enterprise cloud file shares accessible via standard Server Message Block (SMB) and Network File System (NFS).
+* [**Azure NetApp Files (ANF)**](https://azure.microsoft.com/en-gb/products/netapp/): Ultra-high performance, sub-millisecond latency enterprise file storage powered by NetApp ONTAP.
+* [**Azure Managed Disks**](https://azure.microsoft.com/en-gb/products/storage/disks/): High-performance block storage volumes attached to Azure VMs (Ultra Disk, Premium SSD v2, Standard SSD).
+
+---
+
+### 6. Networking
+
+* [**Azure Virtual Network (VNet)**](https://azure.microsoft.com/en-gb/products/virtual-network/): Fundamental building block for private networking, subnets, peering, and micro-segmentation.
+* [**Azure Private Link & Private Endpoints**](https://azure.microsoft.com/en-gb/products/private-link/): Secure private connectivity from your VNet directly to Azure PaaS services, eliminating public internet exposure.
+* [**Azure Front Door**](https://azure.microsoft.com/en-gb/products/frontdoor/): Global Layer 7 entry-point delivering unified CDN caching, edge Web Application Firewall (WAF), and anycast acceleration.
+* [**Azure Application Gateway**](https://azure.microsoft.com/en-gb/products/application-gateway/): Regional Layer 7 web traffic load balancer and reverse proxy equipped with integrated OWASP WAF.
+* [**Azure Load Balancer**](https://azure.microsoft.com/en-gb/products/load-balancer/): Ultra-low latency Layer 4 (TCP/UDP) inbound and outbound load balancing for VMs and container clusters.
+* [**Azure Firewall Premium**](https://azure.microsoft.com/en-gb/products/azure-firewall/): Cloud-native stateful network firewall with TLS inspection, Intrusion Detection and Prevention (IDPS), and URL filtering.
+* [**Azure Bastion**](https://azure.microsoft.com/en-gb/products/azure-bastion/): Secure, agentless browser-based RDP and SSH access to VMs without exposing public IP addresses.
+* [**Azure ExpressRoute**](https://azure.microsoft.com/en-gb/products/expressroute/): Dedicated private high-bandwidth connection between on-premises datacenters and Azure cloud.
+* [**Azure Virtual WAN (vWAN)**](https://azure.microsoft.com/en-gb/products/virtual-wan/): Unified global networking hub aggregating site-to-site VPN, point-to-site VPN, and ExpressRoute.
+* [**Azure DNS Private Resolver**](https://learn.microsoft.com/azure/dns/dns-private-resolver-overview): Fully managed DNS forwarding service bridging on-premises DNS servers with Azure Private DNS zones.
+
+---
+
+### 7. Security & Identity
+
+* [**Microsoft Entra ID**](https://learn.microsoft.com/entra/): Enterprise identity and access management delivering Conditional Access, passwordless sign-in, MFA, and Workload Identity Federation.
+* [**Microsoft Entra PIM**](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure): Just-in-time, approval-based role activation for administrative privileges to eliminate persistent standing access.
+* [**Azure Key Vault**](https://azure.microsoft.com/en-gb/products/key-vault/): Centralized store for safeguarding cryptographic keys, secrets, and TLS certificates with RBAC enforcement and purge protection.
+* [**Microsoft Defender for Cloud**](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-for-cloud): Cloud Security Posture Management (CSPM) and Workload Protection auditing against CIS, NIST, and ISO standards.
+* [**Microsoft Sentinel**](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-sentinel): Cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR).
+* [**Azure Policy**](https://azure.microsoft.com/en-gb/products/azure-policy/): Enforce organizational standards, guardrails, and compliance across subscriptions at scale with automated remediation.
+
+---
+
+### 8. DevOps & Developer Tooling
+
+* [**Azure Bicep**](https://learn.microsoft.com/azure/azure-resource-manager/bicep/): Modern, domain-specific language (DSL) for deploying declarative Azure infrastructure without raw ARM JSON boilerplate.
+* [**Azure Developer CLI (`azd`)**](https://learn.microsoft.com/azure/developer/azure-developer-cli/): Open-source CLI accelerating developer inner-loop workflows from local code to cloud deployment in a single command (`azd up`).
+* [**Azure DevOps Services**](https://azure.microsoft.com/en-gb/products/devops/): Enterprise collaboration tools including Azure Repos, Pipelines, Boards, Artifacts, and Test Plans.
+* [**Azure Monitor & Log Analytics**](https://azure.microsoft.com/en-gb/products/monitor/): Comprehensive full-stack observability suite aggregating telemetry, distributed traces, and metrics into a Kusto repository.
+* [**Azure Application Insights**](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview): Application Performance Monitoring (APM) tracking live HTTP requests, unhandled exceptions, and database dependencies.
+
+---
+
+### 9. Integration & Messaging
+
+* [**Azure API Management (APIM)**](https://azure.microsoft.com/en-gb/products/api-management/): Enterprise API gateway offering token bucket rate limiting, JWT validation, developer portals, and multi-region failover.
+* [**Azure Service Bus**](https://azure.microsoft.com/en-gb/products/service-bus/): Fully managed enterprise message broker featuring message queues, publish-subscribe topics, FIFO sessions, and dead-letter queues.
+* [**Azure Event Grid**](https://azure.microsoft.com/en-gb/products/event-grid/): Serverless event routing service connecting Azure resources and custom webhooks with CloudEvents compliance.
+* [**Azure Logic Apps**](https://azure.microsoft.com/en-gb/products/logic-apps/): Visual low-code workflow orchestration platform connecting 400+ SaaS applications, ERPs, and cloud services.
+* [**Azure SignalR Service**](https://azure.microsoft.com/en-gb/products/signalr-service/): Fully managed real-time bidirectional WebSocket service for pushing live updates to web and mobile apps.
+
+---
+
+### 10. Web & Mobile
+
+* [**App Service**](https://azure.microsoft.com/en-gb/products/app-service/): Quickly create and host powerful cloud apps and REST APIs for web and mobile.
+* [**Static Web Apps**](https://azure.microsoft.com/en-gb/products/app-service/static/): Streamlined full-stack web hosting from Git repositories to global high availability.
+* [**Azure Web PubSub**](https://azure.microsoft.com/en-gb/products/web-pubsub/): Build real-time messaging web applications using WebSockets and publish-subscribe patterns.
+* [**Azure Communication Services**](https://azure.microsoft.com/en-gb/products/communication-services/): Build voice, video, chat, SMS, and email communication experiences using the same secure platform backing Microsoft Teams.
+* [**Notification Hubs**](https://azure.microsoft.com/en-gb/products/notification-hubs/): Scalable mobile push notification engine broadcasting to iOS, Android, and Windows.
+
+---
+
+### 11. Hybrid & Multicloud
+
+* [**Azure Arc**](https://azure.microsoft.com/en-gb/products/azure-arc/): Extend Azure Resource Manager (ARM), policies, and Defender security governance to on-premises servers, Kubernetes clusters, and AWS/GCP resources.
+* [**Azure Stack HCI**](https://azure.microsoft.com/en-gb/products/azure-stack/hci/): Hyperconverged infrastructure (HCI) software solution running virtualized Windows and Linux workloads on validated on-premises hardware.
+* [**Azure Edge Zones**](https://azure.microsoft.com/en-gb/solutions/edge-computing/): Connect Azure services directly to mobile operators' 5G networks for sub-10ms edge latency.
+
+---
+
+### 12. Management & Governance
+
+* [**Azure Cost Management**](https://azure.microsoft.com/en-gb/products/cost-management/): Monitor, allocate, and optimize cloud costs across subscriptions with budgets and automated alerts.
+* [**Azure Advisor**](https://azure.microsoft.com/en-gb/products/advisor/): Personalized cloud consultant analyzing infrastructure to recommend cost, security, reliability, and performance enhancements.
+* [**Azure Resource Manager (ARM)**](https://learn.microsoft.com/azure/azure-resource-manager/management/overview): Central deployment and management service for Azure, providing control-plane access, locks, and tags.
+* [**Azure Service Health**](https://azure.microsoft.com/en-gb/features/service-health/): Personalized dashboard notifying you of Azure service outages, planned maintenance, and health advisories affecting your resources.
+
+---
+
+### 13. Internet of Things (IoT)
+
+* [**Azure IoT Hub**](https://azure.microsoft.com/en-gb/products/iot-hub/): Secure and reliable bidirectional communication between millions of IoT devices and a cloud-hosted solution backend.
+* [**Azure IoT Edge**](https://azure.microsoft.com/en-gb/products/iot-edge/): Deploy cloud intelligence and custom logic to run directly on cross-platform IoT edge devices.
+* [**Azure Digital Twins**](https://azure.microsoft.com/en-gb/products/digital-twins/): Model physical environments and create comprehensive digital twins of smart factories, buildings, and energy grids.
+
+---
+
+## ☕ Support the Project
+
+If you find this cheat sheet and architectural repository valuable:
+- Star this repository ⭐ to help others discover it.
+- Support original founder Dr. Milan Milanović on Patreon:
+
+[![Patreon](patreon.png)](https://www.patreon.com/techworld_with_milan)
+
+---
+
+## 🤝 Authors & Acknowledgments
+
+- **Modern Architecture Lead & Maintainer**: [**Santosh Jammi**](https://github.com/santoshjammi29) – Enterprise Lakehouse Architect & Lead Author at [Lakehouse Architect](https://santoshjammi.in).  
+  Connect: [LinkedIn](https://www.linkedin.com/in/santoshjammi29/) • [X (@SANt0shJ)](https://x.com/SANt0shJ) • [Website](https://santoshjammi.in)
+- **Original Foundation**: [Dr. Milan Milanović](https://milan.milanovic.org) – Original author of the visual cheat sheets and creator of [azurecheatsheet.com](https://azurecheatsheet.com).
+
+### Sister Repositories
+- [⚡ The PySpark Handbook](https://github.com/santoshjammi29/pyspark-handbook): 105 Production Coding Use Cases, Performance Tuning Recipes & Lakehouse Masterclass.
+- [📊 Microsoft Fabric & Power BI Preparation Guide](https://github.com/santoshjammi29/fabric-pbi-prep): Complete enterprise DP-600 curriculum.
+
+---
+
+## 📜 License
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
