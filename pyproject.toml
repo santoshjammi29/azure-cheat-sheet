@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "azure-enterprise-handbook"
+version = "2.0.0"
+description = "The Modern Microsoft Azure Developer & Architect Enterprise Reference Guide and Incident Runbooks"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "CC BY 4.0"}
+authors = [
+    {name = "Santosh Jammi"}
+]
+keywords = ["azure", "cloud", "fabric", "databricks", "openai", "entra", "bicep", "finops", "runbooks"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

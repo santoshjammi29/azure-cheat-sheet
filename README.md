@@ -86,6 +86,67 @@ flowchart LR
 
 ---
 
+## 🖼️ Whiteboard Blueprints
+
+The repository includes **52 publication-grade architectural whiteboard blueprints** mirrored under `assets/whiteboards/` and cataloged in [docs/whiteboard_diagrams/README.md](docs/whiteboard_diagrams/README.md), illustrating:
+- **Microsoft Fabric OneLake & Direct Lake Mode** architecture
+- **Azure Landing Zone Hub-and-Spoke** zero-trust perimeters
+- **GenAI Hybrid RAG** (Azure OpenAI + AI Search + APIM)
+- **Real-Time IoT Streaming** (Event Hubs + Flink + Cosmos DB)
+- **Azure SQL & Synapse Dedicated Pool** performance tuning
+
+---
+
+## 💻 Interactive CLI Explorer
+
+Explore Azure cheatsheets, architectures, incident runbooks, and interview guides directly from your terminal:
+
+```bash
+# Search by keyword or service (e.g. Private Endpoints, Bicep, FinOps)
+python scripts/interactive_shell.py "private endpoint"
+python scripts/interactive_shell.py bicep
+
+# Browse categories
+python scripts/interactive_shell.py --cheatsheets
+python scripts/interactive_shell.py --architectures
+python scripts/interactive_shell.py --runbooks
+python scripts/interactive_shell.py --interview
+
+# Run verification test suite
+python scripts/run_tests.py
+```
+
+---
+
+## 🚨 Production Incident Runbooks
+
+Six operational disaster recovery runbooks located under `runbooks/`:
+
+| Runbook ID | Title & Direct Link | Severity | Root Cause & Remediation Focus |
+| :---: | :--- | :---: | :--- |
+| **01** | **[Regional Service Outage & Resource Health Triage](runbooks/01_service_outage_and_resource_health_triage.md)** | `SEV-1` | Detect regional platform outages via CLI, execute global traffic rerouting via Front Door, and trigger secondary paired region failover. |
+| **02** | **[VNet Peering & Private Endpoint DNS Failures](runbooks/02_vnet_peering_and_private_endpoint_dns_failures.md)** | `SEV-1` | Triage `NameResolutionFailure`, repair missing Spoke VNet links in central Private DNS Zones, and configure non-transitive peering routes. |
+| **03** | **[FinOps Cost Spikes & Orphan Resources](runbooks/03_finops_uncontrolled_cost_spikes_and_orphan_resources.md)** | `SEV-2` | Hunt and eliminate unattached Premium SSD managed disks, release idle public IPs, and enforce automated spending anomaly guardrails. |
+| **04** | **[Entra ID RBAC & Key Vault Secret Rotation Disasters](runbooks/04_entra_id_rbac_and_keyvault_secret_rotation_disasters.md)** | `SEV-1` | Triage expired Service Principal credentials (`AADSTS7000222`), resolve Key Vault RBAC permission conflicts, and migrate to Managed Identities. |
+| **05** | **[BCDR & Cross-Region Geo-Replication Failover](runbooks/05_bcdr_and_cross_region_geo_replication_failover.md)** | `SEV-1` | Execute customer-initiated storage account failover (GRS/GZRS), trigger Azure SQL failover groups, and manage RPO/RTO data loss windows. |
+| **06** | **[AKS Ingress & Network Security Group Lockouts](runbooks/06_aks_ingress_and_network_security_group_lockouts.md)** | `SEV-2` | Resolve `502 Bad Gateway` on Application Gateway Ingress Controller (AGIC), fix health probe paths, and repair missing NSG ingress rules. |
+
+---
+
+## 🎓 4-Tier Interview Preparation Matrix
+
+Comprehensive technical interview guides and flashcard deck located under `interview/`:
+
+| Tier | Role Target | Core Focus Areas | Direct Link |
+| :---: | :--- | :--- | :---: |
+| **Tier 1** | **Junior Cloud Engineer** | Management Groups, Subscriptions, VNets, Subnets, NSGs, Blob Storage Tiers & Redundancy, VMs, App Services, Entra ID. | [`01_junior.md`](interview/01_junior_cloud_engineer.md) |
+| **Tier 2** | **Mid-Level Data & Cloud Engineer** | Azure Data Factory, Fabric OneLake, Azure Databricks, Private Endpoints & DNS, Managed Identities, Bicep IaC, Azure SQL Serverless. | [`02_mid_level.md`](interview/02_mid_level_data_and_cloud_engineer.md) |
+| **Tier 3** | **Senior Azure Cloud Architect** | Hub-Spoke Landing Zones, ExpressRoute Failover, Zero Trust Perimeter, Cosmos DB 5 Consistency Levels, Fabric vs Databricks, FinOps. | [`03_senior.md`](interview/03_senior_azure_architect.md) |
+| **Tier 4** | **Staff & Principal Solutions Architect** | Multi-Region Active-Active Geo-DR, BCDR, GenAI / Hybrid RAG (OpenAI + AI Search), Sovereign Cloud, Azure Policy at Scale. | [`04_staff.md`](interview/04_staff_and_principal_solutions_architect.md) |
+| **Deck** | **50 Rapid-Fire Flashcards** | 50 rapid-fire questions and answers across Core Compute, Networking, Storage, Data, AI, Security, and FinOps (AZ-900 / DP-203 / DP-600 / AZ-305). | [`05_flashcards.md`](interview/05_flashcards_deck_50.md) |
+
+---
+
 ## 🔄 Key Service Evolutions & Renaming Index
 
 Azure services continuously evolve. Here is the quick-reference cheat sheet for the most critical recent renames and transitions:
@@ -401,9 +462,12 @@ If you find this cheat sheet and architectural repository valuable:
   Connect: [LinkedIn](https://www.linkedin.com/in/santoshjammi29/) • [X (@SANt0shJ)](https://x.com/SANt0shJ) • [Website](https://santoshjammi.in)
 - **Original Foundation**: [Dr. Milan Milanović](https://milan.milanovic.org) – Original author of the visual cheat sheets and creator of [azurecheatsheet.com](https://azurecheatsheet.com).
 
-### Sister Repositories
-- [⚡ The PySpark Handbook](https://github.com/santoshjammi29/pyspark-handbook): 105 Production Coding Use Cases, Performance Tuning Recipes & Lakehouse Masterclass.
-- [📊 Microsoft Fabric & Power BI Preparation Guide](https://github.com/santoshjammi29/fabric-pbi-prep): Complete enterprise DP-600 curriculum.
+### 📦 Sister Repositories & Knowledge Base
+
+- 🌐 **[Modern Data Engineer Hub (`moderndataengineer.uk`)](https://github.com/santoshjammi29/moderndataengineer)**: Live production encyclopedia featuring 11,950+ verified assets, interactive simulators, and 52 whiteboard blueprints.
+- ⚡ **[The Databricks Handbook (105 Production Recipes)](https://github.com/santoshjammi29/databricks-handbook)**: 105 Databricks Data Intelligence Platform recipes, Unity Catalog governance, Delta 3.x, Lakeflow, and DABs.
+- ⚡ **[The PySpark Handbook (105 Production Recipes)](https://github.com/santoshjammi29/pyspark-handbook)**: 105 battle-tested PySpark & Delta Lake notebooks with Databricks Asset Bundles (DABs) IaC.
+- ⚡ **[The SQL Handbook (105 Production Exercises)](https://github.com/santoshjammi29/sql-handbook)**: 105 production SQL exercises, query optimization recipes, MPP architectures, and incident runbooks.
 
 ---
 
