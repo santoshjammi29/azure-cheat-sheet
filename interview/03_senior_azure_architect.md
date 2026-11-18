@@ -1027,3 +1027,61 @@ In a production environment, several failure states can cause this design to deg
 - **State Desynchronization across Replicas**: Network partitions cause state inconsistencies between distributed processing nodes. *Remediation*: Enforce distributed locking and idempotent state checkpointing.
 
 ---
+
+---
+
+### Azure Databricks Mosaic AI vs Azure OpenAI Service & Azure AI Search (GenAI Architecture)
+
+#### Technical Dilemma & System Context
+Enterprises deploying generative AI solutions on Microsoft Azure frequently face architectural decisions between native **Azure OpenAI Service with Azure AI Search** versus **Azure Databricks Mosaic AI (Vector Search, Model Serving, AI Gateway)**. The solutions architect must evaluate security boundaries, governance in Unity Catalog vs Microsoft Purview, ingestion latency, and total cost of ownership.
+
+#### Comparative Architectural Matrix
+
+| Architectural Dimension | Azure OpenAI + Azure AI Search | Azure Databricks Mosaic AI Suite |
+| :--- | :--- | :--- |
+| **Vector Index Synchronization** | Requires external Azure Data Factory / Function app to re-index changed documents into AI Search index | Native **Delta Sync Index** continuously tails Delta Change Data Feed (CDF) with zero custom DAG code |
+| **Data Governance & RBAC** | Azure Entra ID RBAC + Azure AI Search index-level keys / Azure Purview tagging | Unified governance under **Unity Catalog**: row filters, column masks, and ABAC tags applied seamlessly |
+| **Supported Model Endpoints** | Strictly Azure OpenAI models (GPT-4o, text-embedding-3) | Multi-model: Open LLMs (DBRX, Llama 3, Mistral), custom fine-tuned weights, plus external APIs via AI Gateway |
+| **Model Evaluation** | Azure AI Studio prompt flow evaluations | **MLflow 3.x Agent Evaluation** with automated LLM-as-a-judge (groundedness, faithfulness) and Review App |
+| **Billing & Compute Model** | Provisioned Throughput Units (PTU) or Pay-per-Token | DBU consumption on Serverless compute, auto-scaling to zero when idle |
+
+#### Production Implementation: Hybrid Azure RAG with AI Gateway
+```python
+# Configure Databricks AI Gateway routing to Azure OpenAI endpoint
+import mlflow.deployments
+
+client = mlflow.deployments.get_deploy_client("databricks")
+
+# Create governed AI Gateway endpoint backed by Azure OpenAI
+# Routes via Azure Key Vault secret without exposing API keys
+client.create_endpoint(
+    name="azure-openai-enterprise-gateway",
+    config={
+        "served_entities": [{
+            "name": "azure-gpt-4o",
+            "external_model": {
+                "name": "gpt-4o",
+                "provider": "azure-openai",
+                "task": "llm/v1/chat",
+                "azure_openai_config": {
+                    "azure_endpoint": "https://corp-genai-eastus.openai.azure.com",
+                    "azure_deployment_name": "gpt-4o-prod-deployment",
+                    "azure_api_key": "{{secrets/azure_keyvault/azure_openai_key}}"
+                }
+            }
+        }],
+        "rate_limits": [{"calls": 200, "key": "user", "renewal_period": "minute"}],
+        "ai_gateway": {
+            "guardrails": {
+                "input": {"pii": {"behavior": "mask"}},
+                "output": {"toxicity": {"behavior": "block"}}
+            }
+        }
+    }
+)
+```
+
+#### Key Invariants & Architectural Best Practices
+- Place Databricks workspace and Azure OpenAI resource in the same Azure region to avoid cross-region egress latency.
+- Protect endpoints with Azure Private Link, ensuring vector queries and prompt payloads never traverse public internet.
+- Store sensitive API keys in Azure Key Vault backed by Databricks Secret Scopes.

@@ -90,3 +90,44 @@ az keyvault secret show \
 - [ ] Transition from static Service Principal secrets to **User-Assigned Managed Identities** (zero secrets to rotate!).
 - [ ] For remaining Service Principals, configure Azure Event Grid alerts 30 days and 7 days prior to credential expiration.
 - [ ] Key Vault soft-delete and purge protection enabled to prevent accidental secret loss.
+
+
+---
+
+## 5. Mosaic AI Gateway & Azure Key Vault Secret Rotation Triage
+
+### 5.1 Incident Symptoms & Root Cause
+- **Symptoms**: Enterprise generative AI applications report `HTTP 401 Unauthorized: Invalid API Key` or `Secret NotFound` when invoking Databricks Mosaic AI Gateway routes backed by Azure OpenAI Service or external LLMs.
+- **Root Cause**: An automated Azure Key Vault secret rotation policy rotated the API key without notifying the Databricks Secret Scope or refreshing the cached token in the AI Gateway serving container.
+
+### 5.2 Emergency Remediation & Token Refresh
+1. **Verify Secret in Key Vault**:
+```bash
+# Verify rotated secret version in Azure Key Vault
+az keyvault secret show   --vault-name "kv-enterprise-prod"   --name "azure-openai-key"   --query "id" -o tsv
+```
+
+2. **Trigger Databricks AI Gateway Endpoint Reload**:
+```python
+# Force-refresh secret binding on AI Gateway route
+from databricks.sdk import WorkspaceClient
+
+w = WorkspaceClient()
+# Triggering config update invalidates cached secret tokens
+w.serving_endpoints.update_config_and_wait(
+    name="azure-openai-enterprise-gateway",
+    served_entities=[{
+        "name": "azure-gpt-4o",
+        "external_model": {
+            "name": "gpt-4o",
+            "provider": "azure-openai",
+            "task": "llm/v1/chat",
+            "azure_openai_config": {
+                "azure_endpoint": "https://corp-genai-eastus.openai.azure.com",
+                "azure_deployment_name": "gpt-4o-prod-deployment",
+                "azure_api_key": "{{secrets/azure_keyvault/azure_openai_key}}"
+            }
+        }
+    }]
+)
+```
