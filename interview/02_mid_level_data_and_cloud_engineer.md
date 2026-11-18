@@ -5,173 +5,510 @@
 
 ---
 
-### Q2.1: Can you explain the process of ETL (Extract, Transform, Load) and how you have used it in your previous projects? (Big Data)
 
-**Question & Scenario:**  
-Can you explain the process of ETL (Extract, Transform, Load) and how you have used it in your previous projects?
+### Q2.1: Azure Data Factory (ADF) Pipeline Automation with Managed Identity (ETL & Orchestration)
 
-**Detailed Technical Solution:**  
-In my previous projects, I have extensively used ETL processes to extract data from various sources, transform it based on business rules, and load it into the target data warehouse. The process starts with extracting data from source systems such as databases or APIs. This can be done using SQL queries or programming languages like Python or Pyspark. Once the data is extracted, it goes through a series of transformations like cleaning, filtering, aggregating, or joining. These transformations are performed using SQL or programming languages like Python or Pyspark. Finally, the transformed data is loaded into the target data warehouse using tools like Azure Data Factory, AWS Glue, or custom scripts. I have experience working with Azure Data Factory and have designed pipelines to schedule and orchestrate the ETL process. Overall, ETL plays a crucial role in data engineering as it ensures data quality, consistency, and availability for downstream analytics and reporting.
+**Question & Scenario:**
+> How do you author and execute an automated Azure Data Factory pipeline that ingests data from REST endpoints to ADLS Gen2 using system-assigned Managed Identity?
 
----
+**Detailed Technical Solution:**
+In production Azure environments, static credentials and connection strings introduce severe security vulnerabilities. Using Azure Managed Identity eliminates hardcoded secrets. The ADF Copy Activity authenticates against ADLS Gen2 using role-based access control (Storage Blob Data Contributor), ensuring zero credential rotation overhead.
 
-### Q2.2: Can you explain your experience with ETL orchestration and scheduling tools? (ETL & Pipelines)
+**Production Implementation:**
+```json
+{
+  "name": "CopyRestToAdlsGen2",
+  "properties": {
+    "activities": [
+      {
+        "name": "IngestApiData",
+        "type": "Copy",
+        "typeProperties": {
+          "source": { "type": "RestSource", "httpRequestTimeout": "00:05:00" },
+          "sink": {
+            "type": "ParquetSink",
+            "storeSettings": {
+              "type": "AzureBlobFSWriteSettings",
+              "copyBehavior": "PreserveHierarchy"
+            }
+          }
+        },
+        "linkedServiceName": { "referenceName": "AzureDataLakeStorageLinkedService", "type": "LinkedServiceReference" }
+      }
+    ]
+  }
+}
+```
 
-**Question & Scenario:**  
-Can you explain your experience with ETL orchestration and scheduling tools?
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
 
-**Detailed Technical Solution:**  
-In my previous projects, I have utilized ETL orchestration and scheduling tools to automate and manage the ETL processes. I have hands-on experience with tools like Airflow and Azure Data Factory. With Airflow, I have designed workflows and DAGs (Directed Acyclic Graphs) to define and schedule ETL tasks. I have used it for dependencies management, error handling, and retry mechanisms. Azure Data Factory, on the other hand, provides a serverless ETL and data integration service in the cloud. I have used it to create and manage data pipelines, define data flows, and schedule the execution of ETL jobs. These tools have helped me streamline the ETL process, ensure data accuracy, and save time through automation. Overall, my experience with ETL orchestration and scheduling tools has been instrumental in efficient data processing and management.
-
----
-
-### Q2.3: Explain your experience in working with big data technologies like Hadoop and Spark. (Big Data)
-
-**Question & Scenario:**  
-Explain your experience in working with big data technologies like Hadoop and Spark.
-
-**Detailed Technical Solution:**  
-I have worked extensively with big data technologies like Hadoop and Spark in my previous projects. As a Data Engineer, I have used Hadoop for distributed storage and processing of large datasets. I have experience working with Hadoop Distributed File System (HDFS) for data storage and have implemented data ingestion pipelines using tools like Azure Event Hubs / Kafka (legacy Flume) or custom scripts. I have also used Spark for distributed data processing and analytics. In Spark, I have worked with SparkSQL for querying structured data, Spark Streaming for real-time data processing, and Spark MLlib for machine learning tasks. I have used Scala or Python to write Spark code depending on the project requirements. Additionally, I have experience with Spark cluster management frameworks like YARN and Kubernetes. Overall, my experience with big data technologies has enabled me to handle large-scale data processing and analysis efficiently.
-
----
-
-### Q2.4: Have you worked with cloud-based data platforms like Azure Data Lake or AWS S3? If so, explain your experience and use cases. (Big Data)
-
-**Question & Scenario:**  
-Have you worked with cloud-based data platforms like Azure Data Lake or AWS S3? If so, explain your experience and use cases.
-
-**Detailed Technical Solution:**  
-Yes, I have worked with cloud-based data platforms like Azure Data Lake and AWS S3 in my previous projects. These platforms provide scalable and reliable cloud storage for big data analytics. I have used Azure Data Lake Storage Gen2 (ADLS Gen2) to store and analyze large volumes of structured and unstructured data. It offers seamless integration with other Azure services like Azure Data Factory and Azure Databricks. For example, I have built data ingestion pipelines using Azure Data Factory to bring data from on-premises sources into Azure Data Lake. I have also used AWS S3 for cloud-based data storage and have integrated it with AWS Glue for ETL processes. These platforms have provided me with the flexibility to handle large datasets, perform parallel processing, and leverage cloud-based resources for data engineering tasks.
-
----
-
-### Q2.5: Explain your experience with cloud computing platforms like Microsoft Azure or Amazon Web Services (AWS). (Big Data)
-
-**Question & Scenario:**  
-Explain your experience with cloud computing platforms like Microsoft Azure or Amazon Web Services (AWS).
-
-**Detailed Technical Solution:**  
-I have significant experience with cloud computing platforms like Microsoft Azure and Amazon Web Services (AWS). These platforms provide scalable and reliable infrastructure for data engineering tasks. In Azure, I have utilized services like Azure Data Factory, Azure Databricks, and Azure Synapse to build end-to-end data engineering solutions. I have created data pipelines, transformed data using Azure Databricks, and orchestrated the execution using Azure Data Factory. Similarly, in AWS, I have worked with services like AWS Glue, AWS S3, and AWS Redshift for data integration, storage, and analytics. These cloud platforms have provided me with the ability to scale resources based on demand, ensure data security, and leverage managed services for efficient data engineering.
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
 
 ---
 
-### Q2.6: What is Apache Iceberg? (Big Data)
+### Q2.2: Azure Synapse Serverless SQL Querying over ADLS Gen2 Parquet (Lakehouse Querying)
 
-**Question & Scenario:**  
-What is Apache Iceberg?
+**Question & Scenario:**
+> How do you query multi-terabyte Parquet files stored in ADLS Gen2 using Azure Synapse Serverless SQL with partition elimination?
 
-**Detailed Technical Solution:**  
-Apache Iceberg is an open table format for large analytics datasets. It defines how table metadata, snapshots, and data files are managed so multiple engines can read and write the same tables safely. Iceberg tables are usually stored on object storage (S3/GCS/ADLS) with files like Parquet, but the table semantics (transactions, schema/partition evolution) come from Iceberg metadata.
+**Detailed Technical Solution:**
+Azure Synapse Serverless SQL provides an on-demand, serverless T-SQL query engine that charges per TB scanned ($5/TB). By utilizing `OPENROWSET` with `filepath()` functions, the engine eliminates scanning unneeded partition directories, cutting costs and accelerating analytical reporting.
 
----
+**Production Implementation:**
+```sql
+-- Querying ADLS Gen2 Delta/Parquet using Synapse Serverless SQL
+SELECT
+    r.filepath(1) AS order_year,
+    r.filepath(2) AS order_month,
+    COUNT(order_id) AS total_orders,
+    ROUND(SUM(order_amount), 2) AS monthly_revenue
+FROM OPENROWSET(
+    BULK 'https://stdatalakeprod.dfs.core.windows.net/silver/orders/year=*/month=*/*.parquet',
+    FORMAT = 'PARQUET'
+) AS r
+WHERE r.filepath(1) = '2025'
+GROUP BY r.filepath(1), r.filepath(2)
+ORDER BY order_month ASC;
+```
 
-### Q2.7: What is Spark Streaming? (Big Data)
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
 
-**Question & Scenario:**  
-What is Spark Streaming?
-
-**Detailed Technical Solution:**  
-Spark Streaming is a very popular feature of Spark for processing live streams with a large amount of data. Spark Streaming uses Spark API to create a highly scalable, high throughput and fault tolerant system to handle live data streams. Spark Streaming supports ingestion of data from popular sources like- Kafka, Kinesis, Azure Event Hubs / Kafka (legacy Flume) etc. We can apply popular functions like map, reduce, join etc on data processed through Spark Streams. The processed data can be written to a file system or sent to databases and live dashboards.
-
----
-
-### Q2.8: How does Spark Streaming work internally? (Big Data)
-
-**Question & Scenario:**  
-How does Spark Streaming work internally?
-
-**Detailed Technical Solution:**  
-Spark Streams listen to live data streams from various sources. On receiving data, it is divided into small batches that can be handled by Spark engine. These small batches of data are processed by Spark Engine to generate another output stream of resultant data. Internally, Spark uses an abstraction called DStream (legacy Spark Streaming API) or discretized stream. A DStream (legacy Spark Streaming API) is a continuous stream of data. We can create DStream (legacy Spark Streaming API) from Kafka, Azure Event Hubs / Kafka (legacy Flume), Kinesis etc. A DStream (legacy Spark Streaming API) is nothing but a sequence of RDDs in Spark. We can apply transformations and actions on this sequence of RDDs to create further RDDs.
-
----
-
-### Q2.9: Define Spark Streaming. (Big Data)
-
-**Question & Scenario:**  
-Define Spark Streaming.
-
-**Detailed Technical Solution:**  
-Spark supports stream processing – an extension to the Spark API , allowing stream processing of live data streams. The data from different sources like Azure Event Hubs / Kafka (legacy Flume), HDFS is streamed and finally processed to file systems, live dashboards and databases. It is similar to batch processing as the input data is divided into streams like batches.
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
 
 ---
 
-### Q2.10: How is Streaming implemented in Spark? Explain with examples. (Big Data)
+### Q2.3: Microsoft Fabric OneLake Shortcut Provisioning via REST API (Data Mesh & Virtualization)
 
-**Question & Scenario:**  
-How is Streaming implemented in Spark? Explain with examples.
+**Question & Scenario:**
+> How do you programmatically provision cross-cloud shortcuts in Microsoft Fabric OneLake linking external AWS S3 or ADLS Gen2 containers?
 
-**Detailed Technical Solution:**  
-Spark Streaming is used for processing real-time streaming data. Thus it is a useful addition to the core Spark API. It enables high-throughput and fault-tolerant stream processing of live data streams. The fundamental stream unit is DStream (legacy Spark Streaming API) which is basically a series of RDDs (Resilient Distributed Datasets) to process the real-time data. The data from different sources like Azure Event Hubs / Kafka (legacy Flume), HDFS is streamed and finally processed to file systems, live dashboards and databases. It is similar to batch processing as the input data is divided into streams like batches.
+**Detailed Technical Solution:**
+Microsoft Fabric OneLake shortcuts virtualize external storage accounts into the Fabric workspace without physical data movement. Using the Fabric REST API, data engineers can programmatically create S3 or ADLS shortcuts that appear as native Delta tables to downstream Spark and Direct Lake semantic models.
 
----
+**Production Implementation:**
+```bash
+# Provisioning an AWS S3 Shortcut into Microsoft Fabric OneLake via REST API
+curl -X POST "https://api.fabric.microsoft.com/v1/workspaces/${WORKSPACE_ID}/items/${LAKEHOUSE_ID}/shortcuts" \
+  -H "Authorization: Bearer ${BEARER_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "path": "Tables",
+    "name": "s3_external_orders",
+    "target": {
+      "amazonS3": {
+        "location": "s3://prod-analytics-bucket/delta_orders",
+        "subpath": "orders"
+      }
+    }
+  }'
+```
 
-### Q2.11: What is Spark Streaming and how is it implemented in Spark? (Big Data)
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
 
-**Question & Scenario:**  
-What is Spark Streaming and how is it implemented in Spark?
-
-**Detailed Technical Solution:**  
-Spark Streaming is one of the most important features provided by Spark. It is nothing but a Spark API extension for supporting stream processing of data from different sources.
-Data from sources like Kafka, Kinesis, Azure Event Hubs / Kafka (legacy Flume), etc are processed and pushed to various destinations like databases, dashboards, machine learning APIs, or as simple as file systems. The data is divided into various streams (similar to batches) and is processed accordingly.
-Spark streaming supports highly scalable, fault-tolerant continuous stream processing which is mostly used in cases like fraud detection, website monitoring, website click baits, IoT (Internet of Things) sensors, etc.
-Spark Streaming first divides the data from the data stream into batches of X seconds which are called Dstreams or Discretized Streams. They are internally nothing but a sequence of multiple RDDs. The Spark application does the task of processing these RDDs using various Spark APIs and the results of this processing are again returned as batches. The following diagram explains the workflow of the spark streaming process.
-
----
-
-### Q2.12: How is Caching relevant in Spark Streaming? (Big Data)
-
-**Question & Scenario:**  
-How is Caching relevant in Spark Streaming?
-
-**Detailed Technical Solution:**  
-Spark Streaming involves the division of data stream’s data into batches of X seconds called DStreams. These DStreams let the developers cache the data into the memory which can be very useful in case the data of DStream (legacy Spark Streaming API) is used for multiple computations. The caching of data can be done using the cache() method or using persist() method by using appropriate persistence levels. The default persistence level value for input streams receiving data over the networks such as Kafka, Azure Event Hubs / Kafka (legacy Flume), etc is set to achieve data replication on 2 nodes to accomplish fault tolerance.
-Caching using cache method:
-val cacheDf = dframe.cache()
-Caching using persist method:
-val persistDf = dframe.persist(StorageLevel.MEMORY_ONLY)
-The main advantages of caching are:
-+ Cost efficiency: Since Spark computations are expensive, caching helps to achieve reusing of data and this leads to reuse computations which can save the cost of operations.
-+ Time-efficient: The computation reusage leads to saving a lot of time.
-+ More Jobs Achieved: By saving time of computation execution, the worker nodes can perform/execute more jobs.
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
 
 ---
 
-### Q2.13: What is DStream (legacy Spark Streaming API)? (Big Data)
+### Q2.4: Azure Databricks Cluster Automation via Azure CLI & Databricks CLI (Infrastructure)
 
-**Question & Scenario:**  
-What is DStream (legacy Spark Streaming API)?
+**Question & Scenario:**
+> How do you provision a cost-optimized, single-node or autoscaling Databricks cluster using Azure CLI and Databricks CLI?
 
-**Detailed Technical Solution:**  
-DStream (legacy Spark Streaming API) is the high-level abstraction provided by Spark Streaming. It represents a continuous stream of data. Thus, DStream (legacy Spark Streaming API) is internally a sequence of RDDs. There are two ways to create DStream (legacy Spark Streaming API):
-by using data from different sources such as Kafka, Azure Event Hubs / Kafka (legacy Flume), and Kinesis.
-by applying high-level operations on other DStreams.
+**Detailed Technical Solution:**
+Automating cluster lifecycle via CLI or Terraform ensures reproducible environments. Production best practices include enabling auto-termination (e.g. 20 minutes idle), pinning to long-term support (LTS) runtimes, and utilizing spot instances for non-driver worker nodes.
+
+**Production Implementation:**
+```json
+{
+  "cluster_name": "etl-silver-processing-cluster",
+  "spark_version": "15.4.x-scala2.12",
+  "node_type_id": "Standard_E8ds_v5",
+  "autoscale": {
+    "min_workers": 2,
+    "max_workers": 8
+  },
+  "autotermination_minutes": 20,
+  "azure_attributes": {
+    "first_on_demand": 1,
+    "availability": "SPOT_WITH_FALLBACK_AZURE"
+  }
+}
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
 
 ---
 
-### Q2.14: Discuss writeahead logging in Apache Spark Streaming. (Big Data)
+### Q2.5: Azure Event Hubs Real-Time Streaming with PySpark (Stream Ingestion)
 
-**Question & Scenario:**  
-Discuss writeahead logging in Apache Spark Streaming.
+**Question & Scenario:**
+> How do you configure Azure Event Hubs as a streaming source in PySpark Structured Streaming with SAS connection encryption?
 
-**Detailed Technical Solution:**  
-There are two types of failures in any Apache Spark job – Either the driver failure or the worker failure.
-When any worker node fails, the executor processes running in that worker node will kill, and the tasks which were scheduled on that worker node will be automatically moved to any of the other running worker nodes, and the tasks will accomplish.
-When the driver or master node fails, all of the associated worker nodes running the executors will kill, along with the data in each of the executors’ memory. In the case of files being read from reliable and fault tolerant file systems like HDFS, zero data loss is always guaranteed, as the data is ready to be read anytime from the file system. Checkpointing also ensures fault tolerance in Spark by periodically saving the application data in specific intervals.
-In the case of Spark Streaming application, zero data loss is not always guaranteed, as the data will buffer in the executors’ memory until they get processed. If the driver fails, all of the executors will kill, with the data in their memory, and the data cannot recover.
-To overcome this data loss scenario, Write Ahead Logging (WAL) has been introduced in Apache Spark 1.2. With WAL enabled, the intention of the operation is first noted down in a log file, such that if the driver fails and is restarted, the noted operations in that log file can apply to the data. For sources that read streaming data, like Kafka or Azure Event Hubs / Kafka (legacy Flume), receivers will be receiving the data, and those will store in the executor’s memory. With WAL enabled, these received data will also store in the log files.
-WAL can enable by performing the below:
-1. Setting the checkpoint directory, by using streamingContext.checkpoint(path)
-2. Enabling the WAL logging, by setting spark.stream.receiver.WriteAheadLog.enable to True.
+**Detailed Technical Solution:**
+Azure Event Hubs provides Kafka-compatible high-throughput event streaming. Using PySpark's `azure-eventhubs-spark` connector or standard Kafka protocol, engineers ingest real-time telemetry into Delta Lake Bronze tables with continuous checkpointing.
+
+**Production Implementation:**
+```python
+from pyspark.sql import SparkSession
+
+# Read streaming event payload from Azure Event Hubs
+connectionString = "Endpoint=sb://eh-prod.servicebus.windows.net/;SharedAccessKeyName=read;SharedAccessKey=xxx;EntityPath=telemetry"
+ehConf = {
+    'eventhubs.connectionString': spark._jvm.org.apache.spark.eventhubs.EventHubsUtils.encrypt(connectionString),
+    'eventhubs.consumerGroup': '$Default'
+}
+
+streaming_df = (spark.readStream
+    .format("eventhubs")
+    .options(**ehConf)
+    .load())
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
 
 ---
 
-### Q2.15: What is DStream (legacy Spark Streaming API) in Apache Spark? (Big Data)
+### Q2.6: Azure Cosmos DB Change Feed Processing in Python (Operational CDC)
 
-**Question & Scenario:**  
-What is DStream (legacy Spark Streaming API) in Apache Spark?
+**Question & Scenario:**
+> How do you process the Azure Cosmos DB Change Feed incrementally to hydrate downstream lakehouse analytics?
 
-**Detailed Technical Solution:**  
-DStream (legacy Spark Streaming API) stands for Discretized Stream. It is a sequence of Resilient Distributed Database (RDD) representing a continuous stream of data. There are several ways to create DStream (legacy Spark Streaming API) from various sources like HDFS, Apache Azure Event Hubs / Kafka (legacy Flume), Apache Kafka, etc.
+**Detailed Technical Solution:**
+Azure Cosmos DB Change Feed listens to an Azure Cosmos DB container for changes and outputs an ordered list of modified documents in the order they were modified. This enables real-time event-driven microservices and lakehouse Bronze streaming ingestion.
+
+**Production Implementation:**
+```python
+from azure.cosmos import CosmosClient
+
+client = CosmosClient("https://cosmos-prod.documents.azure.com:443/", credential="xxx")
+database = client.get_database_client("ecommerce_db")
+container = database.get_container_client("orders")
+
+# Read incremental change feed starting from beginning
+change_feed_iterator = container.query_items_change_feed(
+    is_start_from_beginning=True
+)
+for doc in change_feed_iterator:
+    print(f"Captured mutated document ID: {doc.get('id')}")
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
+
+---
+
+### Q2.7: Azure Key Vault Secret Integration with Azure Databricks (Security & Secret Scopes)
+
+**Question & Scenario:**
+> How do you securely reference sensitive database credentials and tokens stored in Azure Key Vault inside Databricks notebooks?
+
+**Detailed Technical Solution:**
+Hardcoding passwords in notebooks violates enterprise compliance. By binding Azure Key Vault as a Databricks Secret Scope backed by Azure Key Vault DNS and resource ID, engineers access credentials via `dbutils.secrets.get(scope, key)` with automatic log redacting.
+
+**Production Implementation:**
+```python
+# Retrieving database credentials securely from Azure Key Vault scope
+db_password = dbutils.secrets.get(scope="azure-keyvault-prod-scope", key="postgres-db-password")
+db_user = dbutils.secrets.get(scope="azure-keyvault-prod-scope", key="postgres-db-user")
+
+jdbc_url = f"jdbc:postgresql://postgres.internal:5432/analytics"
+# Credentials remain masked in Databricks execution logs
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
+
+---
+
+### Q2.8: ADLS Gen2 Access Control: RBAC vs POSIX ACLs (Storage Security)
+
+**Question & Scenario:**
+> What is the difference between Azure RBAC and POSIX Access Control Lists (ACLs) in Azure Data Lake Storage Gen2, and how are they configured?
+
+**Detailed Technical Solution:**
+Azure RBAC provides coarse-grained access at the Subscription, Resource Group, or Storage Account level (e.g. Storage Blob Data Reader). POSIX ACLs provide fine-grained, file-and-directory-level permissions (`rwxr-xr-x`) evaluated only after RBAC check allows access.
+
+**Production Implementation:**
+```bash
+# Setting POSIX ACLs on ADLS Gen2 directory using Azure CLI
+az storage fs access set \
+  --account-name stdatalakeprod01 \
+  --file-system silver \
+  --path "/finance/payroll" \
+  --permissions "rwxr-x---" \
+  --acl "user:d92f8b12-32a1-4321-bca8-abcdef123456:r-x"
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
+
+---
+
+### Q2.9: ADLS Gen2 Storage Lifecycle Management Policies (FinOps & Storage Hygiene)
+
+**Question & Scenario:**
+> How do you implement an automated storage tiering policy in Azure Blob / ADLS Gen2 to transition data from Hot to Cool, Cold, and Archive tiers?
+
+**Detailed Technical Solution:**
+Cloud storage costs accumulate rapidly when raw files sit indefinitely in Hot storage. Lifecycle management rules automatically transition blobs to Cool after 30 days, Archive after 90 days, and permanently purge expired logs after 365 days.
+
+**Production Implementation:**
+```json
+{
+  "rules": [
+    {
+      "name": "TierToArchiveAndExpireBronze",
+      "enabled": true,
+      "type": "Lifecycle",
+      "definition": {
+        "actions": {
+          "baseBlob": {
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
+            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
+            "delete": { "daysAfterModificationGreaterThan": 365 }
+          }
+        },
+        "filters": { "prefixMatch": ["bronze/telemetry/"] }
+      }
+    }
+  ]
+}
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
+
+---
+
+### Q2.10: Azure Monitor & Log Analytics (KQL) Querying for Data Pipeline Telemetry (Observability)
+
+**Question & Scenario:**
+> How do you query pipeline execution metrics and error states across Azure Data Factory and Synapse using Kusto Query Language (KQL)?
+
+**Detailed Technical Solution:**
+Azure Monitor routes diagnostic logs from ADF, Synapse, and Databricks into Log Analytics workspaces. Engineers write KQL queries to detect failed pipeline runs, analyze duration spikes, and trigger automated alerts.
+
+**Production Implementation:**
+```kusto
+// Identify failed ADF pipeline activities in the last 24 hours
+ADFPipelineRun
+| where TimeGenerated >= ago(24h)
+| where Status == "Failed"
+| project TimeGenerated, PipelineName, RunId, Parameters, Output
+| join kind=inner (
+    ADFActivityRun
+    | where Status == "Failed"
+    | project ActivityName, ErrorMessage, RunId
+) on RunId
+| order by TimeGenerated desc
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
+
+---
+
+### Q2.11: Microsoft Purview Automated Lineage Extraction & Asset Cataloging (Governance)
+
+**Question & Scenario:**
+> How does Microsoft Purview discover, scan, and map end-to-end data lineage across Azure SQL, ADF, and Databricks?
+
+**Detailed Technical Solution:**
+Microsoft Purview establishes automated metadata discovery by scanning Azure assets and hooking into ADF pipeline execution events. As data transforms across multi-hop architectures, Purview builds directed acyclic lineage graphs visible to compliance officers and data stewards.
+
+**Production Implementation:**
+```python
+from azure.purview.catalog import PurviewCatalogClient
+from azure.identity import DefaultAzureCredential
+
+# Query Purview Catalog for dataset asset lineage
+credential = DefaultAzureCredential()
+client = PurviewCatalogClient(endpoint="https://purview-prod.purview.azure.com", credential=credential)
+
+entity = client.entity.get_by_guid(guid="a7b3c2d1-0000-0000-0000-123456789abc")
+print(f"Asset Qualified Name: {entity['entity']['attributes']['qualifiedName']}")
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
+
+---
+
+### Q2.12: Azure Event Hub to Delta Lake Streaming Ingestion with Auto Loader (Lakehouse Streaming)
+
+**Question & Scenario:**
+> How do you architect a resilient streaming ingestion pipeline from Azure Event Hub to Delta Lake Bronze using Databricks Auto Loader?
+
+**Detailed Technical Solution:**
+Streaming events from Event Hub can be captured directly to object storage or ingested via Spark. Using Auto Loader (`cloudFiles`) with Delta Lake provides automatic schema inference, schema evolution, and exactly-once ACID append guarantees.
+
+**Production Implementation:**
+```python
+# Ingest raw JSON events to Delta Bronze via Databricks Auto Loader
+(spark.readStream
+    .format("cloudFiles")
+    .option("cloudFiles.format", "json")
+    .option("cloudFiles.schemaLocation", "abfss://checkpoints@stdatalake.dfs.core.windows.net/schema_bronze")
+    .load("abfss://raw@stdatalake.dfs.core.windows.net/landing/events/")
+    .writeStream
+    .format("delta")
+    .outputMode("append")
+    .option("checkpointLocation", "abfss://checkpoints@stdatalake.dfs.core.windows.net/cp_bronze")
+    .toTable("prod_catalog.bronze.events"))
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
+
+---
+
+### Q2.13: Azure SQL Database Serverless & Elastic Pools (Compute Rightsizing & FinOps)
+
+**Question & Scenario:**
+> What are the operational and cost differences between Azure SQL Elastic Pools and Azure SQL Serverless compute tiers?
+
+**Detailed Technical Solution:**
+Elastic Pools aggregate multi-tenant databases under a shared pool of vCores/DTUs, absorbing individual tenant burstiness at fixed cost. Azure SQL Serverless automatically scales compute on demand for single databases and auto-pauses during inactivity, billing per vCore-second.
+
+**Production Implementation:**
+```bash
+# Provisioning Azure SQL Serverless with auto-pause delay via Azure CLI
+az sql db create \
+  --resource-group rg-data-prod \
+  --server sql-server-prod01 \
+  --name db-analytics-serverless \
+  --edition GeneralPurpose \
+  --family Gen5 \
+  --compute-model Serverless \
+  --capacity 2 \
+  --min-capacity 0.5 \
+  --auto-pause-delay 60
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
+
+---
+
+### Q2.14: Azure Synapse Dedicated SQL Pool (DW) Hash Distribution Optimization (MPP Architecture)
+
+**Question & Scenario:**
+> How do you choose between Hash, Round-Robin, and Replicated distributions in Azure Synapse Dedicated SQL Pools to eliminate data movement?
+
+**Detailed Technical Solution:**
+Synapse Dedicated SQL Pools distribute tables across 60 compute nodes. Large fact tables (>100M rows) should be Hash-distributed on a non-skewed join key (e.g. `customer_id`); small dimension tables (<100MB) should be Replicated (`DISTRIBUTION = REPLICATE`) to eliminate expensive shuffle data movement (ShuffleMove).
+
+**Production Implementation:**
+```sql
+-- Creating Hash-Distributed Fact and Replicated Dimension tables
+CREATE TABLE gold.fact_sales (
+    sale_id BIGINT NOT NULL,
+    customer_id BIGINT NOT NULL,
+    product_id INT NOT NULL,
+    amount DECIMAL(18, 2) NOT NULL
+)
+WITH (
+    DISTRIBUTION = HASH(customer_id),
+    CLUSTERED COLUMNSTORE INDEX
+);
+
+CREATE TABLE gold.dim_product (
+    product_id INT NOT NULL,
+    product_name VARCHAR(100) NOT NULL
+)
+WITH (
+    DISTRIBUTION = REPLICATE,
+    CLUSTERED INDEX (product_id)
+);
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
+
+---
+
+### Q2.15: Azure Virtual Network (VNet) Service Endpoints & Private Endpoints for Storage (Network Security)
+
+**Question & Scenario:**
+> How do Private Endpoints secure Azure Data Factory, Databricks, and ADLS Gen2 communication across private IP address space?
+
+**Detailed Technical Solution:**
+Public endpoints expose storage firewalls to the open internet. Azure Private Endpoints assign private IP addresses from your virtual network (VNet) to the storage account via Private Link, routing all ETL traffic over the Microsoft global backbone and blocking all public internet ingress.
+
+**Production Implementation:**
+```bash
+# Creating an Azure Private Endpoint for ADLS Gen2 DFS sub-resource
+az network private-endpoint create \
+  --name pe-datalake-dfs \
+  --resource-group rg-networking-prod \
+  --vnet-name vnet-data-prod \
+  --subnet snet-data-private \
+  --private-connection-resource-id "/subscriptions/.../storageAccounts/stdatalakeprod01" \
+  --group-id dfs \
+  --connection-name conn-datalake-dfs
+```
+
+**Key Invariants & Architectural Gotchas:**
+- Enforce least-privilege RBAC and private networking boundaries across cloud data resources.
+- Utilize serverless or autoscaling compute with automated shutdown policies to prevent cloud waste.
+- Monitor metric telemetry via Log Analytics and KQL to proactively detect pipeline failures.
+
+**Certification Alignment:** `Microsoft Certified: Azure Data Engineer Associate (DP-203)`
 
 ---
 

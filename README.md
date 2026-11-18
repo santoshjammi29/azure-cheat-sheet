@@ -86,16 +86,80 @@ flowchart LR
 
 ---
 
-## 🖼️ Whiteboard Blueprints
+## 🖼️ Master Whiteboard Architecture Blueprints
 
-The repository includes **52 publication-grade architectural whiteboard blueprints** mirrored under `assets/whiteboards/` and cataloged in [docs/whiteboard_diagrams/README.md](docs/whiteboard_diagrams/README.md), illustrating:
-- **Microsoft Fabric OneLake & Direct Lake Mode** architecture
-- **Azure Landing Zone Hub-and-Spoke** zero-trust perimeters
-- **GenAI Hybrid RAG** (Azure OpenAI + AI Search + APIM)
-- **Real-Time IoT Streaming** (Event Hubs + Flink + Cosmos DB)
-- **Azure SQL & Synapse Dedicated Pool** performance tuning
+The repository includes **52 publication-grade architectural whiteboard blueprints** mirrored under [`assets/whiteboards/`](assets/whiteboards) and cataloged with comprehensive multi-persona breakdowns, failure modes, and engine internals in [`docs/whiteboard_diagrams/README.md`](docs/whiteboard_diagrams/README.md).
 
----
+### 📐 Visual Blueprints Showcase
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#fabric-onelake-architecture">
+        <img src="assets/whiteboards/fabric_onelake_architecture.webp" alt="Microsoft Fabric Unified Architecture & OneLake" width="100%" />
+      </a>
+      <br><strong>Microsoft Fabric Unified Architecture & OneLake</strong><br>
+      <em>Single SaaS lakehouse with zero data duplication, multi-engine compute, and cross-cloud shortcuts.</em>
+    </td>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#adf-hybrid-integration-runtime">
+        <img src="assets/whiteboards/adf_hybrid_architecture.webp" alt="Azure Data Factory Enterprise Hybrid Ingestion Architecture" width="100%" />
+      </a>
+      <br><strong>Azure Data Factory Enterprise Hybrid Ingestion Architecture</strong><br>
+      <em>Self-hosted integration runtimes, managed virtual networks, and hybrid ingestion topology.</em>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#powerbi-direct-lake-vertipaq">
+        <img src="assets/whiteboards/powerbi_direct_lake_vertipaq.webp" alt="Power BI Direct Lake Mode & VertiPaq Semantic Engine" width="100%" />
+      </a>
+      <br><strong>Power BI Direct Lake Mode & VertiPaq Semantic Engine</strong><br>
+      <em>Zero-latency semantic model paging directly over OneLake Delta Parquet.</em>
+    </td>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#fabric-onelake-direct-lake-architecture">
+        <img src="assets/whiteboards/fabric_onelake_direct_lake_architecture.webp" alt="Microsoft Fabric OneLake Shortcuts & Direct Lake Mode" width="100%" />
+      </a>
+      <br><strong>Microsoft Fabric OneLake Shortcuts & Direct Lake Mode</strong><br>
+      <em>Cross-cloud storage virtualization linking AWS S3 and ADLS Gen2 with zero egress.</em>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#purview-governance-catalog">
+        <img src="assets/whiteboards/purview_governance_catalog.webp" alt="Microsoft Purview Enterprise Governance Architecture" width="100%" />
+      </a>
+      <br><strong>Microsoft Purview Enterprise Governance Architecture</strong><br>
+      <em>Automated asset scanning, sensitivity labeling, and cross-platform lineage graphs.</em>
+    </td>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#powerbi-dax-engine-context">
+        <img src="assets/whiteboards/powerbi_dax_engine_context.webp" alt="Power BI DAX Engine Mechanics & Context Transition" width="100%" />
+      </a>
+      <br><strong>Power BI DAX Engine Mechanics & Context Transition</strong><br>
+      <em>Row context, filter context, VertiPaq scan operators, and evaluation flow.</em>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#rag-vector-search-data-pipeline">
+        <img src="assets/whiteboards/rag_vector_search_data_pipeline.webp" alt="Enterprise RAG & Hybrid Vector Search Architecture" width="100%" />
+      </a>
+      <br><strong>Enterprise RAG & Hybrid Vector Search Architecture</strong><br>
+      <em>Chunking, embedding generation, Azure AI Search vector indexing, and grounded LLM synthesis.</em>
+    </td>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#lakehouse-bcdr-failover">
+        <img src="assets/whiteboards/lakehouse_bcdr_failover_architecture.webp" alt="Lakehouse Disaster Recovery (BCDR) Cross-Region Failover" width="100%" />
+      </a>
+      <br><strong>Lakehouse Disaster Recovery (BCDR) Cross-Region Failover</strong><br>
+      <em>Active-passive storage replication, DNS failover routing, and split-brain prevention.</em>
+    </td>
+  </tr>
+</table>
+
+> 🔍 **Explore all 52 blueprints with 5-persona breakdowns, failure modes, and engine internals in [docs/whiteboard_diagrams/README.md](docs/whiteboard_diagrams/README.md)**.
 
 ## 💻 Interactive CLI Explorer
 

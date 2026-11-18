@@ -1,5 +1,15 @@
 # 🌐 Architecture Blueprint: Enterprise Landing Zone & Zero-Trust Hub-Spoke Network
 
+
+![Azure Data Factory Enterprise Hybrid Ingestion Architecture](../assets/whiteboards/adf_hybrid_architecture.webp)
+> *Architectural Blueprint: [Azure Data Factory Enterprise Hybrid Ingestion Architecture](../docs/whiteboard_diagrams/README.md#adf-hybrid-integration-runtime). View full multi-persona breakdown and engine mechanisms in the master index.*
+
+
+![Microsoft Purview Enterprise Governance Architecture](../assets/whiteboards/purview_governance_catalog.webp)
+> *Architectural Blueprint: [Microsoft Purview Enterprise Governance Architecture](../docs/whiteboard_diagrams/README.md#purview-governance-catalog). View full multi-persona breakdown and engine mechanisms in the master index.*
+
+
+
 A production-grade reference architecture for implementing an **Azure Landing Zone (ALZ)** based on the **Microsoft Cloud Adoption Framework (CAF)** with a secure **Hub-and-Spoke** network topology.
 
 ---

@@ -1,5 +1,15 @@
 # ⚡ Architecture Blueprint: High-Throughput Real-Time Streaming & IoT Platform
 
+
+![Real-Time Event Streaming & Kafka Architecture](../assets/whiteboards/kafka_event_streaming_pipeline.webp)
+> *Architectural Blueprint: [Real-Time Event Streaming & Kafka Architecture](../docs/whiteboard_diagrams/README.md#kafka-event-streaming-pipeline). View full multi-persona breakdown and engine mechanisms in the master index.*
+
+
+![Spark Structured Streaming State Store & Watermarking Mechanics](../assets/whiteboards/spark_streaming_state_store.webp)
+> *Architectural Blueprint: [Spark Structured Streaming State Store & Watermarking Mechanics](../docs/whiteboard_diagrams/README.md#spark-streaming-state-store). View full multi-persona breakdown and engine mechanisms in the master index.*
+
+
+
 A production-proven reference architecture for ingesting, processing, and analyzing **millions of events per second** using **Azure Event Hubs**, **Apache Flink / Databricks Structured Streaming**, **Azure Cosmos DB**, and **Microsoft Fabric Real-Time Intelligence**.
 
 ---
