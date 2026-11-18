@@ -147,3 +147,62 @@ sequenceDiagram
 ---
 
 [← Back to Main Cheat Sheet](../README.md)
+
+---
+
+## 4. Azure AI Search Hybrid Retrieval & Enterprise Agent Evaluation
+
+Production RAG architectures on Azure combine **Azure AI Search hybrid retrieval** (dense vector embeddings + sparse BM25 + cross-encoder semantic reranker) with automated **LLM-as-a-judge evaluation**.
+
+```mermaid
+flowchart TD
+    subgraph QueryIngress["User Query"]
+        Q["'How do I configure managed identity for ADF?'"]
+    end
+
+    subgraph HybridEngine["Azure AI Search Hybrid Retrieval"]
+        Dense["Dense Vector Search (text-embedding-3-large, 3072-dim)"]
+        Sparse["Sparse Lexical Keyword Search (BM25)"]
+        RRF["Reciprocal Rank Fusion (RRF Algorithm)"]
+        Reranker["Cross-Encoder Semantic Reranker (Top 5 Passages)"]
+    end
+
+    subgraph LLMGateway["Azure OpenAI Service (Private Endpoint)"]
+        GPT4["GPT-4o Grounded Synthesis"]
+        EvalJudge["Agent Evaluation: Groundedness & Hallucination Score"]
+    end
+
+    Q --> Dense & Sparse --> RRF --> Reranker --> GPT4 --> EvalJudge
+```
+
+### Production Implementation: Azure AI Search Hybrid Querying in Python
+```python
+from azure.search.documents import SearchClient
+from azure.search.documents.models import VectorizedQuery
+from azure.identity import DefaultAzureCredential
+
+# Execute hybrid retrieval with semantic reranking
+search_client = SearchClient(
+    endpoint="https://ai-search-prod.search.windows.net",
+    index_name="kb-docs-hybrid-index",
+    credential=DefaultAzureCredential()
+)
+
+vector_query = VectorizedQuery(
+    vector=[0.021, -0.014, ...], # 3072-dimensional embedding
+    k_nearest_neighbors=50,
+    fields="content_vector"
+)
+
+results = search_client.search(
+    search_text="ADF Managed Identity ADLS Gen2",
+    vector_queries=[vector_query],
+    query_type="semantic",
+    semantic_configuration_name="default-semantic-config",
+    top=5
+)
+```
+
+### Key RAG Security & Evaluation Invariants:
+- **Zero Public Ingress**: Azure OpenAI and AI Search communicate strictly across Azure Private Link private endpoints.
+- **Automated Groundedness Guardrails**: Answers must score $\ge 0.85$ on faithfulness before returning to enterprise consumers.

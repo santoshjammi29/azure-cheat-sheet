@@ -161,3 +161,47 @@ sequenceDiagram
 ---
 
 [← Back to Main Cheat Sheet](../README.md)
+
+---
+
+## 4. Fabric Real-Time Intelligence (Eventhouse) & Direct Lake VertiPaq Acceleration
+
+Microsoft Fabric integrates **Real-Time Intelligence (Eventhouse)** with **Direct Lake mode**, enabling sub-second query latency directly over raw streaming Delta Parquet without traditional import refreshes.
+
+```mermaid
+flowchart LR
+    subgraph IngestPlane["Streaming & Operational Feeds"]
+        IoT["IoT Telemetry / Event Hubs"]
+        CDC["Azure Cosmos DB Change Feed"]
+    end
+
+    subgraph EventhouseEngine["Fabric Real-Time Intelligence (KQL Eventhouse)"]
+        Shards["High-Throughput Ingestion Shards"]
+        DeltaSync["Automatic Background Delta Sync Daemon"]
+    end
+
+    subgraph OneLakeStore["OneLake Central Lakehouse"]
+        DeltaParquet["Delta Parquet with V-Order Layout"]
+    end
+
+    subgraph DirectLakeBI["Power BI Direct Lake Semantic Engine"]
+        VertiPaq["VertiPaq Columnar Memory Paging (< 200ms DAX)"]
+        Copilot["Fabric Copilot Conversational Exploration"]
+    end
+
+    IngestPlane --> Shards --> DeltaSync --> DeltaParquet --> VertiPaq --> Copilot
+```
+
+### Production Implementation: Fabric KQL Querying & Direct Lake Integration
+```kusto
+// Kusto Query Language (KQL) streaming analytics in Fabric Eventhouse
+TelemetryLogs
+| where Timestamp >= ago(15m)
+| where SeverityLevel == "CRITICAL"
+| summarize ErrorCount = count(), P99Latency = percentile(LatencyMs, 99) by ServiceName
+| order by ErrorCount desc
+```
+
+### Key Real-Time Invariants:
+- **Zero ETL Data Duplication**: Eventhouse automatically materializes incoming streaming logs as standardized Delta Parquet in OneLake.
+- **V-Order Memory Paging**: Delta Parquet files are organized with Microsoft V-Order sorting, enabling VertiPaq to map files directly into memory without transcoding.
