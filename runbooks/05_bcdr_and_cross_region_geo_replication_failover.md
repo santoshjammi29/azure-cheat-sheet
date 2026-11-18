@@ -31,7 +31,7 @@ flowchart TD
 ### Step 1: Check Last Sync Time for Geo-Redundant Storage
 Before triggering customer-initiated storage failover, inspect the replication lag:
 ```bash
-# Check last sync time for secondary region
+# Check secondary region replication lag
 az storage account show \
   --name stanalyticsdata \
   --resource-group rg-storage-prod \

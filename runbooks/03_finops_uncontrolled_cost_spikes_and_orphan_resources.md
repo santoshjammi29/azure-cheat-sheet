@@ -54,9 +54,9 @@ az disk list \
 - **Remediation & Recovery Strategy**:
   1. Delete unattached orphaned disks (or snapshot first if archival is needed):
      ```bash
-     # Snapshot before deletion if required
+     # Snapshot disk before deletion
      az snapshot create --resource-group rg-prod --source {diskId} --name snap-archived-disk
-     # Delete orphan disk
+     # Delete unattached managed disk
      az disk delete --resource-group rg-prod --name {orphanDiskName} --yes
      ```
   2. Release unassociated Public IP addresses:

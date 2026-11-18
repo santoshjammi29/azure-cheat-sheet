@@ -29,7 +29,7 @@ flowchart TD
 
 ### Step 1: Check Service Principal Secret Expiration
 ```bash
-# Check expiration timestamp of service principal credentials
+# Check Service Principal expiration date
 az ad app credential list \
   --id {appId} \
   --query "[].{KeyId:keyId, EndDate:endDateTime, Hint:hint}" \
@@ -40,7 +40,7 @@ If `EndDate` is in the past, Entra ID rejects all token acquisition requests wit
 
 ### Step 2: Test Key Vault Secret Retrieval
 ```bash
-# Test whether Key Vault responds or returns 403 Forbidden
+# Test Key Vault secret access
 az keyvault secret show \
   --vault-name kv-production-prod \
   --name db-connection-string \

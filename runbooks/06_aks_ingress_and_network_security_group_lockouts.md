@@ -29,7 +29,7 @@ flowchart TD
 
 ### Step 1: Inspect Application Gateway Backend Health
 ```bash
-# Check real-time backend pool health via CLI
+# Check App Gateway backend pool health
 az network application-gateway show-backend-health \
   --resource-group rg-aks-networking \
   --name agw-ingress-prod \

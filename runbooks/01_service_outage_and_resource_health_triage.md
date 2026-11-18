@@ -39,7 +39,7 @@ az rest --method get \
 ### Step 2: Query Targeted Resource Health
 Check the real-time operational state of your critical database or compute resource:
 ```bash
-# Check specific resource availability status (Available, Degraded, Unavailable, Unknown)
+# Check specific resource availability status
 az resource-health status show \
   --resource-group rg-production-eastus \
   --resource-name sql-finance-prod \
@@ -57,7 +57,7 @@ az resource-health status show \
   1. **Activate Global Traffic Rerouting via Azure Front Door**:
      Reroute backend endpoint traffic weighting to the secondary region (e.g. West US):
      ```bash
-     # Update Front Door backend pool weighting to 0 for degraded region
+     # Set Front Door weighting to 0 for degraded region
      az afd endpoint update \
        --resource-group rg-global-networking \
        --profile-name afd-production \
