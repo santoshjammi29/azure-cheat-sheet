@@ -1,0 +1,202 @@
+{
+  "repo": "azure-cheat-sheet",
+  "github": "santoshjammi29/azure-cheat-sheet",
+  "name": "Azure Cheat Sheet",
+  "role": "Azure Lakehouse & Infrastructure: Microsoft Fabric OneLake, Synapse, Bicep IaC, vector cheat sheets",
+  "last_synced": "2026-11-20T08:25:01.800122Z",
+  "entry_count": 16,
+  "entries": [
+    {
+      "id": "azure-cheat-sheet-rb-01_service_outage_and_resource_health_triage",
+      "type": "incident_runbook",
+      "title": "Incident Runbook: Service Outage And Resource Health Triage",
+      "difficulty": "L400",
+      "relative_path": "runbooks/01_service_outage_and_resource_health_triage.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-rb-02_vnet_peering_and_private_endpoint_dns_failures",
+      "type": "incident_runbook",
+      "title": "Incident Runbook: Vnet Peering And Private Endpoint Dns Failures",
+      "difficulty": "L400",
+      "relative_path": "runbooks/02_vnet_peering_and_private_endpoint_dns_failures.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-rb-03_finops_uncontrolled_cost_spikes_and_orphan_resources",
+      "type": "incident_runbook",
+      "title": "Incident Runbook: Finops Uncontrolled Cost Spikes And Orphan Resources",
+      "difficulty": "L400",
+      "relative_path": "runbooks/03_finops_uncontrolled_cost_spikes_and_orphan_resources.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-rb-04_entra_id_rbac_and_keyvault_secret_rotation_disasters",
+      "type": "incident_runbook",
+      "title": "Incident Runbook: Entra Id Rbac And Keyvault Secret Rotation Disasters",
+      "difficulty": "L400",
+      "relative_path": "runbooks/04_entra_id_rbac_and_keyvault_secret_rotation_disasters.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-rb-05_bcdr_and_cross_region_geo_replication_failover",
+      "type": "incident_runbook",
+      "title": "Incident Runbook: Bcdr And Cross Region Geo Replication Failover",
+      "difficulty": "L400",
+      "relative_path": "runbooks/05_bcdr_and_cross_region_geo_replication_failover.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-rb-06_aks_ingress_and_network_security_group_lockouts",
+      "type": "incident_runbook",
+      "title": "Incident Runbook: Aks Ingress And Network Security Group Lockouts",
+      "difficulty": "L400",
+      "relative_path": "runbooks/06_aks_ingress_and_network_security_group_lockouts.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-doc-enterprise-lakehouse-fabric",
+      "type": "architecture_blueprint",
+      "title": "Architecture: Enterprise Lakehouse Fabric",
+      "difficulty": "L400",
+      "relative_path": "architectures/enterprise-lakehouse-fabric.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-doc-enterprise-landing-zone-hub-spoke",
+      "type": "architecture_blueprint",
+      "title": "Architecture: Enterprise Landing Zone Hub Spoke",
+      "difficulty": "L400",
+      "relative_path": "architectures/enterprise-landing-zone-hub-spoke.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-doc-genai-rag-openai-search",
+      "type": "architecture_blueprint",
+      "title": "Architecture: Genai Rag Openai Search",
+      "difficulty": "L400",
+      "relative_path": "architectures/genai-rag-openai-search.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-doc-real-time-streaming-iot",
+      "type": "architecture_blueprint",
+      "title": "Architecture: Real Time Streaming Iot",
+      "difficulty": "L400",
+      "relative_path": "architectures/real-time-streaming-iot.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-cs-azure-cli-cheat-sheet",
+      "type": "reference_cheatsheet",
+      "title": "Cheat Sheet: Azure Cli Cheat Sheet",
+      "difficulty": "L200",
+      "relative_path": "cheatsheets/azure-cli-cheat-sheet.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-cs-azure-service-map-and-renames",
+      "type": "reference_cheatsheet",
+      "title": "Cheat Sheet: Azure Service Map And Renames",
+      "difficulty": "L200",
+      "relative_path": "cheatsheets/azure-service-map-and-renames.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-cs-bicep-iac-cheat-sheet",
+      "type": "reference_cheatsheet",
+      "title": "Cheat Sheet: Bicep Iac Cheat Sheet",
+      "difficulty": "L200",
+      "relative_path": "cheatsheets/bicep-iac-cheat-sheet.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-cs-decision-matrices",
+      "type": "reference_cheatsheet",
+      "title": "Cheat Sheet: Decision Matrices",
+      "difficulty": "L200",
+      "relative_path": "cheatsheets/decision-matrices.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-cs-finops-and-cost-optimization",
+      "type": "reference_cheatsheet",
+      "title": "Cheat Sheet: Finops And Cost Optimization",
+      "difficulty": "L200",
+      "relative_path": "cheatsheets/finops-and-cost-optimization.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-cs-security-zero-trust",
+      "type": "reference_cheatsheet",
+      "title": "Cheat Sheet: Security Zero Trust",
+      "difficulty": "L200",
+      "relative_path": "cheatsheets/security-zero-trust.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    }
+  ]
+}
