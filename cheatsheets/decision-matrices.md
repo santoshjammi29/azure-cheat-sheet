@@ -17,19 +17,19 @@ Definitive decision matrices and flowcharts for choosing the optimal Azure servi
 
 ```mermaid
 flowchart TD
-    Start([New Workload Deployment]) --> Q_OS{Do you need direct OS / kernel access or custom drivers?}
-    Q_OS -- Yes --> VM[Azure Virtual Machines / VMSS]
-    Q_OS -- No --> Q_Container{Is application packaged in Docker containers?}
+    Start([New Workload Deployment]) --> Q_OS{"Do you need direct OS / kernel access or custom drivers?"}
+    Q_OS -- Yes --> VM["Azure Virtual Machines / VMSS"]
+    Q_OS -- No --> Q_Container{"Is application packaged in Docker containers?"}
     
-    Q_Container -- No --> Q_EventDriven{Is it pure event-driven code executed on triggers?}
-    Q_EventDriven -- Yes --> Fn[Azure Functions (Serverless)]
-    Q_EventDriven -- No --> AppService[Azure App Service (PaaS Web/API)]
+    Q_Container -- No --> Q_EventDriven{"Is it pure event-driven code executed on triggers?"}
+    Q_EventDriven -- Yes --> Fn["Azure Functions (Serverless)"]
+    Q_EventDriven -- No --> AppService["Azure App Service (PaaS Web/API)"]
 
-    Q_Container -- Yes --> Q_K8sOrchestration{Do you need full Kubernetes API, custom CRDs, or fine-grained cluster control?}
-    Q_K8sOrchestration -- Yes --> AKS[Azure Kubernetes Service (AKS)]
-    Q_K8sOrchestration -- No --> Q_Microservices{Microservices with Dapr, KEDA, and scale-to-zero?}
-    Q_Microservices -- Yes --> ACA[Azure Container Apps (ACA)]
-    Q_Microservices -- No --> AppServiceContainer[App Service on Containers / ACI]
+    Q_Container -- Yes --> Q_K8sOrchestration{"Do you need full Kubernetes API, custom CRDs, or fine-grained cluster control?"}
+    Q_K8sOrchestration -- Yes --> AKS["Azure Kubernetes Service (AKS)"]
+    Q_K8sOrchestration -- No --> Q_Microservices{"Microservices with Dapr, KEDA, and scale-to-zero?"}
+    Q_Microservices -- Yes --> ACA["Azure Container Apps (ACA)"]
+    Q_Microservices -- No --> AppServiceContainer["App Service on Containers / ACI"]
 ```
 
 ### Compute Services Comparison
@@ -50,22 +50,22 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    StartData([Storage / Database Selection]) --> Q_Structured{Structured relational data with strict SQL ACID?}
+    StartData([Storage / Database Selection]) --> Q_Structured{"Structured relational data with strict SQL ACID?"}
     
-    Q_Structured -- Yes --> Q_Scale{Single-node RDBMS or globally distributed multi-region?}
-    Q_Scale -- Multi-Region / NoSQL --> Cosmos[Azure Cosmos DB]
-    Q_Scale -- Single-Node / HA --> Q_Engine{Preferred SQL Engine?}
-    Q_Engine -- T-SQL / SQL Server --> AzureSQL[Azure SQL Database / Managed Instance]
-    Q_Engine -- PostgreSQL --> PgFlex[Azure Database for PostgreSQL Flexible]
-    Q_Engine -- MySQL --> MyFlex[Azure Database for MySQL Flexible]
+    Q_Structured -- Yes --> Q_Scale{"Single-node RDBMS or globally distributed multi-region?"}
+    Q_Scale -- Multi-Region / NoSQL --> Cosmos["Azure Cosmos DB"]
+    Q_Scale -- Single-Node / HA --> Q_Engine{"Preferred SQL Engine?"}
+    Q_Engine -- T-SQL / SQL Server --> AzureSQL["Azure SQL Database / Managed Instance"]
+    Q_Engine -- PostgreSQL --> PgFlex["Azure Database for PostgreSQL Flexible"]
+    Q_Engine -- MySQL --> MyFlex["Azure Database for MySQL Flexible"]
     
-    Q_Structured -- No --> Q_DataLake{Analytical Big Data Lakehouse or General File/Object?}
-    Q_DataLake -- Analytical Lakehouse --> ADLS[Azure Data Lake Storage Gen2 (HNS)]
-    Q_DataLake -- General File/Object --> Q_Protocol{File Protocol (SMB/NFS) or HTTP REST?}
-    Q_Protocol -- HTTP REST Blob --> Blob[Azure Blob Storage]
-    Q_Protocol -- SMB / Enterprise NFS --> Q_IOPS{Ultra-high IOPS / sub-millisecond?}
-    Q_IOPS -- Yes --> ANF[Azure NetApp Files]
-    Q_IOPS -- Standard --> AzureFiles[Azure Files]
+    Q_Structured -- No --> Q_DataLake{"Analytical Big Data Lakehouse or General File/Object?"}
+    Q_DataLake -- Analytical Lakehouse --> ADLS["Azure Data Lake Storage Gen2 (HNS)"]
+    Q_DataLake -- General File/Object --> Q_Protocol{"File Protocol (SMB/NFS) or HTTP REST?"}
+    Q_Protocol -- HTTP REST Blob --> Blob["Azure Blob Storage"]
+    Q_Protocol -- SMB / Enterprise NFS --> Q_IOPS{"Ultra-high IOPS / sub-millisecond?"}
+    Q_IOPS -- Yes --> ANF["Azure NetApp Files"]
+    Q_IOPS -- Standard --> AzureFiles["Azure Files"]
 ```
 
 ### Database Comparison

@@ -73,8 +73,8 @@ flowchart TD
         AppSvc["App Service (Regional VNet Integration)"]
     end
 
-    Firewall <-->|VNet Peering + UDR (0.0.0.0/0)| Spoke_Data
-    Firewall <-->|VNet Peering + UDR (0.0.0.0/0)| Spoke_Apps
+    Firewall <-->|VNet Peering + UDR: 0.0.0.0/0| Spoke_Data
+    Firewall <-->|VNet Peering + UDR: 0.0.0.0/0| Spoke_Apps
 ```
 
 ---
