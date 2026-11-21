@@ -658,7 +658,7 @@ If you find this cheat sheet and architectural repository valuable:
 
 ### 🌐 Ecosystem Interlinking & Sister Repositories
 
-The Modern Data Engineering Lakehouse Ecosystem is an integrated suite of 13 production-grade, specialized repositories anchored by the **[Modern Data Engineer Platform (`moderndataengineer.uk`)](https://github.com/santoshjammi29/moderndataengineer)**. Use this cross-reference matrix to navigate directly between complementary implementations across our repositories:
+The Modern Data Engineering Lakehouse Ecosystem is an integrated suite of 14 production-grade, specialized repositories anchored by the **[Modern Data Engineer Platform (`moderndataengineer.uk`)](https://github.com/santoshjammi29/moderndataengineer)**. Use this cross-reference matrix to navigate directly between complementary implementations across our repositories:
 
 | Repository | Focus & Domain | Tightly Coupled Cross-Reference & Integration Points |
 | :--- | :--- | :--- |
@@ -673,6 +673,7 @@ The Modern Data Engineering Lakehouse Ecosystem is an integrated suite of 13 pro
 | **[Banking Risk Lakehouse](https://github.com/santoshjammi29/enterprise-banking-risk-alm-lakehouse)** | Regulated Financial Lakehouse (BCBS 239 & IFRS 9) | • **Purview Governance & Compliance**: Enforcing EU banking sensitivity labels, automated PII discovery, and audit lineage.<br>• **Private Endpoints**: Zero-trust network isolation for financial calculation engines. |
 | **[Spark Experiments](https://github.com/santoshjammi29/spark-experiments)** | Empirical Skew, Salting & Spill Laboratory | • **Fabric Spark Benchmarks**: Validating AQE Skew Join efficiency and two-phase salting under heavy data skew.<br>• **Memory Allocation**: Benchmarking executor heap memory and off-heap limits. |
 | **[Interview Handbook](https://github.com/santoshjammi29/data-engineering-interview-handbook)** | Architectural Defense Playbooks & Concepts | • **Azure & Fabric Defense**: Architectural defense scenarios for OneLake, Direct Lake, Synapse DW, and Purview governance.<br>• **20 Knowledge Pillars**: Multi-plane architectural blueprints covering Azure data ecosystems. |
+| **[The Security Handbook](https://github.com/santoshjammi29/security-handbook)** | Enterprise Cloud Security, Zero Trust & Lakehouse Governance | • **Zero Trust Lakehouse Perimeter**: Private endpoints, NSGs, and Azure Key Vault envelope encryption.<br>• **Workload Identity Federation**: Keyless GitHub Actions OIDC and Azure Managed Identities. |
 | **[Modern Data Engineer Hub](https://github.com/santoshjammi29/moderndataengineer)** | Central Edge Presentation Platform | • **Interactive Whiteboard Viewer**: Pan, zoom, and inspect all 52 blueprints at [moderndataengineer.uk/whiteboards](https://moderndataengineer.uk/whiteboards).<br>• **Cheat Sheets Hub**: Interactive cheat sheets and vector A4 PDF downloads. |
 
 
