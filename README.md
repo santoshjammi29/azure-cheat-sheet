@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/repo-header.svg" width="100%" alt="Repository Header Banner" />
+</p>
+
 # ⚡ The Modern Microsoft Azure Developer & Architect Cheat Sheet
 
 [![CI Validation](https://github.com/santoshjammi29/azure-cheat-sheet/actions/workflows/ci.yml/badge.svg)](https://github.com/santoshjammi29/azure-cheat-sheet/actions)
