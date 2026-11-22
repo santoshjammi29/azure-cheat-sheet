@@ -11,7 +11,7 @@
 ```mermaid
 flowchart TD
     OutageAlert["🚨 Widespread Azure Service Unavailability or Elevated 5xx Errors"] --> CheckScope{"Is Incident Multi-Resource or Single-Service?"}
-    
+
     CheckScope -->|"Multiple Services Unreachable in Region"| ServiceHealthCheck["Query Azure Service Health & Resource Health via CLI"]
     CheckScope -->|"Single Resource Fails"| TenantTriage["Tenant Configuration / Quota / App Crash Triage"]
 

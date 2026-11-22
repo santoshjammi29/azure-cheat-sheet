@@ -11,7 +11,7 @@
 ```mermaid
 flowchart TD
     DisasterDeclared["🚨 Official Azure BCDR Disaster Declared for Primary Region"] --> CheckRPO{"Evaluate RPO vs RTO Trade-off"}
-    
+
     CheckRPO --> PlanStorage["Storage Account Failover (GRS/GZRS)"]
     CheckRPO --> PlanSQL["Azure SQL Auto-Failover Group"]
     CheckRPO --> PlanCosmos["Cosmos DB Write Region Promotion"]

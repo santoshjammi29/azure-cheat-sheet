@@ -11,7 +11,7 @@
 ```mermaid
 flowchart TD
     AuthAlert["🚨 Application Crashes with 401/403 Authentication Failure"] --> IdentifyType{"What Identity Mechanism is Used?"}
-    
+
     IdentifyType -->|"Service Principal (App Registration)"| SPTriage["Check Client Secret / Certificate Expiration"]
     IdentifyType -->|"Azure Key Vault Secret Access"| KVTriage["Check Key Vault Access Policy vs RBAC Mode"]
     IdentifyType -->|"Managed Identity"| MITriage["Check Role Assignment at Scope (Subscription/RG/Resource)"]
@@ -90,7 +90,6 @@ az keyvault secret show \
 - [ ] Transition from static Service Principal secrets to **User-Assigned Managed Identities** (zero secrets to rotate!).
 - [ ] For remaining Service Principals, configure Azure Event Grid alerts 30 days and 7 days prior to credential expiration.
 - [ ] Key Vault soft-delete and purge protection enabled to prevent accidental secret loss.
-
 
 ---
 

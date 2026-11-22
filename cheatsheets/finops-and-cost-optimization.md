@@ -23,7 +23,7 @@ flowchart LR
     Pillar2 --> Pillar3[3. Storage Tiering]
     Pillar3 --> Pillar4[4. Automated Schedules]
     Pillar4 --> Pillar5[5. Orphan Hunting]
-    
+
     Pillar1 -.->|15-30% Savings| Target((Total 40-70% Cost Reduction))
     Pillar2 -.->|30-65% Savings| Target
     Pillar3 -.->|40-80% Storage Savings| Target

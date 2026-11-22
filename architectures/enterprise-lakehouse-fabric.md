@@ -1,18 +1,13 @@
 # 🏛️ Architecture Blueprint: Enterprise Unified Lakehouse with Microsoft Fabric & Azure Databricks
 
-
 ![Microsoft Fabric Unified Architecture & OneLake](../assets/whiteboards/fabric_onelake_architecture.webp)
 > *Architectural Blueprint: [Microsoft Fabric Unified Architecture & OneLake](../docs/whiteboard_diagrams/README.md#fabric-onelake-architecture). View full multi-persona breakdown and engine mechanisms in the master index.*
-
 
 ![Power BI Direct Lake Mode & VertiPaq Semantic Engine](../assets/whiteboards/powerbi_direct_lake_vertipaq.webp)
 > *Architectural Blueprint: [Power BI Direct Lake Mode & VertiPaq Semantic Engine](../docs/whiteboard_diagrams/README.md#powerbi-direct-lake-vertipaq). View full multi-persona breakdown and engine mechanisms in the master index.*
 
-
 ![Microsoft Fabric OneLake Shortcuts & Direct Lake Mode](../assets/whiteboards/fabric_onelake_direct_lake_architecture.webp)
 > *Architectural Blueprint: [Microsoft Fabric OneLake Shortcuts & Direct Lake Mode](../docs/whiteboard_diagrams/README.md#fabric-onelake-direct-lake-architecture). View full multi-persona breakdown and engine mechanisms in the master index.*
-
-
 
 A production-tested blueprint for architecting a multi-engine, enterprise-grade Lakehouse unifying **Microsoft Fabric OneLake**, **Azure Databricks with Unity Catalog**, and **Power BI Direct Lake mode**.
 

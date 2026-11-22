@@ -374,7 +374,7 @@ flowchart TD
     StartCompute([Workload to Host]) --> Q_BareMetal{Direct OS / kernel / GPU access required?}
     Q_BareMetal -- Yes --> VM["Azure VMs / VMSS"]
     Q_BareMetal -- No --> Q_Docker{Packaged in Docker Container?}
-    
+
     Q_Docker -- No --> Q_Trigger{Pure Event-Driven Trigger?}
     Q_Trigger -- Yes --> Fn["Azure Functions (Flex Consumption)"]
     Q_Trigger -- No --> AppSvc["Azure App Service (PaaS)"]
@@ -389,13 +389,13 @@ flowchart TD
 ```mermaid
 flowchart TD
     StartData([Storage / DB Selection]) --> Q_Model{Structured Relational or Semi-structured / NoSQL?}
-    
+
     Q_Model -- Relational --> Q_Global{Global Multi-Region Active-Active?}
     Q_Global -- Yes --> CosmosSQL["Azure Cosmos DB"]
     Q_Global -- No --> Q_Engine{Target Engine?}
     Q_Engine -- T-SQL --> AzureSQL["Azure SQL Database / Hyperscale"]
     Q_Engine -- PostgreSQL --> PgFlex["PostgreSQL Flexible Server (pgvector)"]
-    
+
     Q_Model -- Semi-structured / Big Data --> Q_Analytics{Analytical Lakehouse or General Object?}
     Q_Analytics -- Lakehouse --> ADLS["ADLS Gen2 / OneLake (Delta Lake)"]
     Q_Analytics -- General Object --> Blob["Azure Blob Storage"]
@@ -680,7 +680,6 @@ The Modern Data Engineering Lakehouse Ecosystem is an integrated suite of 14 pro
 | **[Interview Handbook](https://github.com/santoshjammi29/data-engineering-interview-handbook)** | Architectural Defense Playbooks & Concepts | • **Azure & Fabric Defense**: Architectural defense scenarios for OneLake, Direct Lake, Synapse DW, and Purview governance.<br>• **20 Knowledge Pillars**: Multi-plane architectural blueprints covering Azure data ecosystems. |
 | **[The Security Handbook](https://github.com/santoshjammi29/security-handbook)** | Enterprise Cloud Security, Zero Trust & Lakehouse Governance | • **Zero Trust Lakehouse Perimeter**: Private endpoints, NSGs, and Azure Key Vault envelope encryption.<br>• **Workload Identity Federation**: Keyless GitHub Actions OIDC and Azure Managed Identities. |
 | **[Modern Data Engineer Hub](https://github.com/santoshjammi29/moderndataengineer)** | Central Edge Presentation Platform | • **Interactive Whiteboard Viewer**: Pan, zoom, and inspect all 52 blueprints at [moderndataengineer.uk/whiteboards](https://moderndataengineer.uk/whiteboards).<br>• **Cheat Sheets Hub**: Interactive cheat sheets and vector A4 PDF downloads. |
-
 
 ## 📜 License
 

@@ -1,14 +1,10 @@
 # 🤖 Architecture Blueprint: Enterprise GenAI & Hybrid RAG Platform
 
-
 ![Enterprise RAG & Vector Data Architecture](../assets/whiteboards/rag_vector_search_data_pipeline.webp)
 > *Architectural Blueprint: [Enterprise RAG & Vector Data Architecture](../docs/whiteboard_diagrams/README.md#rag-vector-search-data-pipeline). View full multi-persona breakdown and engine mechanisms in the master index.*
 
-
 ![Governed Agentic AI & Enterprise Vector Search Pipeline with ACL Propagation](../assets/whiteboards/governed_agentic_rag_pipeline_architecture.webp)
 > *Architectural Blueprint: [Governed Agentic AI & Enterprise Vector Search Pipeline with ACL Propagation](../docs/whiteboard_diagrams/README.md#governed-agentic-rag-pipeline). View full multi-persona breakdown and engine mechanisms in the master index.*
-
-
 
 A production-tested reference architecture for enterprise **Retrieval-Augmented Generation (RAG)** leveraging **Azure OpenAI Service**, **Azure AI Search (Hybrid + Semantic Ranker)**, **Azure AI Document Intelligence**, and **API Management**.
 
