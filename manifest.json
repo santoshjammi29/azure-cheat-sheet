@@ -3,8 +3,8 @@
   "github": "santoshjammi29/azure-cheat-sheet",
   "name": "Azure Cheat Sheet",
   "role": "Azure Lakehouse & Infrastructure: Microsoft Fabric OneLake, Synapse, Bicep IaC, vector cheat sheets",
-  "last_synced": "2026-11-21T04:54:58.630793Z",
-  "entry_count": 16,
+  "last_synced": "2026-11-22T07:34:24.147050Z",
+  "entry_count": 17,
   "entries": [
     {
       "id": "azure-cheat-sheet-rb-01_service_outage_and_resource_health_triage",
@@ -192,6 +192,18 @@
       "title": "Cheat Sheet: Security Zero Trust",
       "difficulty": "L200",
       "relative_path": "cheatsheets/security-zero-trust.md",
+      "pillars": [
+        "Microsoft Fabric & OneLake",
+        "Azure Data Factory & Pipelines",
+        "Power BI & Semantic Layer"
+      ]
+    },
+    {
+      "id": "azure-cheat-sheet-curriculum-topics",
+      "type": "curriculum_topics_catalog",
+      "title": "Topics Directory: Azure Cheat Sheet",
+      "difficulty": "L200",
+      "relative_path": "topics/README.md",
       "pillars": [
         "Microsoft Fabric & OneLake",
         "Azure Data Factory & Pipelines",

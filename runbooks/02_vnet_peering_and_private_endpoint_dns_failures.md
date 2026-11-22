@@ -11,7 +11,7 @@
 ```mermaid
 flowchart TD
     DNSAlert["🚨 Connection Fails to Azure PaaS Resource via Private Endpoint"] --> CheckIP{"Does nslookup Return a Public or Private IP?"}
-    
+
     CheckIP -->|"Returns Public IP (e.g. 20.x.x.x or 40.x.x.x)"| DNSMisconfig["Private DNS Zone Resolution Failure"]
     CheckIP -->|"Returns Private IP (10.x.x.x) but Connection Times Out"| RoutingMisconfig["VNet Peering, NSG, or Route Table (UDR) Blockage"]
     CheckIP -->|"NXDOMAIN / Resolution Timed Out"| LinkMissing["VNet Link Missing from Private DNS Zone"]

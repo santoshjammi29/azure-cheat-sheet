@@ -11,7 +11,7 @@
 ```mermaid
 flowchart TD
     IngressAlert["🚨 Application Ingress Returns 502 Bad Gateway or 504 Gateway Timeout"] --> CheckLayer{"Is Failure at Load Balancer or Pod Level?"}
-    
+
     CheckLayer -->|"Application Gateway / AGIC"| AGTriage["Check App Gateway Backend Health & Probe Status"]
     CheckLayer -->|"Kubernetes Pods"| PodTriage["Check Pod Readiness, CrashLoopBackOff, and OOMKilled"]
     CheckLayer -->|"Network Policy / NSG"| NSGTriage["Check NSG Effective Rules & Calico / Azure Network Policies"]

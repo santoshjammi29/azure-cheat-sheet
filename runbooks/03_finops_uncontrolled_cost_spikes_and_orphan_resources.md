@@ -11,7 +11,7 @@
 ```mermaid
 flowchart TD
     CostSpike["🚨 Azure Cost Alert: 200%+ Daily Spending Surge Detected"] --> CheckScope{"Is Spike Due to Compute, Storage, or Egress?"}
-    
+
     CheckScope -->|"Compute (VMs / App Services / Databricks)"| ComputeTriage["Identify Runaway Auto-Scaling or Oversized Instances"]
     CheckScope -->|"Storage (Managed Disks / Blob Storage)"| StorageTriage["Audit Orphan Unattached Premium SSD Disks"]
     CheckScope -->|"Network (Inter-Region Egress / NAT Gateway)"| NetworkTriage["Audit Unmonitored Cross-Region Data Transfer"]

@@ -5,7 +5,6 @@
 
 ---
 
-
 ### Q2.1: Azure Data Factory (ADF) Pipeline Automation with Managed Identity (ETL & Orchestration)
 
 **Question & Scenario:**
