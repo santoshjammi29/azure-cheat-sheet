@@ -33,11 +33,16 @@ def check_relative_links(repo_root, md_files):
             continue
 
         file_dir = os.path.dirname(file_path)
-        for match in link_pattern.finditer(content):
+        # Strip fenced code blocks, inline code, and HTML comments to ignore illustrative code examples
+        clean_content = re.sub(r'```[\s\S]*?```', '', content)
+        clean_content = re.sub(r'`[^`\n]+`', '', clean_content)
+        clean_content = re.sub(r'<!--[\s\S]*?-->', '', clean_content)
+
+        for match in link_pattern.finditer(clean_content):
             target = match.group(2).strip()
 
-            # Skip web URLs, email links, anchor-only links, KaTeX math expressions, and images
-            if target.startswith(("http://", "https://", "mailto:", "#", "javascript:")):
+            # Skip web URLs, email links, anchor-only links, file URIs, and template placeholders
+            if target.startswith(("http://", "https://", "mailto:", "#", "javascript:", "file://", "<", "{", "$", "%")):
                 continue
 
             # Strip anchor if present (e.g. "./file.md#section" -> "./file.md")
