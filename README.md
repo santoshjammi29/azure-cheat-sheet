@@ -792,8 +792,6 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 
 </details>
 
-
-
 ## 📦 Complete Azure Services & Products Catalog
 
 *Directly verified against Microsoft Learn and Azure Product Catalog.*
@@ -988,7 +986,6 @@ The Modern Data Engineering Lakehouse Ecosystem is an integrated suite of 14 pro
 ## 📜 License
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-
 
 ---
 
