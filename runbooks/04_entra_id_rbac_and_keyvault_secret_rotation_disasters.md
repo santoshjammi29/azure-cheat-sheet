@@ -10,17 +10,17 @@
 
 ```mermaid
 flowchart TD
-    AuthAlert["🚨 Application Crashes with 401/403 Authentication Failure"] --> IdentifyType{"What Identity Mechanism is Used?"}
+    AuthAlert["🚨 Application Crashes with 401/403<br/>Authentication Failure"] --> IdentifyType{"What Identity Mechanism is Used?"}
 
-    IdentifyType -->|"Service Principal (App Registration)"| SPTriage["Check Client Secret / Certificate Expiration"]
-    IdentifyType -->|"Azure Key Vault Secret Access"| KVTriage["Check Key Vault Access Policy vs RBAC Mode"]
-    IdentifyType -->|"Managed Identity"| MITriage["Check Role Assignment at Scope (Subscription/RG/Resource)"]
+    IdentifyType -->|"Service Principal (App<br/>Registration)"| SPTriage["Check Client Secret / Certificate<br/>Expiration"]
+    IdentifyType -->|"Azure Key Vault Secret Access"| KVTriage["Check Key Vault Access Policy vs<br/>RBAC Mode"]
+    IdentifyType -->|"Managed Identity"| MITriage["Check Role Assignment at Scope<br/>(Subscription/RG/Resource)"]
 
     SPTriage --> SecretExpired{"Is Secret Expired in Entra ID?"}
-    SecretExpired -->|"Yes, Expired"| RotateSecret["Remediation: Generate new secret, update Key Vault, restart App"]
-    SecretExpired -->|"No, Secret Valid"| CheckPermissions["Verify API Permissions and Admin Consent"]
+    SecretExpired -->|"Yes, Expired"| RotateSecret["Remediation: Generate new secret,<br/>update Key Vault, restart App"]
+    SecretExpired -->|"No, Secret Valid"| CheckPermissions["Verify API Permissions and Admin<br/>Consent"]
 
-    KVTriage --> FixKVRBAC["Remediation: Assign 'Key Vault Secrets User' role to Managed Identity"]
+    KVTriage --> FixKVRBAC["Remediation: Assign 'Key Vault<br/>Secrets User' role to Managed<br/>Identity"]
 ```
 
 ---

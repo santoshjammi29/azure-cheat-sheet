@@ -111,16 +111,16 @@ flowchart LR
     end
 
     subgraph Fabric_SaaS["Microsoft Fabric (SaaS Lakehouse)"]
-        FabDF["Fabric Data Factory (Dataflows Gen2)"]
+        FabDF["Fabric Data Factory (Dataflows<br/>Gen2)"]
         FabSpark["Fabric Spark (Instant Warm Pools)"]
         FabWH["Fabric Warehouse & Lakehouse"]
-        FabOneLake["OneLake Universal Delta Lake (Direct Lake)"]
+        FabOneLake["OneLake Universal Delta Lake<br/>(Direct Lake)"]
     end
 
     SynADF -.->|Evolves To| FabDF
     SynSpark -.->|Evolves To| FabSpark
     SynDedicated -.->|Migrates To| FabWH
-    SynADLS -.->|OneLake Shortcut / Zero-Copy| FabOneLake
+    SynADLS -.->|"OneLake Shortcut / Zero-Copy"| FabOneLake
 ```
 
 ---

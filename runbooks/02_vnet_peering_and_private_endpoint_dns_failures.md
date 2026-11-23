@@ -10,15 +10,15 @@
 
 ```mermaid
 flowchart TD
-    DNSAlert["🚨 Connection Fails to Azure PaaS Resource via Private Endpoint"] --> CheckIP{"Does nslookup Return a Public or Private IP?"}
+    DNSAlert["🚨 Connection Fails to Azure PaaS<br/>Resource via Private Endpoint"] --> CheckIP{"Does nslookup Return a Public or<br/>Private IP?"}
 
-    CheckIP -->|"Returns Public IP (e.g. 20.x.x.x or 40.x.x.x)"| DNSMisconfig["Private DNS Zone Resolution Failure"]
-    CheckIP -->|"Returns Private IP (10.x.x.x) but Connection Times Out"| RoutingMisconfig["VNet Peering, NSG, or Route Table (UDR) Blockage"]
-    CheckIP -->|"NXDOMAIN / Resolution Timed Out"| LinkMissing["VNet Link Missing from Private DNS Zone"]
+    CheckIP -->|"Returns Public IP (e.g.<br/>20.x.x.x or 40.x.x.x)"| DNSMisconfig["Private DNS Zone Resolution<br/>Failure"]
+    CheckIP -->|"Returns Private IP (10.x.x.x)<br/>but Connection Times Out"| RoutingMisconfig["VNet Peering, NSG, or Route Table<br/>(UDR) Blockage"]
+    CheckIP -->|"NXDOMAIN / Resolution Timed<br/>Out"| LinkMissing["VNet Link Missing from Private DNS<br/>Zone"]
 
-    DNSMisconfig --> CheckZoneLink["Verify Virtual Network Link in privatelink DNS Zone<br/>Remediation: Link spoke VNet to central Private DNS Zone"]
-    RoutingMisconfig --> CheckNSG["Inspect Effective Security Rules & UDR Next Hop<br/>Remediation: Add NSG allow rule or fix 0.0.0.0/0 route via Firewall"]
-    LinkMissing --> AddLink["Link Spoke VNet to Private DNS Zone via az network private-dns link-vnet"]
+    DNSMisconfig --> CheckZoneLink["Verify Virtual Network Link in<br/>privatelink DNS Zone<br/>Remediation: Link spoke VNet to<br/>central Private DNS Zone"]
+    RoutingMisconfig --> CheckNSG["Inspect Effective Security Rules &<br/>UDR Next Hop<br/>Remediation: Add NSG allow rule or<br/>fix 0.0.0.0/0 route via Firewall"]
+    LinkMissing --> AddLink["Link Spoke VNet to Private DNS<br/>Zone via az network private-dns<br/>link-vnet"]
 ```
 
 ---

@@ -32,10 +32,10 @@ flowchart TD
 
     Platform --> Identity["Subscription: Identity & Entra ID"]
     Platform --> Management["Subscription: Ops & Log Analytics"]
-    Platform --> Connectivity["Subscription: Hub Networking & Firewalls"]
+    Platform --> Connectivity["Subscription: Hub Networking &<br/>Firewalls"]
 
-    LandingZones --> Corp["Subscription: Corporate Internal (No Public IP)"]
-    LandingZones --> Online["Subscription: Online Public-Facing Apps"]
+    LandingZones --> Corp["Subscription: Corporate Internal<br/>(No Public IP)"]
+    LandingZones --> Online["Subscription: Online Public-Facing<br/>Apps"]
 ```
 
 ---
@@ -55,7 +55,7 @@ flowchart TD
         DNSResolver[Azure DNS Private Resolver]
     end
 
-    Datacenter <==>|ExpressRoute Dedicated Private Circuit| Gateway
+    Datacenter <==>|"ExpressRoute Dedicated Private<br/>Circuit"| Gateway
     Gateway --> Firewall
 
     subgraph Spoke_Data["Data Platform Spoke VNet (10.1.0.0/16)"]
@@ -65,12 +65,12 @@ flowchart TD
     end
 
     subgraph Spoke_Apps["Application Spoke VNet (10.2.0.0/16)"]
-        AKS["Azure Kubernetes Service (Azure CNI Overlay)"]
-        AppSvc["App Service (Regional VNet Integration)"]
+        AKS["Azure Kubernetes Service (Azure<br/>CNI Overlay)"]
+        AppSvc["App Service (Regional VNet<br/>Integration)"]
     end
 
-    Firewall <-->|VNet Peering + UDR: 0.0.0.0/0| Spoke_Data
-    Firewall <-->|VNet Peering + UDR: 0.0.0.0/0| Spoke_Apps
+    Firewall <-->|"VNet Peering + UDR: 0.0.0.0/0"| Spoke_Data
+    Firewall <-->|"VNet Peering + UDR: 0.0.0.0/0"| Spoke_Apps
 ```
 
 ---

@@ -102,7 +102,7 @@ flowchart LR
     A["🏛️ Unified Lakehouse<br/>(Fabric + Databricks + OneLake)"] --> M["Enterprise Data Platform"]
     B["🤖 GenAI & Hybrid RAG<br/>(OpenAI + AI Search + APIM)"] --> M
     C["⚡ Real-Time Streaming<br/>(Event Hubs + Flink + Cosmos)"] --> M
-    D["🌐 Zero-Trust Landing Zone<br/>(Hub-Spoke + Firewall + Private Link)"] --> M
+    D["🌐 Zero-Trust Landing Zone<br/>(Hub-Spoke + Firewall + Private<br/>Link)"] --> M
 ```
 
 1. [**🏛️ Unified Lakehouse with Microsoft Fabric & Azure Databricks**](architectures/enterprise-lakehouse-fabric.md): Multi-engine Medallion architecture (Bronze ➔ Silver ➔ Gold) unifying OneLake, Delta Lake 3.x, Unity Catalog, and Power BI Direct Lake mode.
@@ -246,7 +246,7 @@ Azure services continuously evolve. Here is the quick-reference cheat sheet for 
 
 ```mermaid
 flowchart TD
-    StartCompute([Workload to Host]) --> Q_BareMetal{Direct OS / kernel / GPU access required?}
+    StartCompute([Workload to Host]) --> Q_BareMetal{"Direct OS / kernel / GPU access<br/>required?"}
     Q_BareMetal -- Yes --> VM["Azure VMs / VMSS"]
     Q_BareMetal -- No --> Q_Docker{Packaged in Docker Container?}
 
@@ -254,24 +254,24 @@ flowchart TD
     Q_Trigger -- Yes --> Fn["Azure Functions (Flex Consumption)"]
     Q_Trigger -- No --> AppSvc["Azure App Service (PaaS)"]
 
-    Q_Docker -- Yes --> Q_FullK8s{Full Kubernetes API, Custom CRDs, or Service Mesh needed?}
+    Q_Docker -- Yes --> Q_FullK8s{"Full Kubernetes API, Custom CRDs,<br/>or Service Mesh needed?"}
     Q_FullK8s -- Yes --> AKS["Azure Kubernetes Service (AKS)"]
-    Q_FullK8s -- No --> ACA["Azure Container Apps (ACA - Serverless KEDA)"]
+    Q_FullK8s -- No --> ACA["Azure Container Apps (ACA -<br/>Serverless KEDA)"]
 ```
 
 ### 2. Database & Storage Selection Tree
 
 ```mermaid
 flowchart TD
-    StartData([Storage / DB Selection]) --> Q_Model{Structured Relational or Semi-structured / NoSQL?}
+    StartData([Storage / DB Selection]) --> Q_Model{"Structured Relational or<br/>Semi-structured / NoSQL?"}
 
     Q_Model -- Relational --> Q_Global{Global Multi-Region Active-Active?}
     Q_Global -- Yes --> CosmosSQL["Azure Cosmos DB"]
     Q_Global -- No --> Q_Engine{Target Engine?}
     Q_Engine -- T-SQL --> AzureSQL["Azure SQL Database / Hyperscale"]
-    Q_Engine -- PostgreSQL --> PgFlex["PostgreSQL Flexible Server (pgvector)"]
+    Q_Engine -- PostgreSQL --> PgFlex["PostgreSQL Flexible Server<br/>(pgvector)"]
 
-    Q_Model -- Semi-structured / Big Data --> Q_Analytics{Analytical Lakehouse or General Object?}
+    Q_Model -- Semi-structured / Big Data --> Q_Analytics{"Analytical Lakehouse or General<br/>Object?"}
     Q_Analytics -- Lakehouse --> ADLS["ADLS Gen2 / OneLake (Delta Lake)"]
     Q_Analytics -- General Object --> Blob["Azure Blob Storage"]
 ```

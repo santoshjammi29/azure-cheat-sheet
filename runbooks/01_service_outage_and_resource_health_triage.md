@@ -10,16 +10,16 @@
 
 ```mermaid
 flowchart TD
-    OutageAlert["🚨 Widespread Azure Service Unavailability or Elevated 5xx Errors"] --> CheckScope{"Is Incident Multi-Resource or Single-Service?"}
+    OutageAlert["🚨 Widespread Azure Service<br/>Unavailability or Elevated 5xx<br/>Errors"] --> CheckScope{"Is Incident Multi-Resource or<br/>Single-Service?"}
 
-    CheckScope -->|"Multiple Services Unreachable in Region"| ServiceHealthCheck["Query Azure Service Health & Resource Health via CLI"]
-    CheckScope -->|"Single Resource Fails"| TenantTriage["Tenant Configuration / Quota / App Crash Triage"]
+    CheckScope -->|"Multiple Services Unreachable<br/>in Region"| ServiceHealthCheck["Query Azure Service Health &<br/>Resource Health via CLI"]
+    CheckScope -->|"Single Resource Fails"| TenantTriage["Tenant Configuration / Quota / App<br/>Crash Triage"]
 
-    ServiceHealthCheck --> IsRegionalOutage{"Does Azure Report Regional Incident?"}
-    IsRegionalOutage -->|"Yes, Microsoft Investigating"| FailoverTrigger["Trigger Global BCDR Failover Runbook<br/>(Reroute traffic to secondary paired region via Front Door)"]
-    IsRegionalOutage -->|"No, Service Health Shows Healthy"| DeepInspect["Network Gateway / ExpressRoute / Private DNS Failure<br/>(Inspect VNet routing and NSG state)"]
+    ServiceHealthCheck --> IsRegionalOutage{"Does Azure Report Regional<br/>Incident?"}
+    IsRegionalOutage -->|"Yes, Microsoft Investigating"| FailoverTrigger["Trigger Global BCDR Failover<br/>Runbook<br/>(Reroute traffic to secondary<br/>paired region via Front Door)"]
+    IsRegionalOutage -->|"No, Service Health Shows<br/>Healthy"| DeepInspect["Network Gateway / ExpressRoute /<br/>Private DNS Failure<br/>(Inspect VNet routing and NSG<br/>state)"]
 
-    FailoverTrigger --> VerifySecondary["Verify Secondary Region Health & DNS Convergence"]
+    FailoverTrigger --> VerifySecondary["Verify Secondary Region Health &<br/>DNS Convergence"]
 ```
 
 ---

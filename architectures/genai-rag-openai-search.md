@@ -36,9 +36,9 @@ Enterprise generative AI solutions must satisfy four non-negotiable requirements
 flowchart TD
     subgraph Ingestion_Pipeline["Offline Document Ingestion & Chunking"]
         Docs[Raw Documents: PDF, Word, HTML] --> DocIntel[Azure AI Document Intelligence: Markdown Extraction]
-        DocIntel --> Chunker["Semantic Markdown Chunker (512 tokens + 64 overlap)"]
+        DocIntel --> Chunker["Semantic Markdown Chunker (512<br/>tokens + 64 overlap)"]
         Chunker --> EmbedModel["text-embedding-3-large (3072 dims)"]
-        EmbedModel --> VectorStore[(Azure AI Search: HNSW + BM25 + Security Filters)]
+        EmbedModel --> VectorStore[("Azure AI Search: HNSW + BM25 +<br/>Security Filters")]
     end
 
     subgraph Runtime_Query_Gateway["Online Query & Inference Gateway"]
@@ -46,9 +46,9 @@ flowchart TD
         APIM --> ContentSafety[Azure AI Content Safety: Prompt Shield & Jailbreak Check]
         ContentSafety --> QueryEmbed[Generate Query Embedding]
         QueryEmbed --> VectorStore
-        VectorStore --> HybridSearch["Hybrid Search: Dense Vector + BM25 Lexical"]
-        HybridSearch --> SemanticRanker["Semantic Ranker (Cross-Encoder Re-rank)"]
-        SemanticRanker --> PromptAsm["Prompt Assembly + Context Citations"]
+        VectorStore --> HybridSearch["Hybrid Search: Dense Vector + BM25<br/>Lexical"]
+        HybridSearch --> SemanticRanker["Semantic Ranker (Cross-Encoder<br/>Re-rank)"]
+        SemanticRanker --> PromptAsm["Prompt Assembly + Context<br/>Citations"]
         PromptAsm --> GPT4o[Azure OpenAI GPT-4o: Grounded Completion]
         GPT4o --> APIM
         APIM --> User
@@ -93,7 +93,7 @@ sequenceDiagram
     participant Search as Azure AI Search
     participant LLM as Azure OpenAI (GPT-4o)
 
-    Client->>APIM: 1. Send query ("What are termination clauses in Section 14.2?")
+    Client->>APIM: 1. Send query("What are termination clauses in<br/>Section 14.2?")
     APIM->>Search: 2. Submit Hybrid Search (Vector + BM25) with tenant filter
     Search->>Search: 3. Compute HNSW dense vector distance & BM25 score
     Search->>Search: 4. Reciprocal Rank Fusion (RRF) combines candidate chunks
@@ -153,19 +153,19 @@ Production RAG architectures on Azure combine **Azure AI Search hybrid retrieval
 ```mermaid
 flowchart TD
     subgraph QueryIngress["User Query"]
-        Q["'How do I configure managed identity for ADF?'"]
+        Q["'How do I configure managed<br/>identity for ADF?'"]
     end
 
     subgraph HybridEngine["Azure AI Search Hybrid Retrieval"]
-        Dense["Dense Vector Search (text-embedding-3-large, 3072-dim)"]
-        Sparse["Sparse Lexical Keyword Search (BM25)"]
-        RRF["Reciprocal Rank Fusion (RRF Algorithm)"]
-        Reranker["Cross-Encoder Semantic Reranker (Top 5 Passages)"]
+        Dense["Dense Vector Search<br/>(text-embedding-3-large, 3072-dim)"]
+        Sparse["Sparse Lexical Keyword Search<br/>(BM25)"]
+        RRF["Reciprocal Rank Fusion (RRF<br/>Algorithm)"]
+        Reranker["Cross-Encoder Semantic Reranker<br/>(Top 5 Passages)"]
     end
 
     subgraph LLMGateway["Azure OpenAI Service (Private Endpoint)"]
         GPT4["GPT-4o Grounded Synthesis"]
-        EvalJudge["Agent Evaluation: Groundedness & Hallucination Score"]
+        EvalJudge["Agent Evaluation: Groundedness &<br/>Hallucination Score"]
     end
 
     Q --> Dense & Sparse --> RRF --> Reranker --> GPT4 --> EvalJudge

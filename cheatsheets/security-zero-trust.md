@@ -129,15 +129,15 @@ flowchart LR
     end
 
     subgraph Private_DNS["Azure Private DNS Zone"]
-        Zone["privatelink.blob.core.windows.net<br/>stlakehouse.privatelink... ➔ 10.1.10.15"]
+        Zone["privatelink.blob.core.windows.net<br/>stlakehouse.privatelink... ➔<br/>10.1.10.15"]
     end
 
     subgraph Azure_PaaS["Azure Storage Backbone"]
-        Storage[(ADLS Gen2 Account<br/>Public Access: DISABLED)]
+        Storage[("ADLS Gen2 Account<br/>Public Access: DISABLED")]
     end
 
     VMApp -->|Resolves Private IP via DNS| Zone
-    VMApp -->|Encrypted Private Backbone Traffic| PE
+    VMApp -->|"Encrypted Private Backbone<br/>Traffic"| PE
     PE --> Azure_PaaS
 ```
 

@@ -10,15 +10,15 @@
 
 ```mermaid
 flowchart TD
-    CostSpike["🚨 Azure Cost Alert: 200%+ Daily Spending Surge Detected"] --> CheckScope{"Is Spike Due to Compute, Storage, or Egress?"}
+    CostSpike["🚨 Azure Cost Alert: 200%+ Daily<br/>Spending Surge Detected"] --> CheckScope{"Is Spike Due to Compute, Storage,<br/>or Egress?"}
 
-    CheckScope -->|"Compute (VMs / App Services / Databricks)"| ComputeTriage["Identify Runaway Auto-Scaling or Oversized Instances"]
-    CheckScope -->|"Storage (Managed Disks / Blob Storage)"| StorageTriage["Audit Orphan Unattached Premium SSD Disks"]
-    CheckScope -->|"Network (Inter-Region Egress / NAT Gateway)"| NetworkTriage["Audit Unmonitored Cross-Region Data Transfer"]
+    CheckScope -->|"Compute (VMs / App Services /<br/>Databricks)"| ComputeTriage["Identify Runaway Auto-Scaling or<br/>Oversized Instances"]
+    CheckScope -->|"Storage (Managed Disks / Blob<br/>Storage)"| StorageTriage["Audit Orphan Unattached Premium<br/>SSD Disks"]
+    CheckScope -->|"Network (Inter-Region Egress /<br/>NAT Gateway)"| NetworkTriage["Audit Unmonitored Cross-Region<br/>Data Transfer"]
 
-    ComputeTriage --> RemediateCompute["Remediation: Right-size instances, schedule dev/test auto-shutdown"]
-    StorageTriage --> RemediateStorage["Remediation: Delete unattached disks, apply blob lifecycle tiering"]
-    NetworkTriage --> RemediateNetwork["Remediation: Colocate services in same region, use Private Endpoints"]
+    ComputeTriage --> RemediateCompute["Remediation: Right-size instances,<br/>schedule dev/test auto-shutdown"]
+    StorageTriage --> RemediateStorage["Remediation: Delete unattached<br/>disks, apply blob lifecycle<br/>tiering"]
+    NetworkTriage --> RemediateNetwork["Remediation: Colocate services in<br/>same region, use Private Endpoints"]
 ```
 
 ---

@@ -39,27 +39,27 @@ flowchart TD
     end
 
     subgraph Streaming_Ingestion["High-Throughput Ingestion Tier"]
-        EH["Azure Event Hubs (Dedicated Cluster / Kafka Protocol)"]
-        SR["Azure Schema Registry (Avro / Protobuf)"]
-        Capture["Event Hubs Capture (Continuous Avro Archive)"]
+        EH["Azure Event Hubs (Dedicated<br/>Cluster / Kafka Protocol)"]
+        SR["Azure Schema Registry (Avro /<br/>Protobuf)"]
+        Capture["Event Hubs Capture (Continuous<br/>Avro Archive)"]
     end
 
-    Vehicles -->|MQTT / HTTPS| EH
+    Vehicles -->|"MQTT / HTTPS"| EH
     WebEvents -->|Kafka API| EH
     POS -->|AMQP| EH
     EH <--> SR
     EH --> Capture
 
     subgraph Stream_Compute["Stateful Stream Compute Engine"]
-        Flink["Apache Flink on AKS / Databricks Structured Streaming"]
+        Flink["Apache Flink on AKS / Databricks<br/>Structured Streaming"]
         EH --> Flink
     end
 
     subgraph Hot_Cold_Serving["Multi-Tier Serving & Storage"]
-        Redis["Azure Cache for Redis: In-Memory Fast Lookup"]
-        Cosmos["Azure Cosmos DB: Sub-10ms Operational Store"]
-        KQL["Microsoft Fabric Eventhouse (KQL Engine)"]
-        OneLake[(OneLake / ADLS Gen2: Delta Parquet)]
+        Redis["Azure Cache for Redis: In-Memory<br/>Fast Lookup"]
+        Cosmos["Azure Cosmos DB: Sub-10ms<br/>Operational Store"]
+        KQL["Microsoft Fabric Eventhouse (KQL<br/>Engine)"]
+        OneLake[("OneLake / ADLS Gen2: Delta Parquet")]
     end
 
     Flink -->|Atomic Counter Updates| Redis

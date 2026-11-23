@@ -10,17 +10,17 @@
 
 ```mermaid
 flowchart TD
-    IngressAlert["🚨 Application Ingress Returns 502 Bad Gateway or 504 Gateway Timeout"] --> CheckLayer{"Is Failure at Load Balancer or Pod Level?"}
+    IngressAlert["🚨 Application Ingress Returns 502<br/>Bad Gateway or 504 Gateway Timeout"] --> CheckLayer{"Is Failure at Load Balancer or Pod<br/>Level?"}
 
-    CheckLayer -->|"Application Gateway / AGIC"| AGTriage["Check App Gateway Backend Health & Probe Status"]
-    CheckLayer -->|"Kubernetes Pods"| PodTriage["Check Pod Readiness, CrashLoopBackOff, and OOMKilled"]
-    CheckLayer -->|"Network Policy / NSG"| NSGTriage["Check NSG Effective Rules & Calico / Azure Network Policies"]
+    CheckLayer -->|"Application Gateway / AGIC"| AGTriage["Check App Gateway Backend Health &<br/>Probe Status"]
+    CheckLayer -->|"Kubernetes Pods"| PodTriage["Check Pod Readiness,<br/>CrashLoopBackOff, and OOMKilled"]
+    CheckLayer -->|"Network Policy / NSG"| NSGTriage["Check NSG Effective Rules & Calico<br/>/ Azure Network Policies"]
 
-    AGTriage --> BackendUnhealthy{"Are Backend Pods Reported Unhealthy?"}
-    BackendUnhealthy -->|"Yes, Health Probe Failed"| FixProbe["Probe Path / Port Mismatch<br/>Remediation: Verify /healthz endpoint and HTTP response codes"]
-    BackendUnhealthy -->|"No, Backends Healthy"| FixGateway["Gateway Sizing Starvation<br/>Remediation: Scale App Gateway capacity or investigate WAF block"]
+    AGTriage --> BackendUnhealthy{"Are Backend Pods Reported<br/>Unhealthy?"}
+    BackendUnhealthy -->|"Yes, Health Probe Failed"| FixProbe["Probe Path / Port Mismatch<br/>Remediation: Verify /healthz<br/>endpoint and HTTP response codes"]
+    BackendUnhealthy -->|"No, Backends Healthy"| FixGateway["Gateway Sizing Starvation<br/>Remediation: Scale App Gateway<br/>capacity or investigate WAF block"]
 
-    NSGTriage --> FixNSG["Remediation: Add NSG rule permitting Traffic on Ingress Port"]
+    NSGTriage --> FixNSG["Remediation: Add NSG rule<br/>permitting Traffic on Ingress Port"]
 ```
 
 ---

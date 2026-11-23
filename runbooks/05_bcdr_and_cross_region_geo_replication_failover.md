@@ -10,18 +10,18 @@
 
 ```mermaid
 flowchart TD
-    DisasterDeclared["🚨 Official Azure BCDR Disaster Declared for Primary Region"] --> CheckRPO{"Evaluate RPO vs RTO Trade-off"}
+    DisasterDeclared["🚨 Official Azure BCDR Disaster<br/>Declared for Primary Region"] --> CheckRPO{"Evaluate RPO vs RTO Trade-off"}
 
-    CheckRPO --> PlanStorage["Storage Account Failover (GRS/GZRS)"]
+    CheckRPO --> PlanStorage["Storage Account Failover<br/>(GRS/GZRS)"]
     CheckRPO --> PlanSQL["Azure SQL Auto-Failover Group"]
     CheckRPO --> PlanCosmos["Cosmos DB Write Region Promotion"]
 
-    PlanStorage --> CheckStorageLag{"Check Geo-Replication Last Sync Time"}
-    CheckStorageLag -->|"Sync Lag < Acceptable RPO (e.g. 15 mins)"| TriggerStorageFailover["Execute Account Failover via CLI<br/>(Account switches to LRS in secondary region)"]
-    CheckStorageLag -->|"Sync Lag Unknown / High"| ExecutiveApproval["Obtain Emergency Incident Commander Sign-Off for Potential Data Loss"]
+    PlanStorage --> CheckStorageLag{"Check Geo-Replication Last Sync<br/>Time"}
+    CheckStorageLag -->|"Sync Lag &lt; Acceptable RPO<br/>(e.g. 15 mins)"| TriggerStorageFailover["Execute Account Failover via CLI<br/>(Account switches to LRS in<br/>secondary region)"]
+    CheckStorageLag -->|"Sync Lag Unknown / High"| ExecutiveApproval["Obtain Emergency Incident<br/>Commander Sign-Off for Potential<br/>Data Loss"]
 
-    PlanSQL --> TriggerSQLFailover["Execute Forced Failover on Failover Group"]
-    PlanCosmos --> TriggerCosmosFailover["Promote Secondary Region to Primary Write Region"]
+    PlanSQL --> TriggerSQLFailover["Execute Forced Failover on<br/>Failover Group"]
+    PlanCosmos --> TriggerCosmosFailover["Promote Secondary Region to<br/>Primary Write Region"]
 ```
 
 ---

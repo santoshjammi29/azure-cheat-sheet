@@ -44,20 +44,20 @@ flowchart TD
         Logs[Event Hubs / Kafka Streaming]
     end
 
-    subgraph Storage_Fabric["OneLake Universal Storage Layer (Delta Parquet Native)"]
-        Bronze[(🥉 Bronze: Raw Source Fidelity)]
-        Silver[(🥈 Silver: Cleaned, Conformed, Deduplicated)]
-        Gold[(🥇 Gold: Star Schemas & Business Aggregations)]
+    subgraph Storage_Fabric["OneLake Universal Storage Layer (Delta<br/>Parquet Native)"]
+        Bronze[("🥉 Bronze: Raw Source Fidelity")]
+        Silver[("🥈 Silver: Cleaned, Conformed,<br/>Deduplicated")]
+        Gold[("🥇 Gold: Star Schemas & Business<br/>Aggregations")]
     end
 
-    Ingestion_Sources -->|Databricks Auto Loader / ADF| Bronze
-    Bronze -->|PySpark / Delta Live Tables| Silver
-    Silver -->|dbt-core / Spark / Fabric| Gold
+    Ingestion_Sources -->|"Databricks Auto Loader / ADF"| Bronze
+    Bronze -->|"PySpark / Delta Live Tables"| Silver
+    Silver -->|"dbt-core / Spark / Fabric"| Gold
 
     subgraph Compute_Engines["Multi-Engine Decoupled Compute"]
-        ADB["Azure Databricks (Photon / Unity Catalog)"]
+        ADB["Azure Databricks (Photon / Unity<br/>Catalog)"]
         FabricSpark["Fabric Spark & Data Engineering"]
-        FabricWH["Fabric Data Warehouse (T-SQL Engine)"]
+        FabricWH["Fabric Data Warehouse (T-SQL<br/>Engine)"]
     end
 
     Gold <--> ADB
@@ -65,7 +65,7 @@ flowchart TD
     Gold <--> FabricWH
 
     subgraph Consumption_Tier["Enterprise Consumption Tier"]
-        DirectLake["Power BI Direct Lake Mode (Sub-second In-Memory)"]
+        DirectLake["Power BI Direct Lake Mode<br/>(Sub-second In-Memory)"]
         Copilot["Fabric Copilot & Generative AI"]
         DataSharing["Delta Sharing & B2B Clean Rooms"]
     end
@@ -170,9 +170,9 @@ flowchart LR
         CDC["Azure Cosmos DB Change Feed"]
     end
 
-    subgraph EventhouseEngine["Fabric Real-Time Intelligence (KQL Eventhouse)"]
+    subgraph EventhouseEngine["Fabric Real-Time Intelligence (KQL<br/>Eventhouse)"]
         Shards["High-Throughput Ingestion Shards"]
-        DeltaSync["Automatic Background Delta Sync Daemon"]
+        DeltaSync["Automatic Background Delta Sync<br/>Daemon"]
     end
 
     subgraph OneLakeStore["OneLake Central Lakehouse"]
@@ -180,8 +180,8 @@ flowchart LR
     end
 
     subgraph DirectLakeBI["Power BI Direct Lake Semantic Engine"]
-        VertiPaq["VertiPaq Columnar Memory Paging (< 200ms DAX)"]
-        Copilot["Fabric Copilot Conversational Exploration"]
+        VertiPaq["VertiPaq Columnar Memory Paging<br/>(&lt; 200ms DAX)"]
+        Copilot["Fabric Copilot Conversational<br/>Exploration"]
     end
 
     IngestPlane --> Shards --> DeltaSync --> DeltaParquet --> VertiPaq --> Copilot
