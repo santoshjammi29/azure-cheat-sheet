@@ -17,6 +17,354 @@
 
 ---
 
+## 🌐 Interactive Version
+
+Check out the interactive version of the cheat sheet:
+
+👉 **[azurecheatsheet.com](https://azurecheatsheet.com)**
+
+![Interactive Cheat Sheet](Interactive_cheat_sheet.png)
+
+---
+
+## 📑 Table of Contents
+
+- [🚀 Modern Reference Guides & Cheatsheets](#-modern-reference-guides--cheatsheets)
+- [🏛️ Enterprise Production Blueprints](#️-enterprise-production-blueprints)
+- [🔄 Key Service Evolutions & Renaming Index](#-key-service-evolutions--renaming-index)
+- [🧭 Master Architectural Decision Trees](#-master-architectural-decision-trees)
+- [💻 Azure CLI (`az`) Fast Reference](#-azure-cli-az-fast-reference)
+- [💰 The 5 Golden Rules of Azure FinOps](#-the-5-golden-rules-of-azure-finops)
+- [🎓 Azure Certification Roadmap](#-azure-certification-roadmap)
+- [🖼️ Downloadable Visual Posters & Cheat Sheets](#️-downloadable-visual-posters--cheat-sheets)
+- [🧠 Core Curriculum Concepts & Topics (91 Topics)](#-core-curriculum-concepts--topics-91-topics-covered)
+- [📦 Complete Azure Services & Products Catalog](#-complete-azure-services--products-catalog)
+  - [1. Compute](#1-compute)
+  - [2. Artificial Intelligence & Machine Learning](#2-artificial-intelligence--machine-learning)
+  - [3. Analytics & Big Data](#3-analytics--big-data)
+  - [4. Databases](#4-databases)
+  - [5. Storage](#5-storage)
+  - [6. Networking](#6-networking)
+  - [7. Security & Identity](#7-security--identity)
+  - [8. DevOps & Developer Tooling](#8-devops--developer-tooling)
+  - [9. Integration & Messaging](#9-integration--messaging)
+  - [10. Web & Mobile](#10-web--mobile)
+  - [11. Hybrid & Multicloud](#11-hybrid--multicloud)
+  - [12. Management & Governance](#12-management--governance)
+  - [13. Internet of Things (IoT)](#13-internet-of-things-iot)
+- [☕ Support the Project](#-support-the-project)
+- [🤝 Authors & Acknowledgments](#-authors--acknowledgments)
+
+---
+
+## 💻 Interactive CLI Explorer
+
+Explore Azure cheatsheets, architectures, incident runbooks, and interview guides directly from your terminal:
+
+```bash
+# Search by keyword or service (e.g. Private Endpoints, Bicep, FinOps)
+python scripts/interactive_shell.py "private endpoint"
+python scripts/interactive_shell.py bicep
+
+# Browse categories
+python scripts/interactive_shell.py --cheatsheets
+python scripts/interactive_shell.py --architectures
+python scripts/interactive_shell.py --runbooks
+python scripts/interactive_shell.py --interview
+
+# Run verification test suite
+python scripts/run_tests.py
+```
+
+---
+
+## 🚀 Modern Reference Guides & Cheatsheets
+
+Dedicated modular cheat sheets with ready-to-run scripts, configuration syntax, and real-world tips:
+
+| Guide | Description | Key Highlights |
+| :--- | :--- | :--- |
+| [**💻 Azure CLI Production Cheat Sheet**](cheatsheets/azure-cli-cheat-sheet.md) | 150+ battle-tested `az` commands across core services. | JMESPath `--query` recipes, AKS, ACA, Fabric F-SKU pause/resume, Key Vault, and orphan cleanup. |
+| [**🏗️ Azure Bicep & IaC Developer Guide**](cheatsheets/bicep-iac-cheat-sheet.md) | Modern declarative infrastructure as code with Bicep & `azd`. | Decorators, modules, loops, conditionals, `@secure` secrets, and complete production Landing Zone template. |
+| [**🔄 Service Evolution & Renaming Map**](cheatsheets/azure-service-map-and-renames.md) | Definitive tracker for service rebrands and retirements. | Azure AD ➔ Entra ID, Cognitive Search ➔ Azure AI Search, Synapse ➔ Fabric, and retirement runbooks. |
+| [**🧭 Architecture Decision Trees**](cheatsheets/decision-matrices.md) | Flowcharts and trade-off comparison matrices. | Compute (AKS vs ACA vs Functions), DBs (Cosmos vs SQL vs Postgres), Messaging (Event Hubs vs Service Bus). |
+| [**💰 FinOps & Cost Optimization Runbook**](cheatsheets/finops-and-cost-optimization.md) | Enterprise guide to slashing cloud waste by 40-70%. | Savings Plans, Spot VMs with eviction handling, Storage Tiering economics, and non-prod schedule automation. |
+| [**🛡️ Zero Trust Security & Identity Guide**](cheatsheets/security-zero-trust.md) | Hardening Azure perimeter, identity, and data. | Managed Identities, GitHub Actions OIDC (`azure/login@v2`), Private Link topology, and Key Vault RBAC. |
+
+---
+
+## 🏛️ Enterprise Production Blueprints
+
+Production-grade blueprints featuring architecture diagrams, sequence flows, persona models, and triage runbooks:
+
+```mermaid
+flowchart LR
+    A["🏛️ Unified Lakehouse<br/>(Fabric + Databricks + OneLake)"] --> M["Enterprise Data Platform"]
+    B["🤖 GenAI & Hybrid RAG<br/>(OpenAI + AI Search + APIM)"] --> M
+    C["⚡ Real-Time Streaming<br/>(Event Hubs + Flink + Cosmos)"] --> M
+    D["🌐 Zero-Trust Landing Zone<br/>(Hub-Spoke + Firewall + Private Link)"] --> M
+```
+
+1. [**🏛️ Unified Lakehouse with Microsoft Fabric & Azure Databricks**](architectures/enterprise-lakehouse-fabric.md): Multi-engine Medallion architecture (Bronze ➔ Silver ➔ Gold) unifying OneLake, Delta Lake 3.x, Unity Catalog, and Power BI Direct Lake mode.
+2. [**🤖 Enterprise GenAI & Hybrid RAG Platform**](architectures/genai-rag-openai-search.md): Sub-second enterprise RAG leveraging Azure OpenAI (GPT-4o), Azure AI Search (Hybrid BM25 + Vector + Semantic Ranker), Document Intelligence, and API Management rate limiting.
+3. [**⚡ High-Throughput Real-Time Streaming & IoT Platform**](architectures/real-time-streaming-iot.md): Ingesting and serving 2,000,000 events/sec via Azure Event Hubs, Apache Flink / Structured Streaming, Azure Cosmos DB, and Fabric Eventhouse.
+4. [**🌐 Enterprise Landing Zone & Zero-Trust Hub-Spoke Network**](architectures/enterprise-landing-zone-hub-spoke.md): Microsoft Cloud Adoption Framework (CAF) topology with Azure Firewall Premium (TLS inspection & IDPS), Private DNS Resolvers, and forced tunneling.
+
+---
+
+## 🖼️ Master Whiteboard Architecture Blueprints
+
+The repository includes **52 publication-grade architectural whiteboard blueprints** mirrored under [`assets/whiteboards/`](assets/whiteboards) and cataloged with comprehensive multi-persona breakdowns, failure modes, and engine internals in [`docs/whiteboard_diagrams/README.md`](docs/whiteboard_diagrams/README.md).
+
+- 🖼️ **[Master Whiteboard Blueprints Hub](docs/whiteboard_diagrams/handbook_whiteboard_blueprints.md)**: Complete whiteboard architecture blueprints with storage vs. compute, control vs. data planes, memory tiers, and failure modes.
+- 📊 **[Spark Architecture & Tuning Cheatsheet](assets/whiteboards/spark_architecture_catalyst_cheatsheet.jpg)**: High-resolution visual cheatsheet covering cluster topology, Catalyst compiler phases, and memory tiers.
+- 🔀 **[Join Strategies Decision Matrix](assets/whiteboards/spark_join_strategies_decision_matrix.jpg)**: Visual flowchart and decision tree for distributed joins and broadcast thresholds.
+- ⚡ **[Skew & Memory Spill Triage](assets/whiteboards/spark_performance_skew_spill_triage.jpg)**: Step-by-step diagnostic workflow for data skew, spill to disk, and OOM triage.
+
+### 📐 Visual Blueprints Showcase
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#fabric-onelake-architecture">
+        <img src="assets/whiteboards/fabric_onelake_architecture.webp" alt="Microsoft Fabric Unified Architecture & OneLake" width="100%" />
+      </a>
+      <br><strong>Microsoft Fabric Unified Architecture & OneLake</strong><br>
+      <em>Single SaaS lakehouse with zero data duplication, multi-engine compute, and cross-cloud shortcuts.</em>
+    </td>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#adf-hybrid-integration-runtime">
+        <img src="assets/whiteboards/adf_hybrid_architecture.webp" alt="Azure Data Factory Enterprise Hybrid Ingestion Architecture" width="100%" />
+      </a>
+      <br><strong>Azure Data Factory Enterprise Hybrid Ingestion Architecture</strong><br>
+      <em>Self-hosted integration runtimes, managed virtual networks, and hybrid ingestion topology.</em>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#powerbi-direct-lake-vertipaq">
+        <img src="assets/whiteboards/powerbi_direct_lake_vertipaq.webp" alt="Power BI Direct Lake Mode & VertiPaq Semantic Engine" width="100%" />
+      </a>
+      <br><strong>Power BI Direct Lake Mode & VertiPaq Semantic Engine</strong><br>
+      <em>Zero-latency semantic model paging directly over OneLake Delta Parquet.</em>
+    </td>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#fabric-onelake-direct-lake-architecture">
+        <img src="assets/whiteboards/fabric_onelake_direct_lake_architecture.webp" alt="Microsoft Fabric OneLake Shortcuts & Direct Lake Mode" width="100%" />
+      </a>
+      <br><strong>Microsoft Fabric OneLake Shortcuts & Direct Lake Mode</strong><br>
+      <em>Cross-cloud storage virtualization linking AWS S3 and ADLS Gen2 with zero egress.</em>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#purview-governance-catalog">
+        <img src="assets/whiteboards/purview_governance_catalog.webp" alt="Microsoft Purview Enterprise Governance Architecture" width="100%" />
+      </a>
+      <br><strong>Microsoft Purview Enterprise Governance Architecture</strong><br>
+      <em>Automated asset scanning, sensitivity labeling, and cross-platform lineage graphs.</em>
+    </td>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#powerbi-dax-engine-context">
+        <img src="assets/whiteboards/powerbi_dax_engine_context.webp" alt="Power BI DAX Engine Mechanics & Context Transition" width="100%" />
+      </a>
+      <br><strong>Power BI DAX Engine Mechanics & Context Transition</strong><br>
+      <em>Row context, filter context, VertiPaq scan operators, and evaluation flow.</em>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#rag-vector-search-data-pipeline">
+        <img src="assets/whiteboards/rag_vector_search_data_pipeline.webp" alt="Enterprise RAG & Hybrid Vector Search Architecture" width="100%" />
+      </a>
+      <br><strong>Enterprise RAG & Hybrid Vector Search Architecture</strong><br>
+      <em>Chunking, embedding generation, Azure AI Search vector indexing, and grounded LLM synthesis.</em>
+    </td>
+    <td width="50%" valign="top">
+      <a href="docs/whiteboard_diagrams/README.md#lakehouse-bcdr-failover">
+        <img src="assets/whiteboards/lakehouse_bcdr_failover_architecture.webp" alt="Lakehouse Disaster Recovery (BCDR) Cross-Region Failover" width="100%" />
+      </a>
+      <br><strong>Lakehouse Disaster Recovery (BCDR) Cross-Region Failover</strong><br>
+      <em>Active-passive storage replication, DNS failover routing, and split-brain prevention.</em>
+    </td>
+  </tr>
+</table>
+
+> 🔍 **Explore all 52 blueprints with 5-persona breakdowns, failure modes, and engine internals in [docs/whiteboard_diagrams/README.md](docs/whiteboard_diagrams/README.md)**.
+
+## 🚨 Production Incident Runbooks
+
+Six operational disaster recovery runbooks located under `runbooks/`:
+
+| Runbook ID | Title & Direct Link | Severity | Root Cause & Remediation Focus |
+| :---: | :--- | :---: | :--- |
+| **01** | **[Regional Service Outage & Resource Health Triage](runbooks/01_service_outage_and_resource_health_triage.md)** | `SEV-1` | Detect regional platform outages via CLI, execute global traffic rerouting via Front Door, and trigger secondary paired region failover. |
+| **02** | **[VNet Peering & Private Endpoint DNS Failures](runbooks/02_vnet_peering_and_private_endpoint_dns_failures.md)** | `SEV-1` | Triage `NameResolutionFailure`, repair missing Spoke VNet links in central Private DNS Zones, and configure non-transitive peering routes. |
+| **03** | **[FinOps Cost Spikes & Orphan Resources](runbooks/03_finops_uncontrolled_cost_spikes_and_orphan_resources.md)** | `SEV-2` | Hunt and eliminate unattached Premium SSD managed disks, release idle public IPs, and enforce automated spending anomaly guardrails. |
+| **04** | **[Entra ID RBAC & Key Vault Secret Rotation Disasters](runbooks/04_entra_id_rbac_and_keyvault_secret_rotation_disasters.md)** | `SEV-1` | Triage expired Service Principal credentials (`AADSTS7000222`), resolve Key Vault RBAC permission conflicts, and migrate to Managed Identities. |
+| **05** | **[BCDR & Cross-Region Geo-Replication Failover](runbooks/05_bcdr_and_cross_region_geo_replication_failover.md)** | `SEV-1` | Execute customer-initiated storage account failover (GRS/GZRS), trigger Azure SQL failover groups, and manage RPO/RTO data loss windows. |
+| **06** | **[AKS Ingress & Network Security Group Lockouts](runbooks/06_aks_ingress_and_network_security_group_lockouts.md)** | `SEV-2` | Resolve `502 Bad Gateway` on Application Gateway Ingress Controller (AGIC), fix health probe paths, and repair missing NSG ingress rules. |
+
+---
+
+## 🎓 4-Tier Interview Preparation Matrix
+
+Comprehensive technical interview guides and flashcard deck located under `interview/`:
+
+| Tier | Role Target | Core Focus Areas | Direct Link |
+| :---: | :--- | :--- | :---: |
+| **Tier 1** | **Junior Cloud Engineer** | Management Groups, Subscriptions, VNets, Subnets, NSGs, Blob Storage Tiers & Redundancy, VMs, App Services, Entra ID. | [`01_junior.md`](interview/01_junior_cloud_engineer.md) |
+| **Tier 2** | **Mid-Level Data & Cloud Engineer** | Azure Data Factory, Fabric OneLake, Azure Databricks, Private Endpoints & DNS, Managed Identities, Bicep IaC, Azure SQL Serverless. | [`02_mid_level.md`](interview/02_mid_level_data_and_cloud_engineer.md) |
+| **Tier 3** | **Senior Azure Cloud Architect** | Hub-Spoke Landing Zones, ExpressRoute Failover, Zero Trust Perimeter, Cosmos DB 5 Consistency Levels, Fabric vs Databricks, FinOps. | [`03_senior.md`](interview/03_senior_azure_architect.md) |
+| **Tier 4** | **Staff & Principal Solutions Architect** | Multi-Region Active-Active Geo-DR, BCDR, GenAI / Hybrid RAG (OpenAI + AI Search), Sovereign Cloud, Azure Policy at Scale. | [`04_staff.md`](interview/04_staff_and_principal_solutions_architect.md) |
+| **Deck** | **50 Rapid-Fire Flashcards** | 50 rapid-fire questions and answers across Core Compute, Networking, Storage, Data, AI, Security, and FinOps (AZ-900 / DP-203 / DP-600 / AZ-305). | [`05_flashcards.md`](interview/05_flashcards_deck_50.md) |
+
+---
+
+## 🔄 Key Service Evolutions & Renaming Index
+
+Azure services continuously evolve. Here is the quick-reference cheat sheet for the most critical recent renames and transitions:
+
+| Former Name | Current / Modern Name | Impact & Technical Upgrades |
+| :--- | :--- | :--- |
+| **Azure Active Directory (Azure AD)** | [**Microsoft Entra ID**](https://learn.microsoft.com/entra/) | Renamed under Entra portfolio. Unifies Workload Identities, Entra PIM, and Zero Trust access. |
+| **Azure Cognitive Search** | [**Azure AI Search**](https://learn.microsoft.com/azure/search/) | Added native Vector Search (HNSW / DiskANN), Hybrid Retrieval, and Semantic Ranker cross-encoder. |
+| **Azure Cognitive Services** | [**Azure AI Services / Azure AI Foundry**](https://learn.microsoft.com/azure/ai-studio/) | Unified multi-service APIs, Azure OpenAI integration, and unified AI Studio / Foundry portal. |
+| **Azure Synapse Analytics** | [**Microsoft Fabric**](https://learn.microsoft.com/fabric/) | Next-generation unified SaaS platform centered on OneLake and open Delta Parquet format. |
+| **Azure Security Center + Defender** | [**Microsoft Defender for Cloud**](https://learn.microsoft.com/azure/defender-for-cloud/) | Unified CSPM and CWPP multi-cloud defense across Azure, AWS, and GCP. |
+| **Time Series Insights (TSI)** | [**Azure Data Explorer / Fabric Eventhouse**](https://learn.microsoft.com/azure/data-explorer/) | TSI retired. Real-time time-series telemetry workloads now use KQL-based Eventhouse / ADX. |
+| **ADLS Gen1** | [**ADLS Gen2**](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) | ADLS Gen1 retired Feb 2024. Gen2 integrates POSIX Hierarchical Namespace directly onto Blob Storage. |
+| **PostgreSQL / MySQL Single Server** | [**Azure Database for PostgreSQL / MySQL Flexible**](https://learn.microsoft.com/azure/postgresql/flexible-server/) | Single Server retired. Flexible Server provides zone-redundant HA and `pgvector` AI support. |
+
+*See full details, migration runbooks, and deprecations in the [Service Evolution Guide](cheatsheets/azure-service-map-and-renames.md).*
+
+---
+
+## 🧭 Master Architectural Decision Trees
+
+### 1. Compute Selection Tree
+
+```mermaid
+flowchart TD
+    StartCompute([Workload to Host]) --> Q_BareMetal{Direct OS / kernel / GPU access required?}
+    Q_BareMetal -- Yes --> VM["Azure VMs / VMSS"]
+    Q_BareMetal -- No --> Q_Docker{Packaged in Docker Container?}
+
+    Q_Docker -- No --> Q_Trigger{Pure Event-Driven Trigger?}
+    Q_Trigger -- Yes --> Fn["Azure Functions (Flex Consumption)"]
+    Q_Trigger -- No --> AppSvc["Azure App Service (PaaS)"]
+
+    Q_Docker -- Yes --> Q_FullK8s{Full Kubernetes API, Custom CRDs, or Service Mesh needed?}
+    Q_FullK8s -- Yes --> AKS["Azure Kubernetes Service (AKS)"]
+    Q_FullK8s -- No --> ACA["Azure Container Apps (ACA - Serverless KEDA)"]
+```
+
+### 2. Database & Storage Selection Tree
+
+```mermaid
+flowchart TD
+    StartData([Storage / DB Selection]) --> Q_Model{Structured Relational or Semi-structured / NoSQL?}
+
+    Q_Model -- Relational --> Q_Global{Global Multi-Region Active-Active?}
+    Q_Global -- Yes --> CosmosSQL["Azure Cosmos DB"]
+    Q_Global -- No --> Q_Engine{Target Engine?}
+    Q_Engine -- T-SQL --> AzureSQL["Azure SQL Database / Hyperscale"]
+    Q_Engine -- PostgreSQL --> PgFlex["PostgreSQL Flexible Server (pgvector)"]
+
+    Q_Model -- Semi-structured / Big Data --> Q_Analytics{Analytical Lakehouse or General Object?}
+    Q_Analytics -- Lakehouse --> ADLS["ADLS Gen2 / OneLake (Delta Lake)"]
+    Q_Analytics -- General Object --> Blob["Azure Blob Storage"]
+```
+
+*See full decision matrices in [Architecture Decision Trees & Matrices](cheatsheets/decision-matrices.md).*
+
+---
+
+## 💻 Azure CLI (`az`) Fast Reference
+
+```bash
+# 1. Login & Subscription Selection
+az login --use-device-code
+az account set --subscription "Production-Subscription"
+
+# 2. Deploy Azure Bicep Infrastructure with Preflight Diff
+az deployment group what-if -g rg-lakehouse-prod -f main.bicep
+az deployment group create -g rg-lakehouse-prod -f main.bicep --parameters @main.bicepparam
+
+# 3. Create ADLS Gen2 Storage (Hierarchical Namespace)
+az storage account create -g rg-data -n stlakehouse01 -l eastus \
+  --sku Standard_ZRS --kind StorageV2 --enable-hierarchical-namespace true \
+  --allow-blob-public-access false
+
+# 4. FinOps: Suspend / Resume Microsoft Fabric Capacity
+az fabric capacity suspend -g rg-fabric -n capfabricdev01
+az fabric capacity resume  -g rg-fabric -n capfabricdev01
+
+# 5. Tail Live Web App Logs
+az webapp log tail -g rg-apps -n app-customer-portal
+
+# 6. Find Unattached Idle Disks (FinOps Triage)
+az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSizeGb}" -o table
+```
+
+*For 150+ comprehensive CLI recipes, visit the [Azure CLI Cheat Sheet](cheatsheets/azure-cli-cheat-sheet.md).*
+
+---
+
+## 💰 The 5 Golden Rules of Azure FinOps
+
+1. **Cover 70% of Baseline Compute with Reservations & Savings Plans**: Combine 3-Year Reserved Instances for fixed stateful databases and Azure Savings Plans for dynamic compute (up to 72% discount).
+2. **Auto-Suspend Non-Production Environments**: Schedule Fabric capacities (`az fabric capacity suspend`), Synapse SQL pools, and dev VMs to shut down outside business hours—saving **70% of non-prod compute spend**.
+3. **Automate Storage Lifecycle Policies**: Push raw landing data from Hot ➔ Cool after 30 days, Cold after 90 days, and Archive after 365 days (saving up to 95% on historical storage).
+4. **Purge Orphaned Cloud Assets Monthly**: Continuously run scripts to delete unattached Managed Disks, idle Public IPs, and orphaned snapshots.
+5. **Utilize Spot Instances for Batch & Fault-Tolerant Streaming**: Run ephemeral Spark worker pools on Spot VMs (up to 90% discount) with Azure Scheduled Events API eviction handlers.
+
+*Read the full guide in the [FinOps & Cost Optimization Runbook](cheatsheets/finops-and-cost-optimization.md).*
+
+---
+
+## 🎓 Azure Certification Roadmap
+
+| Certification | Code | Target Role | Key Knowledge Domains |
+| :--- | :--- | :--- | :--- |
+| **Azure Fundamentals** | `AZ-900` | Beginners, Sales, Managers | Cloud concepts, core Azure services, security, pricing, SLA. |
+| **Azure Administrator Associate** | `AZ-104` | SysAdmins, Cloud Engineers | Virtual networking, compute, storage, Entra ID, governance, monitoring. |
+| **Azure Developer Associate** | `AZ-204` | Software Engineers | Azure Functions, Container Apps, Cosmos DB, Blob, Key Vault, APIM, Event Grid. |
+| **Azure Solutions Architect Expert** | `AZ-305` | Enterprise Architects | Design identity, governance, monitoring, data storage, business continuity, infra. |
+| **Azure DevOps Engineer Expert** | `AZ-400` | DevOps / SRE Engineers | CI/CD pipelines, Bicep/Terraform, dependency management, security compliance. |
+| **Azure Data Engineer Associate** | `DP-203` | Data Engineers | Data Factory, Synapse, Databricks, ADLS Gen2, stream processing, security. |
+| **Fabric Analytics Engineer Associate** | `DP-600` | Analytics Engineers | Microsoft Fabric OneLake, Lakehouse, Warehouse, Direct Lake, DAX, PySpark. |
+| **Azure AI Engineer Associate** | `AI-102` | AI Engineers | Azure OpenAI, Azure AI Search, Document Intelligence, Computer Vision, Speech. |
+| **Cybersecurity Architect Expert** | `SC-100` | Security Architects | Zero Trust strategy, Microsoft Defender for Cloud, Microsoft Sentinel, Purview. |
+
+---
+
+## 🖼️ Downloadable Visual Posters & Cheat Sheets
+
+> [!NOTE]
+> **The original downloadable posters below were produced in August 2022 and have not been regenerated since.**
+> They predate several major renames — Azure Active Directory is now Microsoft Entra ID, Cognitive Services is now Azure AI Services, Windows Virtual Desktop is now Azure Virtual Desktop — and they show some services that have since retired. For current information, use the [interactive version](https://azurecheatsheet.com) and the updated [text listings below](#-complete-azure-services--products-catalog).
+
+### One-Page Visual Sheet (August 2022)
+- **White background**: [High-Res PNG](1_page_version/LightSheet/Azure_developers_sheet_light-high_rez.png) | [Medium-Res PNG](1_page_version/LightSheet/Azure_developers_sheet_light-mid_rez.png) | [PDF](1_page_version/LightSheet/Azure_Developers_sheet-light.pdf) | [SVG](1_page_version/LightSheet/Azure_Developers_sheet-light.svg)
+- **Dark background**: [High-Res PNG](1_page_version/DarkSheet/Azure_developers_sheet_dark-high_rez.png) | [Medium-Res PNG](1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png) | [PDF](1_page_version/DarkSheet/Azure_Developers_sheet-dark.pdf) | [SVG](1_page_version/DarkSheet/Azure_Developers_sheet-dark.svg)
+
+<p align="center">
+  <a target="_blank" href="1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png">
+    <img border="1" alt="Microsoft Azure Developer's Cheat Sheet Image" src="1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png" width="90%">
+  </a>
+</p>
+
+### Two-Page Visual Sheet (August 2022)
+- **White background**: [Page 1 High-Res](2_page_version/LightSheet/High/Azure-document-light-1st-page-highrez.png) | [Page 2 High-Res](2_page_version/LightSheet/High/Azure-document-light-2nd-page-highrez.png) | [PDF](2_page_version/LightSheet/Azure_Developers_2_page_sheet_light.pdf)
+- **Dark background**: [Page 1 High-Res](2_page_version/DarkSheet/High/Azure-document-dark-1st-page-highrez.png) | [Page 2 High-Res](2_page_version/DarkSheet/High/Azure-document-dark-2nd-page-highrez.png) | [PDF](2_page_version/DarkSheet/Azure_Developers_2_page_sheet_dark.pdf)
+
+### Bonus Cheat Sheets
+- **Azure Cloud Services Cheat Sheet (May 2024)**: [View Image](Azure-Cloud-services-cheat-sheet.png) • [Download PDF](Azure-Cloud-Services-cheat-sheet.pdf)
+- **Azure Load Balancers Cheat Sheet (June 2024)**: [View Image](Azure-load-balancer---cheat-sheet.png) • [Download PDF](Azure-load-balancer-cheat-sheet.pdf)
+
+---
+
 ## 🧠 Core Curriculum Concepts & Topics (91 Topics Covered)
 
 > 💡 **Enterprise Knowledge Base Integration**: This repository implements **91 production topics** from the [Modern Data Engineering Systems Encyclopedia (921 Topics)](https://moderndataengineer.uk/concepts), grouped by **Relevant Functional Sections** and then by **Difficulty Level**. All sections are **collapsible and collapsed by default** for effortless navigation. Browse the full curriculum in [`topics/README.md`](topics/README.md).
@@ -445,354 +793,6 @@
 </details>
 
 
-
-## 🌐 Interactive Version
-
-Check out the interactive version of the cheat sheet:
-
-👉 **[azurecheatsheet.com](https://azurecheatsheet.com)**
-
-![Interactive Cheat Sheet](Interactive_cheat_sheet.png)
-
----
-
-## 📑 Table of Contents
-
-- [🧠 Core Curriculum Concepts & Topics (91 Topics)](#-core-curriculum-concepts--topics-91-topics-covered)
-- [🚀 Modern Reference Guides & Cheatsheets](#-modern-reference-guides--cheatsheets)
-- [🏛️ Enterprise Production Blueprints](#️-enterprise-production-blueprints)
-- [🔄 Key Service Evolutions & Renaming Index](#-key-service-evolutions--renaming-index)
-- [🧭 Master Architectural Decision Trees](#-master-architectural-decision-trees)
-- [💻 Azure CLI (`az`) Fast Reference](#-azure-cli-az-fast-reference)
-- [💰 The 5 Golden Rules of Azure FinOps](#-the-5-golden-rules-of-azure-finops)
-- [🎓 Azure Certification Roadmap](#-azure-certification-roadmap)
-- [🖼️ Downloadable Visual Posters & Cheat Sheets](#️-downloadable-visual-posters--cheat-sheets)
-- [📦 Complete Azure Services & Products Catalog](#-complete-azure-services--products-catalog)
-  - [1. Compute](#1-compute)
-  - [2. Artificial Intelligence & Machine Learning](#2-artificial-intelligence--machine-learning)
-  - [3. Analytics & Big Data](#3-analytics--big-data)
-  - [4. Databases](#4-databases)
-  - [5. Storage](#5-storage)
-  - [6. Networking](#6-networking)
-  - [7. Security & Identity](#7-security--identity)
-  - [8. DevOps & Developer Tooling](#8-devops--developer-tooling)
-  - [9. Integration & Messaging](#9-integration--messaging)
-  - [10. Web & Mobile](#10-web--mobile)
-  - [11. Hybrid & Multicloud](#11-hybrid--multicloud)
-  - [12. Management & Governance](#12-management--governance)
-  - [13. Internet of Things (IoT)](#13-internet-of-things-iot)
-- [☕ Support the Project](#-support-the-project)
-- [🤝 Authors & Acknowledgments](#-authors--acknowledgments)
-
----
-
-## 🚀 Modern Reference Guides & Cheatsheets
-
-Dedicated modular cheat sheets with ready-to-run scripts, configuration syntax, and real-world tips:
-
-| Guide | Description | Key Highlights |
-| :--- | :--- | :--- |
-| [**💻 Azure CLI Production Cheat Sheet**](cheatsheets/azure-cli-cheat-sheet.md) | 150+ battle-tested `az` commands across core services. | JMESPath `--query` recipes, AKS, ACA, Fabric F-SKU pause/resume, Key Vault, and orphan cleanup. |
-| [**🏗️ Azure Bicep & IaC Developer Guide**](cheatsheets/bicep-iac-cheat-sheet.md) | Modern declarative infrastructure as code with Bicep & `azd`. | Decorators, modules, loops, conditionals, `@secure` secrets, and complete production Landing Zone template. |
-| [**🔄 Service Evolution & Renaming Map**](cheatsheets/azure-service-map-and-renames.md) | Definitive tracker for service rebrands and retirements. | Azure AD ➔ Entra ID, Cognitive Search ➔ Azure AI Search, Synapse ➔ Fabric, and retirement runbooks. |
-| [**🧭 Architecture Decision Trees**](cheatsheets/decision-matrices.md) | Flowcharts and trade-off comparison matrices. | Compute (AKS vs ACA vs Functions), DBs (Cosmos vs SQL vs Postgres), Messaging (Event Hubs vs Service Bus). |
-| [**💰 FinOps & Cost Optimization Runbook**](cheatsheets/finops-and-cost-optimization.md) | Enterprise guide to slashing cloud waste by 40-70%. | Savings Plans, Spot VMs with eviction handling, Storage Tiering economics, and non-prod schedule automation. |
-| [**🛡️ Zero Trust Security & Identity Guide**](cheatsheets/security-zero-trust.md) | Hardening Azure perimeter, identity, and data. | Managed Identities, GitHub Actions OIDC (`azure/login@v2`), Private Link topology, and Key Vault RBAC. |
-
----
-
-## 🏛️ Enterprise Production Blueprints
-
-Production-grade blueprints featuring architecture diagrams, sequence flows, persona models, and triage runbooks:
-
-```mermaid
-flowchart LR
-    A["🏛️ Unified Lakehouse<br/>(Fabric + Databricks + OneLake)"] --> M["Enterprise Data Platform"]
-    B["🤖 GenAI & Hybrid RAG<br/>(OpenAI + AI Search + APIM)"] --> M
-    C["⚡ Real-Time Streaming<br/>(Event Hubs + Flink + Cosmos)"] --> M
-    D["🌐 Zero-Trust Landing Zone<br/>(Hub-Spoke + Firewall + Private Link)"] --> M
-```
-
-1. [**🏛️ Unified Lakehouse with Microsoft Fabric & Azure Databricks**](architectures/enterprise-lakehouse-fabric.md): Multi-engine Medallion architecture (Bronze ➔ Silver ➔ Gold) unifying OneLake, Delta Lake 3.x, Unity Catalog, and Power BI Direct Lake mode.
-2. [**🤖 Enterprise GenAI & Hybrid RAG Platform**](architectures/genai-rag-openai-search.md): Sub-second enterprise RAG leveraging Azure OpenAI (GPT-4o), Azure AI Search (Hybrid BM25 + Vector + Semantic Ranker), Document Intelligence, and API Management rate limiting.
-3. [**⚡ High-Throughput Real-Time Streaming & IoT Platform**](architectures/real-time-streaming-iot.md): Ingesting and serving 2,000,000 events/sec via Azure Event Hubs, Apache Flink / Structured Streaming, Azure Cosmos DB, and Fabric Eventhouse.
-4. [**🌐 Enterprise Landing Zone & Zero-Trust Hub-Spoke Network**](architectures/enterprise-landing-zone-hub-spoke.md): Microsoft Cloud Adoption Framework (CAF) topology with Azure Firewall Premium (TLS inspection & IDPS), Private DNS Resolvers, and forced tunneling.
-
----
-
-## 🖼️ Master Whiteboard Architecture Blueprints
-
-The repository includes **52 publication-grade architectural whiteboard blueprints** mirrored under [`assets/whiteboards/`](assets/whiteboards) and cataloged with comprehensive multi-persona breakdowns, failure modes, and engine internals in [`docs/whiteboard_diagrams/README.md`](docs/whiteboard_diagrams/README.md).
-
-- 🖼️ **[Master Whiteboard Blueprints Hub](docs/whiteboard_diagrams/handbook_whiteboard_blueprints.md)**: Complete whiteboard architecture blueprints with storage vs. compute, control vs. data planes, memory tiers, and failure modes.
-- 📊 **[Spark Architecture & Tuning Cheatsheet](assets/whiteboards/spark_architecture_catalyst_cheatsheet.jpg)**: High-resolution visual cheatsheet covering cluster topology, Catalyst compiler phases, and memory tiers.
-- 🔀 **[Join Strategies Decision Matrix](assets/whiteboards/spark_join_strategies_decision_matrix.jpg)**: Visual flowchart and decision tree for distributed joins and broadcast thresholds.
-- ⚡ **[Skew & Memory Spill Triage](assets/whiteboards/spark_performance_skew_spill_triage.jpg)**: Step-by-step diagnostic workflow for data skew, spill to disk, and OOM triage.
-
-### 📐 Visual Blueprints Showcase
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <a href="docs/whiteboard_diagrams/README.md#fabric-onelake-architecture">
-        <img src="assets/whiteboards/fabric_onelake_architecture.webp" alt="Microsoft Fabric Unified Architecture & OneLake" width="100%" />
-      </a>
-      <br><strong>Microsoft Fabric Unified Architecture & OneLake</strong><br>
-      <em>Single SaaS lakehouse with zero data duplication, multi-engine compute, and cross-cloud shortcuts.</em>
-    </td>
-    <td width="50%" valign="top">
-      <a href="docs/whiteboard_diagrams/README.md#adf-hybrid-integration-runtime">
-        <img src="assets/whiteboards/adf_hybrid_architecture.webp" alt="Azure Data Factory Enterprise Hybrid Ingestion Architecture" width="100%" />
-      </a>
-      <br><strong>Azure Data Factory Enterprise Hybrid Ingestion Architecture</strong><br>
-      <em>Self-hosted integration runtimes, managed virtual networks, and hybrid ingestion topology.</em>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <a href="docs/whiteboard_diagrams/README.md#powerbi-direct-lake-vertipaq">
-        <img src="assets/whiteboards/powerbi_direct_lake_vertipaq.webp" alt="Power BI Direct Lake Mode & VertiPaq Semantic Engine" width="100%" />
-      </a>
-      <br><strong>Power BI Direct Lake Mode & VertiPaq Semantic Engine</strong><br>
-      <em>Zero-latency semantic model paging directly over OneLake Delta Parquet.</em>
-    </td>
-    <td width="50%" valign="top">
-      <a href="docs/whiteboard_diagrams/README.md#fabric-onelake-direct-lake-architecture">
-        <img src="assets/whiteboards/fabric_onelake_direct_lake_architecture.webp" alt="Microsoft Fabric OneLake Shortcuts & Direct Lake Mode" width="100%" />
-      </a>
-      <br><strong>Microsoft Fabric OneLake Shortcuts & Direct Lake Mode</strong><br>
-      <em>Cross-cloud storage virtualization linking AWS S3 and ADLS Gen2 with zero egress.</em>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <a href="docs/whiteboard_diagrams/README.md#purview-governance-catalog">
-        <img src="assets/whiteboards/purview_governance_catalog.webp" alt="Microsoft Purview Enterprise Governance Architecture" width="100%" />
-      </a>
-      <br><strong>Microsoft Purview Enterprise Governance Architecture</strong><br>
-      <em>Automated asset scanning, sensitivity labeling, and cross-platform lineage graphs.</em>
-    </td>
-    <td width="50%" valign="top">
-      <a href="docs/whiteboard_diagrams/README.md#powerbi-dax-engine-context">
-        <img src="assets/whiteboards/powerbi_dax_engine_context.webp" alt="Power BI DAX Engine Mechanics & Context Transition" width="100%" />
-      </a>
-      <br><strong>Power BI DAX Engine Mechanics & Context Transition</strong><br>
-      <em>Row context, filter context, VertiPaq scan operators, and evaluation flow.</em>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <a href="docs/whiteboard_diagrams/README.md#rag-vector-search-data-pipeline">
-        <img src="assets/whiteboards/rag_vector_search_data_pipeline.webp" alt="Enterprise RAG & Hybrid Vector Search Architecture" width="100%" />
-      </a>
-      <br><strong>Enterprise RAG & Hybrid Vector Search Architecture</strong><br>
-      <em>Chunking, embedding generation, Azure AI Search vector indexing, and grounded LLM synthesis.</em>
-    </td>
-    <td width="50%" valign="top">
-      <a href="docs/whiteboard_diagrams/README.md#lakehouse-bcdr-failover">
-        <img src="assets/whiteboards/lakehouse_bcdr_failover_architecture.webp" alt="Lakehouse Disaster Recovery (BCDR) Cross-Region Failover" width="100%" />
-      </a>
-      <br><strong>Lakehouse Disaster Recovery (BCDR) Cross-Region Failover</strong><br>
-      <em>Active-passive storage replication, DNS failover routing, and split-brain prevention.</em>
-    </td>
-  </tr>
-</table>
-
-> 🔍 **Explore all 52 blueprints with 5-persona breakdowns, failure modes, and engine internals in [docs/whiteboard_diagrams/README.md](docs/whiteboard_diagrams/README.md)**.
-
-## 💻 Interactive CLI Explorer
-
-Explore Azure cheatsheets, architectures, incident runbooks, and interview guides directly from your terminal:
-
-```bash
-# Search by keyword or service (e.g. Private Endpoints, Bicep, FinOps)
-python scripts/interactive_shell.py "private endpoint"
-python scripts/interactive_shell.py bicep
-
-# Browse categories
-python scripts/interactive_shell.py --cheatsheets
-python scripts/interactive_shell.py --architectures
-python scripts/interactive_shell.py --runbooks
-python scripts/interactive_shell.py --interview
-
-# Run verification test suite
-python scripts/run_tests.py
-```
-
----
-
-## 🚨 Production Incident Runbooks
-
-Six operational disaster recovery runbooks located under `runbooks/`:
-
-| Runbook ID | Title & Direct Link | Severity | Root Cause & Remediation Focus |
-| :---: | :--- | :---: | :--- |
-| **01** | **[Regional Service Outage & Resource Health Triage](runbooks/01_service_outage_and_resource_health_triage.md)** | `SEV-1` | Detect regional platform outages via CLI, execute global traffic rerouting via Front Door, and trigger secondary paired region failover. |
-| **02** | **[VNet Peering & Private Endpoint DNS Failures](runbooks/02_vnet_peering_and_private_endpoint_dns_failures.md)** | `SEV-1` | Triage `NameResolutionFailure`, repair missing Spoke VNet links in central Private DNS Zones, and configure non-transitive peering routes. |
-| **03** | **[FinOps Cost Spikes & Orphan Resources](runbooks/03_finops_uncontrolled_cost_spikes_and_orphan_resources.md)** | `SEV-2` | Hunt and eliminate unattached Premium SSD managed disks, release idle public IPs, and enforce automated spending anomaly guardrails. |
-| **04** | **[Entra ID RBAC & Key Vault Secret Rotation Disasters](runbooks/04_entra_id_rbac_and_keyvault_secret_rotation_disasters.md)** | `SEV-1` | Triage expired Service Principal credentials (`AADSTS7000222`), resolve Key Vault RBAC permission conflicts, and migrate to Managed Identities. |
-| **05** | **[BCDR & Cross-Region Geo-Replication Failover](runbooks/05_bcdr_and_cross_region_geo_replication_failover.md)** | `SEV-1` | Execute customer-initiated storage account failover (GRS/GZRS), trigger Azure SQL failover groups, and manage RPO/RTO data loss windows. |
-| **06** | **[AKS Ingress & Network Security Group Lockouts](runbooks/06_aks_ingress_and_network_security_group_lockouts.md)** | `SEV-2` | Resolve `502 Bad Gateway` on Application Gateway Ingress Controller (AGIC), fix health probe paths, and repair missing NSG ingress rules. |
-
----
-
-## 🎓 4-Tier Interview Preparation Matrix
-
-Comprehensive technical interview guides and flashcard deck located under `interview/`:
-
-| Tier | Role Target | Core Focus Areas | Direct Link |
-| :---: | :--- | :--- | :---: |
-| **Tier 1** | **Junior Cloud Engineer** | Management Groups, Subscriptions, VNets, Subnets, NSGs, Blob Storage Tiers & Redundancy, VMs, App Services, Entra ID. | [`01_junior.md`](interview/01_junior_cloud_engineer.md) |
-| **Tier 2** | **Mid-Level Data & Cloud Engineer** | Azure Data Factory, Fabric OneLake, Azure Databricks, Private Endpoints & DNS, Managed Identities, Bicep IaC, Azure SQL Serverless. | [`02_mid_level.md`](interview/02_mid_level_data_and_cloud_engineer.md) |
-| **Tier 3** | **Senior Azure Cloud Architect** | Hub-Spoke Landing Zones, ExpressRoute Failover, Zero Trust Perimeter, Cosmos DB 5 Consistency Levels, Fabric vs Databricks, FinOps. | [`03_senior.md`](interview/03_senior_azure_architect.md) |
-| **Tier 4** | **Staff & Principal Solutions Architect** | Multi-Region Active-Active Geo-DR, BCDR, GenAI / Hybrid RAG (OpenAI + AI Search), Sovereign Cloud, Azure Policy at Scale. | [`04_staff.md`](interview/04_staff_and_principal_solutions_architect.md) |
-| **Deck** | **50 Rapid-Fire Flashcards** | 50 rapid-fire questions and answers across Core Compute, Networking, Storage, Data, AI, Security, and FinOps (AZ-900 / DP-203 / DP-600 / AZ-305). | [`05_flashcards.md`](interview/05_flashcards_deck_50.md) |
-
----
-
-## 🔄 Key Service Evolutions & Renaming Index
-
-Azure services continuously evolve. Here is the quick-reference cheat sheet for the most critical recent renames and transitions:
-
-| Former Name | Current / Modern Name | Impact & Technical Upgrades |
-| :--- | :--- | :--- |
-| **Azure Active Directory (Azure AD)** | [**Microsoft Entra ID**](https://learn.microsoft.com/entra/) | Renamed under Entra portfolio. Unifies Workload Identities, Entra PIM, and Zero Trust access. |
-| **Azure Cognitive Search** | [**Azure AI Search**](https://learn.microsoft.com/azure/search/) | Added native Vector Search (HNSW / DiskANN), Hybrid Retrieval, and Semantic Ranker cross-encoder. |
-| **Azure Cognitive Services** | [**Azure AI Services / Azure AI Foundry**](https://learn.microsoft.com/azure/ai-studio/) | Unified multi-service APIs, Azure OpenAI integration, and unified AI Studio / Foundry portal. |
-| **Azure Synapse Analytics** | [**Microsoft Fabric**](https://learn.microsoft.com/fabric/) | Next-generation unified SaaS platform centered on OneLake and open Delta Parquet format. |
-| **Azure Security Center + Defender** | [**Microsoft Defender for Cloud**](https://learn.microsoft.com/azure/defender-for-cloud/) | Unified CSPM and CWPP multi-cloud defense across Azure, AWS, and GCP. |
-| **Time Series Insights (TSI)** | [**Azure Data Explorer / Fabric Eventhouse**](https://learn.microsoft.com/azure/data-explorer/) | TSI retired. Real-time time-series telemetry workloads now use KQL-based Eventhouse / ADX. |
-| **ADLS Gen1** | [**ADLS Gen2**](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) | ADLS Gen1 retired Feb 2024. Gen2 integrates POSIX Hierarchical Namespace directly onto Blob Storage. |
-| **PostgreSQL / MySQL Single Server** | [**Azure Database for PostgreSQL / MySQL Flexible**](https://learn.microsoft.com/azure/postgresql/flexible-server/) | Single Server retired. Flexible Server provides zone-redundant HA and `pgvector` AI support. |
-
-*See full details, migration runbooks, and deprecations in the [Service Evolution Guide](cheatsheets/azure-service-map-and-renames.md).*
-
----
-
-## 🧭 Master Architectural Decision Trees
-
-### 1. Compute Selection Tree
-
-```mermaid
-flowchart TD
-    StartCompute([Workload to Host]) --> Q_BareMetal{Direct OS / kernel / GPU access required?}
-    Q_BareMetal -- Yes --> VM["Azure VMs / VMSS"]
-    Q_BareMetal -- No --> Q_Docker{Packaged in Docker Container?}
-
-    Q_Docker -- No --> Q_Trigger{Pure Event-Driven Trigger?}
-    Q_Trigger -- Yes --> Fn["Azure Functions (Flex Consumption)"]
-    Q_Trigger -- No --> AppSvc["Azure App Service (PaaS)"]
-
-    Q_Docker -- Yes --> Q_FullK8s{Full Kubernetes API, Custom CRDs, or Service Mesh needed?}
-    Q_FullK8s -- Yes --> AKS["Azure Kubernetes Service (AKS)"]
-    Q_FullK8s -- No --> ACA["Azure Container Apps (ACA - Serverless KEDA)"]
-```
-
-### 2. Database & Storage Selection Tree
-
-```mermaid
-flowchart TD
-    StartData([Storage / DB Selection]) --> Q_Model{Structured Relational or Semi-structured / NoSQL?}
-
-    Q_Model -- Relational --> Q_Global{Global Multi-Region Active-Active?}
-    Q_Global -- Yes --> CosmosSQL["Azure Cosmos DB"]
-    Q_Global -- No --> Q_Engine{Target Engine?}
-    Q_Engine -- T-SQL --> AzureSQL["Azure SQL Database / Hyperscale"]
-    Q_Engine -- PostgreSQL --> PgFlex["PostgreSQL Flexible Server (pgvector)"]
-
-    Q_Model -- Semi-structured / Big Data --> Q_Analytics{Analytical Lakehouse or General Object?}
-    Q_Analytics -- Lakehouse --> ADLS["ADLS Gen2 / OneLake (Delta Lake)"]
-    Q_Analytics -- General Object --> Blob["Azure Blob Storage"]
-```
-
-*See full decision matrices in [Architecture Decision Trees & Matrices](cheatsheets/decision-matrices.md).*
-
----
-
-## 💻 Azure CLI (`az`) Fast Reference
-
-```bash
-# 1. Login & Subscription Selection
-az login --use-device-code
-az account set --subscription "Production-Subscription"
-
-# 2. Deploy Azure Bicep Infrastructure with Preflight Diff
-az deployment group what-if -g rg-lakehouse-prod -f main.bicep
-az deployment group create -g rg-lakehouse-prod -f main.bicep --parameters @main.bicepparam
-
-# 3. Create ADLS Gen2 Storage (Hierarchical Namespace)
-az storage account create -g rg-data -n stlakehouse01 -l eastus \
-  --sku Standard_ZRS --kind StorageV2 --enable-hierarchical-namespace true \
-  --allow-blob-public-access false
-
-# 4. FinOps: Suspend / Resume Microsoft Fabric Capacity
-az fabric capacity suspend -g rg-fabric -n capfabricdev01
-az fabric capacity resume  -g rg-fabric -n capfabricdev01
-
-# 5. Tail Live Web App Logs
-az webapp log tail -g rg-apps -n app-customer-portal
-
-# 6. Find Unattached Idle Disks (FinOps Triage)
-az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSizeGb}" -o table
-```
-
-*For 150+ comprehensive CLI recipes, visit the [Azure CLI Cheat Sheet](cheatsheets/azure-cli-cheat-sheet.md).*
-
----
-
-## 💰 The 5 Golden Rules of Azure FinOps
-
-1. **Cover 70% of Baseline Compute with Reservations & Savings Plans**: Combine 3-Year Reserved Instances for fixed stateful databases and Azure Savings Plans for dynamic compute (up to 72% discount).
-2. **Auto-Suspend Non-Production Environments**: Schedule Fabric capacities (`az fabric capacity suspend`), Synapse SQL pools, and dev VMs to shut down outside business hours—saving **70% of non-prod compute spend**.
-3. **Automate Storage Lifecycle Policies**: Push raw landing data from Hot ➔ Cool after 30 days, Cold after 90 days, and Archive after 365 days (saving up to 95% on historical storage).
-4. **Purge Orphaned Cloud Assets Monthly**: Continuously run scripts to delete unattached Managed Disks, idle Public IPs, and orphaned snapshots.
-5. **Utilize Spot Instances for Batch & Fault-Tolerant Streaming**: Run ephemeral Spark worker pools on Spot VMs (up to 90% discount) with Azure Scheduled Events API eviction handlers.
-
-*Read the full guide in the [FinOps & Cost Optimization Runbook](cheatsheets/finops-and-cost-optimization.md).*
-
----
-
-## 🎓 Azure Certification Roadmap
-
-| Certification | Code | Target Role | Key Knowledge Domains |
-| :--- | :--- | :--- | :--- |
-| **Azure Fundamentals** | `AZ-900` | Beginners, Sales, Managers | Cloud concepts, core Azure services, security, pricing, SLA. |
-| **Azure Administrator Associate** | `AZ-104` | SysAdmins, Cloud Engineers | Virtual networking, compute, storage, Entra ID, governance, monitoring. |
-| **Azure Developer Associate** | `AZ-204` | Software Engineers | Azure Functions, Container Apps, Cosmos DB, Blob, Key Vault, APIM, Event Grid. |
-| **Azure Solutions Architect Expert** | `AZ-305` | Enterprise Architects | Design identity, governance, monitoring, data storage, business continuity, infra. |
-| **Azure DevOps Engineer Expert** | `AZ-400` | DevOps / SRE Engineers | CI/CD pipelines, Bicep/Terraform, dependency management, security compliance. |
-| **Azure Data Engineer Associate** | `DP-203` | Data Engineers | Data Factory, Synapse, Databricks, ADLS Gen2, stream processing, security. |
-| **Fabric Analytics Engineer Associate** | `DP-600` | Analytics Engineers | Microsoft Fabric OneLake, Lakehouse, Warehouse, Direct Lake, DAX, PySpark. |
-| **Azure AI Engineer Associate** | `AI-102` | AI Engineers | Azure OpenAI, Azure AI Search, Document Intelligence, Computer Vision, Speech. |
-| **Cybersecurity Architect Expert** | `SC-100` | Security Architects | Zero Trust strategy, Microsoft Defender for Cloud, Microsoft Sentinel, Purview. |
-
----
-
-## 🖼️ Downloadable Visual Posters & Cheat Sheets
-
-> [!NOTE]
-> **The original downloadable posters below were produced in August 2022 and have not been regenerated since.**
-> They predate several major renames — Azure Active Directory is now Microsoft Entra ID, Cognitive Services is now Azure AI Services, Windows Virtual Desktop is now Azure Virtual Desktop — and they show some services that have since retired. For current information, use the [interactive version](https://azurecheatsheet.com) and the updated [text listings below](#-complete-azure-services--products-catalog).
-
-### One-Page Visual Sheet (August 2022)
-- **White background**: [High-Res PNG](1_page_version/LightSheet/Azure_developers_sheet_light-high_rez.png) | [Medium-Res PNG](1_page_version/LightSheet/Azure_developers_sheet_light-mid_rez.png) | [PDF](1_page_version/LightSheet/Azure_Developers_sheet-light.pdf) | [SVG](1_page_version/LightSheet/Azure_Developers_sheet-light.svg)
-- **Dark background**: [High-Res PNG](1_page_version/DarkSheet/Azure_developers_sheet_dark-high_rez.png) | [Medium-Res PNG](1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png) | [PDF](1_page_version/DarkSheet/Azure_Developers_sheet-dark.pdf) | [SVG](1_page_version/DarkSheet/Azure_Developers_sheet-dark.svg)
-
-<p align="center">
-  <a target="_blank" href="1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png">
-    <img border="1" alt="Microsoft Azure Developer's Cheat Sheet Image" src="1_page_version/DarkSheet/Azure_developers_sheet_dark-mid_rez.png" width="90%">
-  </a>
-</p>
-
-### Two-Page Visual Sheet (August 2022)
-- **White background**: [Page 1 High-Res](2_page_version/LightSheet/High/Azure-document-light-1st-page-highrez.png) | [Page 2 High-Res](2_page_version/LightSheet/High/Azure-document-light-2nd-page-highrez.png) | [PDF](2_page_version/LightSheet/Azure_Developers_2_page_sheet_light.pdf)
-- **Dark background**: [Page 1 High-Res](2_page_version/DarkSheet/High/Azure-document-dark-1st-page-highrez.png) | [Page 2 High-Res](2_page_version/DarkSheet/High/Azure-document-dark-2nd-page-highrez.png) | [PDF](2_page_version/DarkSheet/Azure_Developers_2_page_sheet_dark.pdf)
-
-### Bonus Cheat Sheets
-- **Azure Cloud Services Cheat Sheet (May 2024)**: [View Image](Azure-Cloud-services-cheat-sheet.png) • [Download PDF](Azure-Cloud-Services-cheat-sheet.pdf)
-- **Azure Load Balancers Cheat Sheet (June 2024)**: [View Image](Azure-load-balancer---cheat-sheet.png) • [Download PDF](Azure-load-balancer-cheat-sheet.pdf)
-
----
 
 ## 📦 Complete Azure Services & Products Catalog
 
