@@ -28,10 +28,10 @@ Progress: [ ] 0 / 17 Completed (0.0%)
 <details>
 <summary>&nbsp;&nbsp;<b>🔴 Tier 4: Production Hardening & Staff Architecture (Level 400) (4 Drills)</b></summary>
 
-- [ ] `azure-cheat-sheet-doc-enterprise-lakehouse-fabric` — [Architecture: Enterprise Lakehouse Fabric](architectures/enterprise-lakehouse-fabric.md) `L400`
-- [ ] `azure-cheat-sheet-doc-enterprise-landing-zone-hub-spoke` — [Architecture: Enterprise Landing Zone Hub Spoke](architectures/enterprise-landing-zone-hub-spoke.md) `L400`
-- [ ] `azure-cheat-sheet-doc-genai-rag-openai-search` — [Architecture: Genai Rag Openai Search](architectures/genai-rag-openai-search.md) `L400`
-- [ ] `azure-cheat-sheet-doc-real-time-streaming-iot` — [Architecture: Real Time Streaming Iot](architectures/real-time-streaming-iot.md) `L400`
+- [ ] `azure-cheat-sheet-doc-enterprise-lakehouse-fabric` — [Architecture: Enterprise Lakehouse Fabric](../architectures/enterprise-lakehouse-fabric.md) `L400`
+- [ ] `azure-cheat-sheet-doc-enterprise-landing-zone-hub-spoke` — [Architecture: Enterprise Landing Zone Hub Spoke](../architectures/enterprise-landing-zone-hub-spoke.md) `L400`
+- [ ] `azure-cheat-sheet-doc-genai-rag-openai-search` — [Architecture: Genai Rag Openai Search](../architectures/genai-rag-openai-search.md) `L400`
+- [ ] `azure-cheat-sheet-doc-real-time-streaming-iot` — [Architecture: Real Time Streaming Iot](../architectures/real-time-streaming-iot.md) `L400`
 
 </details>
 
@@ -60,12 +60,12 @@ Progress: [ ] 0 / 17 Completed (0.0%)
 <details>
 <summary>&nbsp;&nbsp;<b>🔴 Tier 4: Production Hardening & Staff Architecture (Level 400) (6 Drills)</b></summary>
 
-- [ ] `azure-cheat-sheet-rb-01_service_outage_and_resource_health_triage` — [Incident Runbook: Service Outage And Resource Health Triage](runbooks/01_service_outage_and_resource_health_triage.md) `L400`
-- [ ] `azure-cheat-sheet-rb-02_vnet_peering_and_private_endpoint_dns_failures` — [Incident Runbook: Vnet Peering And Private Endpoint Dns Failures](runbooks/02_vnet_peering_and_private_endpoint_dns_failures.md) `L400`
-- [ ] `azure-cheat-sheet-rb-03_finops_uncontrolled_cost_spikes_and_orphan_resources` — [Incident Runbook: Finops Uncontrolled Cost Spikes And Orphan Resources](runbooks/03_finops_uncontrolled_cost_spikes_and_orphan_resources.md) `L400`
-- [ ] `azure-cheat-sheet-rb-04_entra_id_rbac_and_keyvault_secret_rotation_disasters` — [Incident Runbook: Entra Id Rbac And Keyvault Secret Rotation Disasters](runbooks/04_entra_id_rbac_and_keyvault_secret_rotation_disasters.md) `L400`
-- [ ] `azure-cheat-sheet-rb-05_bcdr_and_cross_region_geo_replication_failover` — [Incident Runbook: Bcdr And Cross Region Geo Replication Failover](runbooks/05_bcdr_and_cross_region_geo_replication_failover.md) `L400`
-- [ ] `azure-cheat-sheet-rb-06_aks_ingress_and_network_security_group_lockouts` — [Incident Runbook: Aks Ingress And Network Security Group Lockouts](runbooks/06_aks_ingress_and_network_security_group_lockouts.md) `L400`
+- [ ] `azure-cheat-sheet-rb-01_service_outage_and_resource_health_triage` — [Incident Runbook: Service Outage And Resource Health Triage](../runbooks/01_service_outage_and_resource_health_triage.md) `L400`
+- [ ] `azure-cheat-sheet-rb-02_vnet_peering_and_private_endpoint_dns_failures` — [Incident Runbook: Vnet Peering And Private Endpoint Dns Failures](../runbooks/02_vnet_peering_and_private_endpoint_dns_failures.md) `L400`
+- [ ] `azure-cheat-sheet-rb-03_finops_uncontrolled_cost_spikes_and_orphan_resources` — [Incident Runbook: Finops Uncontrolled Cost Spikes And Orphan Resources](../runbooks/03_finops_uncontrolled_cost_spikes_and_orphan_resources.md) `L400`
+- [ ] `azure-cheat-sheet-rb-04_entra_id_rbac_and_keyvault_secret_rotation_disasters` — [Incident Runbook: Entra Id Rbac And Keyvault Secret Rotation Disasters](../runbooks/04_entra_id_rbac_and_keyvault_secret_rotation_disasters.md) `L400`
+- [ ] `azure-cheat-sheet-rb-05_bcdr_and_cross_region_geo_replication_failover` — [Incident Runbook: Bcdr And Cross Region Geo Replication Failover](../runbooks/05_bcdr_and_cross_region_geo_replication_failover.md) `L400`
+- [ ] `azure-cheat-sheet-rb-06_aks_ingress_and_network_security_group_lockouts` — [Incident Runbook: Aks Ingress And Network Security Group Lockouts](../runbooks/06_aks_ingress_and_network_security_group_lockouts.md) `L400`
 
 </details>
 
