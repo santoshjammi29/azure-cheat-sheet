@@ -43,12 +43,12 @@ Progress: [ ] 0 / 17 Completed (0.0%)
 <details>
 <summary>&nbsp;&nbsp;<b>🟡 Tier 2: Core Mechanics & Implementation (Level 200) (6 Drills)</b></summary>
 
-- [ ] `azure-cheat-sheet-cs-azure-cli-cheat-sheet` — [Cheat Sheet: Azure Cli Cheat Sheet](cheatsheets/azure-cli-cheat-sheet.md) `L200`
-- [ ] `azure-cheat-sheet-cs-azure-service-map-and-renames` — [Cheat Sheet: Azure Service Map And Renames](cheatsheets/azure-service-map-and-renames.md) `L200`
-- [ ] `azure-cheat-sheet-cs-bicep-iac-cheat-sheet` — [Cheat Sheet: Bicep Iac Cheat Sheet](cheatsheets/bicep-iac-cheat-sheet.md) `L200`
-- [ ] `azure-cheat-sheet-cs-decision-matrices` — [Cheat Sheet: Decision Matrices](cheatsheets/decision-matrices.md) `L200`
-- [ ] `azure-cheat-sheet-cs-finops-and-cost-optimization` — [Cheat Sheet: Finops And Cost Optimization](cheatsheets/finops-and-cost-optimization.md) `L200`
-- [ ] `azure-cheat-sheet-cs-security-zero-trust` — [Cheat Sheet: Security Zero Trust](cheatsheets/security-zero-trust.md) `L200`
+- [ ] `azure-cheat-sheet-cs-azure-cli-cheat-sheet` — [Cheat Sheet: Azure Cli Cheat Sheet](../cheatsheets/azure-cli-cheat-sheet.md) `L200`
+- [ ] `azure-cheat-sheet-cs-azure-service-map-and-renames` — [Cheat Sheet: Azure Service Map And Renames](../cheatsheets/azure-service-map-and-renames.md) `L200`
+- [ ] `azure-cheat-sheet-cs-bicep-iac-cheat-sheet` — [Cheat Sheet: Bicep Iac Cheat Sheet](../cheatsheets/bicep-iac-cheat-sheet.md) `L200`
+- [ ] `azure-cheat-sheet-cs-decision-matrices` — [Cheat Sheet: Decision Matrices](../cheatsheets/decision-matrices.md) `L200`
+- [ ] `azure-cheat-sheet-cs-finops-and-cost-optimization` — [Cheat Sheet: Finops And Cost Optimization](../cheatsheets/finops-and-cost-optimization.md) `L200`
+- [ ] `azure-cheat-sheet-cs-security-zero-trust` — [Cheat Sheet: Security Zero Trust](../cheatsheets/security-zero-trust.md) `L200`
 
 </details>
 
@@ -77,7 +77,7 @@ Progress: [ ] 0 / 17 Completed (0.0%)
 <details>
 <summary>&nbsp;&nbsp;<b>🟡 Tier 2: Core Mechanics & Implementation (Level 200) (1 Drills)</b></summary>
 
-- [ ] `azure-cheat-sheet-curriculum-topics` — [Topics Directory: Azure Cheat Sheet](topics/README.md) `L200`
+- [ ] `azure-cheat-sheet-curriculum-topics` — [Topics Directory: Azure Cheat Sheet](../topics/README.md) `L200`
 
 </details>
 
