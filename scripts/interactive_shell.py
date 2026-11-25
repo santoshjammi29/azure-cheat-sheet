@@ -85,23 +85,23 @@ def find_file(query: str):
         matches = list(CONTENT_DIR.glob(f"*/*{padded}*.md")) or list(CONTENT_DIR.glob(f"*{padded}*.md"))
         if matches:
             return matches[0]
-            
+
     clean_q = query.lower().replace(" ", "_")
     clean_q_dash = query.lower().replace(" ", "-")
     for search_dir in [CONTENT_DIR, RUNBOOKS_DIR, ARCH_DIR, INTERVIEW_DIR]:
-        matches = (list(search_dir.glob(f"*{clean_q}*")) or 
+        matches = (list(search_dir.glob(f"*{clean_q}*")) or
                    list(search_dir.glob(f"*/*{clean_q}*")) or
                    list(search_dir.glob(f"*{clean_q_dash}*")) or
                    list(search_dir.glob(f"*/*{clean_q_dash}*")))
         if matches:
             return matches[0]
-        
+
     for search_dir in [CONTENT_DIR, RUNBOOKS_DIR, ARCH_DIR, INTERVIEW_DIR]:
         for doc in sorted(list(search_dir.glob("*/*")) + list(search_dir.glob("*"))):
             if doc.is_file() and doc.suffix in [".py", ".sql", ".md"]:
                 if query.lower() in doc.read_text(encoding="utf-8").lower():
                     return doc
-            
+
     return None
 
 def main():

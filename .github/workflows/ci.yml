@@ -13,3 +13,6 @@ concurrency:
 jobs:
   ci:
     uses: santoshjammi29/.github/.github/workflows/handbook-ci.yml@v1
+    with:
+      # Core Azure architecture SVG/PNG/PDF cheat sheets reach 5.95 MB.
+      max_file_kb: 6500
