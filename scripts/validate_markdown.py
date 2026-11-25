@@ -26,7 +26,7 @@ def check_relative_links(repo_root, md_files):
     for file_path in md_files:
         rel_path = os.path.relpath(file_path, repo_root)
         try:
-            with open(file_path, "r", encoding="utf-8") as f:
+            with open(file_path, encoding="utf-8") as f:
                 content = f.read()
         except Exception as e:
             errors.append(f"Encoding Error in {rel_path}: {e}")

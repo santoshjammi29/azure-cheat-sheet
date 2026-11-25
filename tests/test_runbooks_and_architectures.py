@@ -63,7 +63,7 @@ def test_whiteboard_blueprints_integrity(base_dir=None):
     assert wb_dir.exists() and wb_dir.is_dir()
     webp_files = list(wb_dir.glob("*.webp"))
     assert len(webp_files) == 52, f"Expected 52 whiteboard blueprints, found {len(webp_files)}"
-    
+
     docs_readme = base_dir / "docs" / "whiteboard_diagrams" / "README.md"
     assert docs_readme.exists()
     content = docs_readme.read_text(encoding="utf-8")
