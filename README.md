@@ -384,7 +384,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 <summary>&nbsp;&nbsp;📂 <b>Section: OneLake & Cross-Cloud Shortcuts (18 Topics)</b></summary>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 100) (3 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 1) (3 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -395,7 +395,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 200) (4 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 2) (4 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -407,7 +407,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 300) (5 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 3) (5 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -420,7 +420,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 400) (6 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 4) (6 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -439,7 +439,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 <summary>&nbsp;&nbsp;📂 <b>Section: Direct Lake Mode & Semantic Models (5 Topics)</b></summary>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 300) (3 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 3) (3 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -450,7 +450,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 400) (2 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 4) (2 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -465,7 +465,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 <summary>&nbsp;&nbsp;📂 <b>Section: Workload Engines, F-SKU Capacities & Governance (16 Topics)</b></summary>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 100) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 1) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -474,7 +474,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 200) (5 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 2) (5 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -487,7 +487,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 300) (4 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 3) (4 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -499,7 +499,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 400) (6 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 4) (6 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -523,7 +523,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 <summary>&nbsp;&nbsp;📂 <b>Section: Control Flow, Pipelines & Parameterization (12 Topics)</b></summary>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 100) (2 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 1) (2 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -533,7 +533,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 200) (3 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 2) (3 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -544,7 +544,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 300) (3 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 3) (3 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -555,7 +555,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 400) (4 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 4) (4 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -572,7 +572,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 <summary>&nbsp;&nbsp;📂 <b>Section: Integration Runtimes (Azure IR / Self-Hosted IR) (4 Topics)</b></summary>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 100) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 1) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -581,7 +581,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 200) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 2) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -590,7 +590,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 300) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 3) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -599,7 +599,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 400) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 4) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -613,7 +613,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 <summary>&nbsp;&nbsp;📂 <b>Section: Data Movement, Managed VNets & Security (11 Topics)</b></summary>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 100) (2 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 1) (2 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -623,7 +623,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 200) (5 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 2) (5 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -636,7 +636,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 300) (3 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 3) (3 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -647,7 +647,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 400) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 4) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -666,7 +666,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 <summary>&nbsp;&nbsp;📂 <b>Section: VertiPaq Engine & Columnar Compression (5 Topics)</b></summary>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 100) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 1) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -675,7 +675,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 200) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 2) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -684,7 +684,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 300) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 3) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -693,7 +693,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 400) (2 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 4) (2 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -708,7 +708,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 <summary>&nbsp;&nbsp;📂 <b>Section: DAX Evaluation Context & Calculations (6 Topics)</b></summary>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 100) (2 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 1) (2 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -718,7 +718,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 200) (2 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 2) (2 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -728,7 +728,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 300) (2 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 3) (2 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -743,7 +743,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 <summary>&nbsp;&nbsp;📂 <b>Section: Composite Models, Semantic Refresh & Aggregations (14 Topics)</b></summary>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 100) (1 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟢 Easy: <b>🟢 Easy (Level 1) (1 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -752,7 +752,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 200) (4 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟡 Intermediate: <b>🟡 Intermediate (Level 2) (4 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -764,7 +764,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 300) (5 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🔴 Advanced: <b>🔴 Advanced (Level 3) (5 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -777,7 +777,7 @@ az disk list --query "[?managedBy==null].{Name:name, RG:resourceGroup, GB:diskSi
 </details>
 
 <details>
-<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 400) (4 Topics)</b></summary>
+<summary>&nbsp;&nbsp;&nbsp;&nbsp;🟣 Architect: <b>🟣 Staff Architect (Level 4) (4 Topics)</b></summary>
 
 | # | Topic / Concept | Level | Architectural Definition & Core Principle |
 |:---:|---|:---:|---|
@@ -991,7 +991,7 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 
 ## 🗺️ Interactive Curriculum Roadmap & Contributing
 
-- **[Interactive Roadmap & Checkbox Tracker](docs/ROADMAP.md)**: Track your personal progress across all 4 Mastery Tiers (`Level 100` to `Level 400`).
+- **[Interactive Roadmap & Checkbox Tracker](docs/ROADMAP.md)**: Track your personal progress across all 4 Mastery Tiers (`Level 1` to `Level 4`).
 - **[Curriculum Taxonomy & Standards](docs/TAXONOMY.md)**: Canonical controlled vocabulary, pillar mappings, and evidence standards.
 - **[Contributing Guidelines](CONTRIBUTING.md)**: Authoring standards enforcing the Code-Test-Doc Triad and Anti-Pattern comparisons.
 - **[Live Platform Hub](https://moderndataengineer.uk)**: Access the full 11,280+ record search engine, mindmaps, and vector PDF downloads.
